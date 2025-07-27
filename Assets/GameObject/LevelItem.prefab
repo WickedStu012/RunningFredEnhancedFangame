@@ -1,0 +1,597 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1822089288455024
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4277674732957579}
+  - 114: {fileID: 114813060074337064}
+  - 114: {fileID: 114623297636137708}
+  m_Layer: 17
+  m_Name: LevelItem
+  m_TagString: GUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1488323649323289
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4644431649868746}
+  - 114: {fileID: 114658877213625883}
+  - 114: {fileID: 114072343361331928}
+  - 33: {fileID: 33419582982532607}
+  - 23: {fileID: 23154142205140581}
+  m_Layer: 17
+  m_Name: ItemButton
+  m_TagString: GUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1707780769441918
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4127844135060236}
+  - 114: {fileID: 114087334786821336}
+  - 23: {fileID: 23953632819101318}
+  - 33: {fileID: 33131065103586975}
+  m_Layer: 17
+  m_Name: NameText
+  m_TagString: GUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1997023483581983
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4149866613117106}
+  - 114: {fileID: 114784767910757704}
+  - 33: {fileID: 33998509811067781}
+  - 23: {fileID: 23863264279821940}
+  m_Layer: 17
+  m_Name: Survival
+  m_TagString: GUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1483487784466234
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4154291338653927}
+  - 114: {fileID: 114894080976204532}
+  - 33: {fileID: 33360686620179718}
+  - 23: {fileID: 23684486324803440}
+  m_Layer: 17
+  m_Name: TextBox
+  m_TagString: GUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1592039879126948
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4806719873567109}
+  - 114: {fileID: 114698241173350765}
+  m_Layer: 17
+  m_Name: Icon
+  m_TagString: GUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4277674732957579
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822089288455024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4644431649868746}
+  - {fileID: 4127844135060236}
+  - {fileID: 4149866613117106}
+  - {fileID: 4154291338653927}
+  - {fileID: 4806719873567109}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114813060074337064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822089288455024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b67c41137a05cdb6aeab91d1ecd915, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Tag:
+  CreateOwnMesh: 0
+  ImageMaterial: {fileID: 0}
+  NoAlphaImageMaterial: {fileID: 0}
+  DuplicateMaterial: 0
+  NoAlphaMaterial: 0
+  NoAlphaMiddleSeg: 0
+  StartSegmentTexName:
+  TextureName:
+  EndSegmentTexName:
+  VolatileTexture: 0
+  ObjectSize: {x: 226, y: 226}
+  TextureOffset: {x: 0, y: 0}
+  TextureAtlasSize: {x: 0, y: 0}
+  StartSegmentTexOffset: {x: 0, y: 0}
+  StartSegmentTexAtlasSize: {x: 0, y: 0}
+  EndSegmentTexOffset: {x: 0, y: 0}
+  EndSegmentTexAtlasSize: {x: 0, y: 0}
+  InvertHorizontalUV: 0
+  ReferenceScreenWidth: 1024
+  ReferenceScreenHeight: 768
+  AutoAdjustPosition: 1
+  AutoAdjustScale: 5
+  color: {r: 1, g: 1, b: 1, a: 1}
+  TouchableAreaScale: 1
+  cleanTextures: 1
+  Item:
+    Purchased: 0
+    Upgrades: 0
+    Count: 0
+    OrigPrice: 0
+    OrigPrice1: 0
+    OrigPrice2: 0
+    OrigPrice3: 0
+    OrigPrice4: 0
+  Name: {fileID: 114087334786821336}
+  Icon: {fileID: 114698241173350765}
+  Survival: {fileID: 114784767910757704}
+--- !u!114 &114623297636137708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822089288455024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74d1181026621a6c48e59ae76df707a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  GUIToSwitch: SelectLevel
+  GUIToSwitchIfSurvival: SelectDifficulty
+--- !u!4 &4644431649868746
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488323649323289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4277674732957579}
+  m_RootOrder: 0
+--- !u!114 &114658877213625883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488323649323289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41082046dcab4152380ea709257f024a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Tag:
+  CreateOwnMesh: 1
+  ImageMaterial: {fileID: 0}
+  NoAlphaImageMaterial: {fileID: 0}
+  DuplicateMaterial: 0
+  NoAlphaMaterial: 0
+  NoAlphaMiddleSeg: 0
+  StartSegmentTexName:
+  TextureName: square-blue
+  EndSegmentTexName:
+  VolatileTexture: 0
+  ObjectSize: {x: 207, y: 188}
+  TextureOffset: {x: 235, y: 96}
+  TextureAtlasSize: {x: 207, y: 188}
+  StartSegmentTexOffset: {x: 0, y: 0}
+  StartSegmentTexAtlasSize: {x: 0, y: 0}
+  EndSegmentTexOffset: {x: 0, y: 0}
+  EndSegmentTexAtlasSize: {x: 0, y: 0}
+  InvertHorizontalUV: 0
+  ReferenceScreenWidth: 1024
+  ReferenceScreenHeight: 768
+  AutoAdjustPosition: 1
+  AutoAdjustScale: 5
+  color: {r: 1, g: 1, b: 1, a: 1}
+  TouchableAreaScale: 1
+  cleanTextures: 0
+  Draggeable: 0
+  CheckEvents: 1
+  StartSegRollOverTexture:
+  RollOverTexture:
+  EndSegRollOverTexture:
+  StartSegPressedTexture:
+  PressedTexture:
+  EndSegPressedTexture:
+  RollOverScale: 1
+  PressScale: 1
+  ActivateTransition: {fileID: 0}
+  SwitchToGUI: {fileID: 0}
+  DeactivateOnChangeGUI: 1
+  HideOnChangeGUI: 0
+  SaveCurrentState: 0
+  RestoreLastGUIState: 0
+  CancelActions: 0
+  LoadScene:
+  TopLeftDragLimit: {x: -400, y: 350, z: 0}
+  BottomRightDragLimit: {x: 400, y: -350, z: 0}
+  IsBackButton: 0
+  ShowBackButton: 0
+--- !u!114 &114072343361331928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488323649323289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f31eea2f507189f8e8244498938dc6, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Click: 2
+--- !u!33 &33419582982532607
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488323649323289}
+  m_Mesh: {fileID: 0}
+--- !u!23 &23154142205140581
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488323649323289}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices:
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!4 &4127844135060236
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1707780769441918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -91.868774, z: -2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4277674732957579}
+  m_RootOrder: 1
+--- !u!114 &114087334786821336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1707780769441918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818ade2af75304921fa681e93daaa862, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  AutoAdjustPosition: 1
+  AutoAdjustScale: 5
+  Text: '{0}'
+  Number: 0
+  Font: font
+  Style:
+  Color: {r: 0, g: 0, b: 0, a: 1}
+  StrokeColor: {r: 0, g: 0, b: 0, a: 1}
+  Threshold: 0.5
+  StrokeSize: 0.5
+  Gamma: 0.02
+  StrokeGamma: 0
+  ShadowThreshold: 0.5
+  ShadowSoftness: 0.5
+  IsDynamicColor: 0
+  Justify: 3
+  Align: 0
+  TextBoxWidth: 400
+  TextBoxHeight: 200
+  ImageMaterial: {fileID: 0}
+  DynamicText: 1
+  NumericField: 0
+  NumericFieldFixedDigits: 0
+  UseCustomXML: 1
+  CustomXML: ShopItem
+  UseCustomUniqueId: 0
+  CustomUniqueId:
+  cleanTextures: 0
+  ShadowDistance: {x: 0, y: -1}
+  ShadowColor: {r: 1, g: 1, b: 1, a: 1}
+  CustomLineSpacing: 0
+  ForcePopupMaterial: 0
+  textBoxWidth: 1000
+  textBoxHeight: 500
+  TextWidth: 30.4
+  TextHeight: 25.6
+  TempText: '{0}'
+--- !u!23 &23953632819101318
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1707780769441918}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices:
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &33131065103586975
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1707780769441918}
+  m_Mesh: {fileID: 0}
+--- !u!4 &4149866613117106
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1997023483581983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4277674732957579}
+  m_RootOrder: 2
+--- !u!114 &114784767910757704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1997023483581983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483cf66e88db374248f72c5a9480bdd8, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Tag:
+  CreateOwnMesh: 0
+  ImageMaterial: {fileID: 0}
+  NoAlphaImageMaterial: {fileID: 0}
+  DuplicateMaterial: 0
+  NoAlphaMaterial: 0
+  NoAlphaMiddleSeg: 0
+  StartSegmentTexName:
+  TextureName: Survival
+  EndSegmentTexName:
+  VolatileTexture: 0
+  ObjectSize: {x: 100, y: 100}
+  TextureOffset: {x: 36, y: 0}
+  TextureAtlasSize: {x: 200, y: 200}
+  StartSegmentTexOffset: {x: 0, y: 0}
+  StartSegmentTexAtlasSize: {x: 0, y: 0}
+  EndSegmentTexOffset: {x: 0, y: 0}
+  EndSegmentTexAtlasSize: {x: 0, y: 0}
+  InvertHorizontalUV: 0
+  ReferenceScreenWidth: 1024
+  ReferenceScreenHeight: 768
+  AutoAdjustPosition: 1
+  AutoAdjustScale: 5
+  color: {r: 1, g: 1, b: 1, a: 1}
+  TouchableAreaScale: 1
+  cleanTextures: 0
+--- !u!33 &33998509811067781
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1997023483581983}
+  m_Mesh: {fileID: 0}
+--- !u!23 &23863264279821940
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1997023483581983}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices:
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!4 &4154291338653927
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483487784466234}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -104.901855, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4277674732957579}
+  m_RootOrder: 3
+--- !u!114 &114894080976204532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483487784466234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483cf66e88db374248f72c5a9480bdd8, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Tag:
+  CreateOwnMesh: 1
+  ImageMaterial: {fileID: 0}
+  NoAlphaImageMaterial: {fileID: 0}
+  DuplicateMaterial: 0
+  NoAlphaMaterial: 0
+  NoAlphaMiddleSeg: 0
+  StartSegmentTexName: nametag-left
+  TextureName: nametag-stretch
+  EndSegmentTexName: nametag-right
+  VolatileTexture: 0
+  ObjectSize: {x: 200, y: 40}
+  TextureOffset: {x: 231, y: 687}
+  TextureAtlasSize: {x: 2, y: 40}
+  StartSegmentTexOffset: {x: 1039, y: 763}
+  StartSegmentTexAtlasSize: {x: 10, y: 40}
+  EndSegmentTexOffset: {x: 1051, y: 763}
+  EndSegmentTexAtlasSize: {x: 10, y: 40}
+  InvertHorizontalUV: 0
+  ReferenceScreenWidth: 1024
+  ReferenceScreenHeight: 768
+  AutoAdjustPosition: 1
+  AutoAdjustScale: 5
+  color: {r: 1, g: 1, b: 1, a: 1}
+  TouchableAreaScale: 1
+  cleanTextures: 0
+--- !u!33 &33360686620179718
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483487784466234}
+  m_Mesh: {fileID: 0}
+--- !u!23 &23684486324803440
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483487784466234}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices:
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!4 &4806719873567109
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592039879126948}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -15, z: -1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4277674732957579}
+  m_RootOrder: 4
+--- !u!114 &114698241173350765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592039879126948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483cf66e88db374248f72c5a9480bdd8, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Tag:
+  CreateOwnMesh: 0
+  ImageMaterial: {fileID: 0}
+  NoAlphaImageMaterial: {fileID: 0}
+  DuplicateMaterial: 0
+  NoAlphaMaterial: 0
+  NoAlphaMiddleSeg: 0
+  StartSegmentTexName:
+  TextureName:
+  EndSegmentTexName:
+  VolatileTexture: 0
+  ObjectSize: {x: 0, y: 0}
+  TextureOffset: {x: 0, y: 0}
+  TextureAtlasSize: {x: 0, y: 0}
+  StartSegmentTexOffset: {x: 0, y: 0}
+  StartSegmentTexAtlasSize: {x: 0, y: 0}
+  EndSegmentTexOffset: {x: 0, y: 0}
+  EndSegmentTexAtlasSize: {x: 0, y: 0}
+  InvertHorizontalUV: 0
+  ReferenceScreenWidth: 1024
+  ReferenceScreenHeight: 768
+  AutoAdjustPosition: 1
+  AutoAdjustScale: 5
+  color: {r: 1, g: 1, b: 1, a: 1}
+  TouchableAreaScale: 1
+  cleanTextures: 1
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1822089288455024}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0

@@ -1,0 +1,9 @@
+public enum StringConsts
+{
+	TIMEOUT = 0,
+	GC_CONNECTING = 1,
+	NO_INTERNET = 2,
+	GC_PLAYER_LOGGED_OUT = 3,
+	GC_IS_OFFLINE = 4,
+	LB_TRYING_TO_GET_OFFLINE = 5
+}

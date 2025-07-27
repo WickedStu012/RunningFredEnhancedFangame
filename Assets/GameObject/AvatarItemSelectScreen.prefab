@@ -1,0 +1,500 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1974146116751818
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4812465926165635}
+  - 114: {fileID: 114908786981310481}
+  - 114: {fileID: 114530804348362641}
+  m_Layer: 17
+  m_Name: AvatarItemSelectScreen
+  m_TagString: GUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1780354239673522
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4416885312320037}
+  - 114: {fileID: 114966811143205534}
+  - 23: {fileID: 23082225489077886}
+  - 33: {fileID: 33959138173356171}
+  m_Layer: 17
+  m_Name: NameText
+  m_TagString: GUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1211574239386611
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4390974994504120}
+  - 114: {fileID: 114593131668978461}
+  - 33: {fileID: 33972020496799964}
+  - 23: {fileID: 23392054089477560}
+  m_Layer: 17
+  m_Name: TextBox
+  m_TagString: GUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1748171062748348
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4515492511031140}
+  - 114: {fileID: 114897698060786067}
+  - 114: {fileID: 114052391460065796}
+  - 33: {fileID: 33203601411188759}
+  - 23: {fileID: 23397149535103662}
+  m_Layer: 17
+  m_Name: ItemButton
+  m_TagString: GUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1127336077734020
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4334965110091260}
+  - 114: {fileID: 114169800855444516}
+  m_Layer: 17
+  m_Name: Icon
+  m_TagString: GUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4812465926165635
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974146116751818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 802.373, y: -1707.0354, z: -1563.1172}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4416885312320037}
+  - {fileID: 4390974994504120}
+  - {fileID: 4515492511031140}
+  - {fileID: 4334965110091260}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114908786981310481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974146116751818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712844b4c824e1eb1a90e725db2151b2, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Tag:
+  CreateOwnMesh: 0
+  ImageMaterial: {fileID: 0}
+  NoAlphaImageMaterial: {fileID: 0}
+  DuplicateMaterial: 0
+  NoAlphaMaterial: 0
+  NoAlphaMiddleSeg: 0
+  StartSegmentTexName:
+  TextureName:
+  EndSegmentTexName:
+  VolatileTexture: 0
+  ObjectSize: {x: 226, y: 226}
+  TextureOffset: {x: 0, y: 0}
+  TextureAtlasSize: {x: 0, y: 0}
+  StartSegmentTexOffset: {x: 0, y: 0}
+  StartSegmentTexAtlasSize: {x: 0, y: 0}
+  EndSegmentTexOffset: {x: 0, y: 0}
+  EndSegmentTexAtlasSize: {x: 0, y: 0}
+  InvertHorizontalUV: 0
+  ReferenceScreenWidth: 1024
+  ReferenceScreenHeight: 768
+  AutoAdjustPosition: 1
+  AutoAdjustScale: 5
+  color: {r: 1, g: 1, b: 1, a: 1}
+  TouchableAreaScale: 1
+  cleanTextures: 1
+  Item:
+    Purchased: 0
+    Upgrades: 0
+    Count: 0
+    OrigPrice: 0
+    OrigPrice1: 0
+    OrigPrice2: 0
+    OrigPrice3: 0
+    OrigPrice4: 0
+  Name: {fileID: 114966811143205534}
+  Icon: {fileID: 114169800855444516}
+--- !u!114 &114530804348362641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974146116751818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54774cb9013f1529cd4b6bc9e9498efd, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  GUIToSwitch: SelectAvatarEx
+--- !u!4 &4416885312320037
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780354239673522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -89.533325, z: -2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4812465926165635}
+  m_RootOrder: 0
+--- !u!114 &114966811143205534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780354239673522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818ade2af75304921fa681e93daaa862, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  AutoAdjustPosition: 1
+  AutoAdjustScale: 5
+  Text: Fred Mario
+  Number: 0
+  Font: font
+  Style:
+  Color: {r: 0, g: 0, b: 0, a: 1}
+  StrokeColor: {r: 0, g: 0, b: 0, a: 1}
+  Threshold: 0.5
+  StrokeSize: 0.5
+  Gamma: 0.02
+  StrokeGamma: 0
+  ShadowThreshold: 0.5
+  ShadowSoftness: 0.5
+  IsDynamicColor: 0
+  Justify: 3
+  Align: 0
+  TextBoxWidth: 400
+  TextBoxHeight: 200
+  ImageMaterial: {fileID: 0}
+  DynamicText: 1
+  NumericField: 0
+  NumericFieldFixedDigits: 0
+  UseCustomXML: 1
+  CustomXML: ShopItem
+  UseCustomUniqueId: 0
+  CustomUniqueId:
+  cleanTextures: 0
+  ShadowDistance: {x: 0, y: -1}
+  ShadowColor: {r: 1, g: 1, b: 1, a: 1}
+  CustomLineSpacing: 0
+  ForcePopupMaterial: 0
+  textBoxWidth: 1000
+  textBoxHeight: 500
+  TextWidth: 120.8
+  TextHeight: 25.6
+  TempText: '{0}'
+--- !u!23 &23082225489077886
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780354239673522}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices:
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &33959138173356171
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780354239673522}
+  m_Mesh: {fileID: 0}
+--- !u!4 &4390974994504120
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1211574239386611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -104.60632, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4812465926165635}
+  m_RootOrder: 1
+--- !u!114 &114593131668978461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1211574239386611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483cf66e88db374248f72c5a9480bdd8, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Tag:
+  CreateOwnMesh: 1
+  ImageMaterial: {fileID: 0}
+  NoAlphaImageMaterial: {fileID: 0}
+  DuplicateMaterial: 0
+  NoAlphaMaterial: 0
+  NoAlphaMiddleSeg: 0
+  StartSegmentTexName: nametag-left
+  TextureName: nametag-stretch
+  EndSegmentTexName: nametag-right
+  VolatileTexture: 0
+  ObjectSize: {x: 200, y: 40}
+  TextureOffset: {x: 508, y: 72}
+  TextureAtlasSize: {x: 2, y: 40}
+  StartSegmentTexOffset: {x: 116, y: 441}
+  StartSegmentTexAtlasSize: {x: 10, y: 40}
+  EndSegmentTexOffset: {x: 105, y: 441}
+  EndSegmentTexAtlasSize: {x: 10, y: 40}
+  InvertHorizontalUV: 0
+  ReferenceScreenWidth: 1024
+  ReferenceScreenHeight: 768
+  AutoAdjustPosition: 1
+  AutoAdjustScale: 5
+  color: {r: 1, g: 1, b: 1, a: 1}
+  TouchableAreaScale: 1
+  cleanTextures: 0
+--- !u!33 &33972020496799964
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1211574239386611}
+  m_Mesh: {fileID: 0}
+--- !u!23 &23392054089477560
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1211574239386611}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices:
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!4 &4515492511031140
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1748171062748348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4812465926165635}
+  m_RootOrder: 2
+--- !u!114 &114897698060786067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1748171062748348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41082046dcab4152380ea709257f024a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Tag:
+  CreateOwnMesh: 1
+  ImageMaterial: {fileID: 0}
+  NoAlphaImageMaterial: {fileID: 0}
+  DuplicateMaterial: 0
+  NoAlphaMaterial: 0
+  NoAlphaMiddleSeg: 0
+  StartSegmentTexName:
+  TextureName: square-blue
+  EndSegmentTexName:
+  VolatileTexture: 0
+  ObjectSize: {x: 207, y: 188}
+  TextureOffset: {x: 0, y: 0}
+  TextureAtlasSize: {x: 207, y: 188}
+  StartSegmentTexOffset: {x: 0, y: 0}
+  StartSegmentTexAtlasSize: {x: 0, y: 0}
+  EndSegmentTexOffset: {x: 0, y: 0}
+  EndSegmentTexAtlasSize: {x: 0, y: 0}
+  InvertHorizontalUV: 0
+  ReferenceScreenWidth: 1024
+  ReferenceScreenHeight: 768
+  AutoAdjustPosition: 1
+  AutoAdjustScale: 5
+  color: {r: 1, g: 1, b: 1, a: 1}
+  TouchableAreaScale: 1
+  cleanTextures: 0
+  Draggeable: 0
+  CheckEvents: 1
+  StartSegRollOverTexture:
+  RollOverTexture:
+  EndSegRollOverTexture:
+  StartSegPressedTexture:
+  PressedTexture:
+  EndSegPressedTexture:
+  RollOverScale: 1
+  PressScale: 1
+  ActivateTransition: {fileID: 0}
+  SwitchToGUI: {fileID: 0}
+  DeactivateOnChangeGUI: 1
+  HideOnChangeGUI: 0
+  SaveCurrentState: 0
+  RestoreLastGUIState: 0
+  CancelActions: 0
+  LoadScene:
+  TopLeftDragLimit: {x: -400, y: 350, z: 0}
+  BottomRightDragLimit: {x: 400, y: -350, z: 0}
+  IsBackButton: 0
+  ShowBackButton: 0
+--- !u!114 &114052391460065796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1748171062748348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f31eea2f507189f8e8244498938dc6, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Click: 2
+--- !u!33 &33203601411188759
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1748171062748348}
+  m_Mesh: {fileID: 0}
+--- !u!23 &23397149535103662
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1748171062748348}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices:
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!4 &4334965110091260
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1127336077734020}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -15, z: -1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4812465926165635}
+  m_RootOrder: 3
+--- !u!114 &114169800855444516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1127336077734020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483cf66e88db374248f72c5a9480bdd8, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Tag:
+  CreateOwnMesh: 0
+  ImageMaterial: {fileID: 0}
+  NoAlphaImageMaterial: {fileID: 0}
+  DuplicateMaterial: 0
+  NoAlphaMaterial: 0
+  NoAlphaMiddleSeg: 0
+  StartSegmentTexName:
+  TextureName:
+  EndSegmentTexName:
+  VolatileTexture: 0
+  ObjectSize: {x: 0, y: 0}
+  TextureOffset: {x: 0, y: 0}
+  TextureAtlasSize: {x: 0, y: 0}
+  StartSegmentTexOffset: {x: 0, y: 0}
+  StartSegmentTexAtlasSize: {x: 0, y: 0}
+  EndSegmentTexOffset: {x: 0, y: 0}
+  EndSegmentTexAtlasSize: {x: 0, y: 0}
+  InvertHorizontalUV: 0
+  ReferenceScreenWidth: 1024
+  ReferenceScreenHeight: 768
+  AutoAdjustPosition: 1
+  AutoAdjustScale: 5
+  color: {r: 1, g: 1, b: 1, a: 1}
+  TouchableAreaScale: 1
+  cleanTextures: 1
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1974146116751818}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0

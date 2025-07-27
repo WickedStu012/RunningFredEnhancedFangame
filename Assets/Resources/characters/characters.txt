@@ -1,0 +1,624 @@
+// Common section, used for all characters on this file
+Common
+	MaterialGore:FredGore
+	CharredPart:Charred/charredHead_head
+	CharredPart:Charred/charredTorso1_torso1
+	CharredPart:Charred/charredTorso2_torso2
+	CharredPart:Charred/charredLeftFoot_leftFoot
+	CharredPart:Charred/charredRightFoot_rightFoot
+	CharredPart:Charred/charredLeftHand_leftHand
+	CharredPart:Charred/charredRightHand_rightHand
+	CharredPart:Charred/charredLeftArm1_leftArm1
+	CharredPart:Charred/charredRightArm1_rightArm1
+	CharredPart:Charred/charredLeftLeg1_leftLeg1
+	CharredPart:Charred/charredRightLeg1_rightLeg1
+	CharredPart:Charred/charredLeftLeg2_leftLeg2
+	CharredPart:Charred/charredRightLeg2_rightLeg2
+	SkinnedPart:Skinned/skinnedHead_head
+	SkinnedPart:Skinned/skinnedTorso1_torso1
+	SkinnedPart:Skinned/skinnedTorso2_torso2
+	SkinnedPart:Skinned/skinnedLeftFoot_leftFoot
+	SkinnedPart:Skinned/skinnedRightFoot_rightFoot
+	SkinnedPart:Skinned/skinnedLeftHand_leftHand
+	SkinnedPart:Skinned/skinnedRightHand_rightHand
+	SkinnedPart:Skinned/skinnedLeftArm1_leftArm1
+	SkinnedPart:Skinned/skinnedRightArm1_rightArm1
+	SkinnedPart:Skinned/skinnedLeftLeg1_leftLeg1
+	SkinnedPart:Skinned/skinnedRightLeg1_rightLeg1
+	SkinnedPart:Skinned/skinnedLeftLeg2_leftLeg2
+	SkinnedPart:Skinned/skinnedRightLeg2_rightLeg2
+	GorePart:Gore/goreTorso_torso1
+	GorePart:Gore/goreLeftHand_leftHand
+	GorePart:Gore/goreRightHand_rightHand
+	GorePart:Gore/goreLeftArm1_leftArm1
+	GorePart:Gore/goreRightArm1_rightArm1
+	GorePart:Gore/goreLeftLeg1_leftLeg1
+	GorePart:Gore/goreRightLeg1_rightLeg1
+	GorePart:Gore/goreLeftLeg2_leftLeg2
+	GorePart:Gore/goreRightLeg2_rightLeg2
+	GorePart:Gore/goreHead_head
+EndCommon
+
+Character:Fred Classic
+	Base:FredBasic
+	Material:FredClassic
+EndCharacter
+
+Character:Fred LifeDown
+	Base:FredBasic
+	Material:FredLifeDown
+EndCharacter
+	
+Character:Fred Convict
+	Base:FredBasic
+	Material:FredConvict
+	Part:FredConvict/ConvictHat_head
+EndCharacter
+
+Character:Fred Evolution
+	Base:FredBasic
+	Material:FredEvolucion
+EndCharacter
+
+Character:Fred Fear
+	Base:FredBasic
+	Material:FredFear
+EndCharacter
+
+Character:Fred Indy
+	Base:FredBasic
+	Material:FredIndy
+	Part:FredIndy/IndyHat_head
+	Part:FredIndy/IndyNec_head
+	Part:FredIndy/IndyWhip_torso2
+EndCharacter
+	
+Character:Fred Knight
+	Base:FredBasic
+	Material:FredKnight
+	Part:FredKnight/knightSpear_torso1
+	Part:FredKnight/knightLeftArm_leftHand
+	Part:FredKnight/knightRightArm_rightHand
+	Part:FredKnight/knightArmor_torso1
+	Part:FredKnight/knightLeftFoot_leftFoot
+	Part:FredKnight/knightRightFoot_rightFoot
+	Part:FredKnight/knightGuard_torso2
+	Part:FredKnight/knightHelmet_head
+	Part:FredKnight/knightLeftKnee_leftLeg1
+	Part:FredKnight/knightRightKnee_rightLeg1
+	Part:FredKnight/knightLeftShoulder_leftArm1
+	Part:FredKnight/knightRightShoulder_rightArm1
+EndCharacter
+
+Character:Fred Mario
+	Base:FredBasic
+	Material:FredMario
+	Part:FredMario/marioHat_head
+	Part:FredMario/marioStrap_torso1
+EndCharacter
+
+Character:Fred Sado
+	Base:FredBasic
+	Material:FredSado
+EndCharacter
+	
+Character:Fred Soldier
+	Base:FredBasic
+	Material:FredSoldier
+	Part:FredSoldier/soldierHelmet_head
+	Part:FredSoldier/soldierMustache_head
+	Part:FredSoldier/soldierPack_torso2
+EndCharacter
+
+Character:Fred Stupid
+	Base:FredBasic
+	Material:FredStupid
+EndCharacter
+
+Character:Fred Persia
+	Base:FredBasic
+	Material:FredPersia
+	Part:FredPersia/persiaHair_head
+	Part:FredPersia/persiaHips_torso2
+	Part:FredPersia/persiaLeftArm1_leftArm1
+	Part:FredPersia/persiaLeftFoot_leftFoot
+	Part:FredPersia/persiaLeftHand_leftHand
+	Part:FredPersia/persiaLeftLeg1_leftLeg1
+	Part:FredPersia/persiaLeftLeg2_leftLeg2
+	Part:FredPersia/persiaRightArm1_rightArm1
+	Part:FredPersia/persiaRightFoot_rightFoot
+	Part:FredPersia/persiaRightHand_rightHand
+	Part:FredPersia/persiaRightLeg1_rightLeg1
+	Part:FredPersia/persiaRightLeg2_rightLeg2
+	Part:FredPersia/persiaTorso1_torso1
+	Hide:meshHips
+	Hide:meshTorso
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshLeftHand
+	Hide:meshRightHand
+	Hide:meshLeftArm1
+	Hide:meshRightArm1
+	Hide:meshRightLeg1
+	Hide:meshLeftLeg1
+	Hide:meshRightLeg2
+	Hide:meshLeftLeg2
+EndCharacter
+
+Character:Fred Ninja
+	Base:FredBasic
+	Material:FredNinja
+	Part:FredNinja/ninjaMask_head
+	Part:FredNinja/ninjaShuriken1_torso1
+	Part:FredNinja/ninjaShuriken2_torso1
+	Part:FredNinja/ninjaShuriken3_torso1
+	Part:FredNinja/ninjaScarf_torso1
+	Part:FredNinja/ninjaTorso1_torso1
+	Part:FredNinja/ninjaSword1_torso1
+	Part:FredNinja/ninjaSword2_torso1
+	Part:FredNinja/ninjaRightLeg2_rightLeg2
+	Part:FredNinja/ninjaRightLeg1_rightLeg1
+	Part:FredNinja/ninjaRightHand_rightHand
+	Part:FredNinja/ninjaRightFoot_rightFoot
+	Part:FredNinja/ninjaRightArm1_rightArm1
+	Part:FredNinja/ninjaLeftLeg2_leftLeg2
+	Part:FredNinja/ninjaLeftLeg1_leftLeg1
+	Part:FredNinja/ninjaLeftHand_leftHand
+	Part:FredNinja/ninjaLeftFoot_leftFoot
+	Part:FredNinja/ninjaLeftArm1_leftArm1
+	Part:FredNinja/ninjaHips_torso2
+	Hide:meshHips
+	Hide:meshTorso
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshLeftHand
+	Hide:meshRightHand
+	Hide:meshLeftArm1
+	Hide:meshRightArm1
+	Hide:meshRightLeg1
+	Hide:meshLeftLeg1
+	Hide:meshRightLeg2
+	Hide:meshLeftLeg2
+EndCharacter
+
+Character:Fred Football
+	Base:FredBasic
+	Material:FredFootball
+	Part:FredFootball/FredFootballHelmet_head
+	Part:FredFootball/FredFootballPads_torso1
+EndCharacter
+
+Character:Fred Gump
+	Base:FredBasic
+	Material:FredGump
+	Part:FredGump/FredGumpHat_head
+EndCharacter
+
+Character:Fred Punk
+	Base:FredBasic
+	Material:FredPunk
+	Part:FredPunk/FredPunkCresta_head
+	Part:FredPunk/FredPunkGuitar_torso1
+EndCharacter
+
+Character:Fred Killer
+	Base:FredBasic
+	Material:FredKiller
+	Part:FredKiller/FredKillerHat_head
+EndCharacter
+
+Character:Fred Cyborg
+	Base:FredBasic
+	Material:FredCyborg
+	Part:FredCyborg/FredCyborgNeck_torso1
+	Part:FredCyborg/FredCyborgShotgun_torso1
+EndCharacter
+
+Character:Fred Baseball
+	Base:FredBasic
+	Material:FredBaseball
+	Part:FredBaseball/FredBaseballHat_head
+	Part:FredBaseball/FredBaseballBat_torso1
+	Part:FredBaseball/FredBaseballRightLeg2_rightLeg2
+	Part:FredBaseball/FredBaseballLeftLeg2_leftLeg2
+	Hide:meshRightLeg2
+	Hide:meshLeftLeg2
+EndCharacter
+
+Character:Fred Underwear
+	Base:FredBasic
+	Material:FredUnderwear
+	Part:FredUnderwear/FredUnderwearLeftLeg1_leftLeg1
+	Part:FredUnderwear/FredUnderwearLeftLeg2_leftLeg2
+	Part:FredUnderwear/FredUnderwearRightLeg1_rightLeg1
+	Part:FredUnderwear/FredUnderwearRightLeg2_rightLeg2
+	Part:FredUnderwear/FredUnderwearTorso_torso1
+	Part:FredUnderwear/FredUnderwearHips_torso2
+	Part:FredUnderwear/FredUnderwearLeftFoot_leftFoot
+	Part:FredUnderwear/FredUnderwearRightFoot_rightFoot
+	Hide:meshRightLeg1
+	Hide:meshRightLeg2
+	Hide:meshLeftLeg1
+	Hide:meshLeftLeg2
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshTorso
+	Hide:meshHips
+EndCharacter
+
+Character:Fred Striker
+	Base:FredBasic
+	Material:FredStriker
+	Part:FredStriker/FredStrikerLeftArm1_leftArm1
+	Part:FredStriker/FredStrikerLeftFoot_leftFoot
+	Part:FredStriker/FredStrikerLeftLeg1_leftLeg1
+	Part:FredStriker/FredStrikerLeftLeg2_leftLeg2
+	Part:FredStriker/FredStrikerRightArm1_rightArm1
+	Part:FredStriker/FredStrikerRightFoot_rightFoot
+	Part:FredStriker/FredStrikerRightLeg1_rightLeg1
+	Part:FredStriker/FredStrikerRightLeg2_rightLeg2
+	Part:FredStriker/FredStrikerTorso_torso1
+	Hide:meshRightLeg1
+	Hide:meshRightLeg2
+	Hide:meshLeftLeg1
+	Hide:meshLeftLeg2
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshRightArm1
+	Hide:meshLeftArm1
+	Hide:meshTorso
+EndCharacter
+
+Character:Fred Spartan
+	Base:FredBasic
+	Material:FredSpartan
+	Part:FredSpartan/FredSpartanHelmet_head
+	Part:FredSpartan/FredSpartanShield_leftHand
+	Part:FredSpartan/FredSpartanSpear_torso1
+	Part:FredSpartan/FredSpartanSword_torso2
+	Part:FredSpartan/FredSpartanLeftFoot_leftFoot
+	Part:FredSpartan/FredSpartanLeftLeg1_leftLeg1
+	Part:FredSpartan/FredSpartanLeftLeg2_leftLeg2
+	Part:FredSpartan/FredSpartanRightFoot_rightFoot
+	Part:FredSpartan/FredSpartanRightLeg1_rightLeg1
+	Part:FredSpartan/FredSpartanRightLeg2_rightLeg2
+	Part:FredSpartan/FredSpartanTorso_torso1
+	Hide:meshRightLeg1
+	Hide:meshRightLeg2
+	Hide:meshLeftLeg1
+	Hide:meshLeftLeg2
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshTorso
+EndCharacter
+
+Character:Fred Virtual
+	Base:FredBasic
+	Material:FredVirtual
+	Part:FredVirtual/FredVirtualHelmet_head
+	Part:FredVirtual/FredVirtualLeftArm1_leftArm1
+	Part:FredVirtual/FredVirtualLeftLeg2_leftLeg2
+	Part:FredVirtual/FredVirtualRightArm1_rightArm1
+	Part:FredVirtual/FredVirtualRightLeg2_rightLeg2
+	Part:FredVirtual/FredVirtualTorso_torso1
+	Hide:meshLeftLeg2
+	Hide:meshRightLeg2
+	Hide:meshLeftArm1
+	Hide:meshRightArm1
+	Hide:meshTorso
+EndCharacter
+
+Character:Pip Fred
+	Base:FredBasic
+	Material:PipFred
+EndCharacter
+
+Character:Fred Pirate
+	Base:FredBasic
+	Material:FredPirate
+	Part:FredPirate/FredPirateHat_head
+	Part:FredPirate/FredPirateSword_torso1
+	Part:FredPirate/FredPiratePistol_torso1
+	Part:FredPirate/FredPirateTorso_torso1
+	Part:FredPirate/FredPirateLeftHand_leftHand
+	Part:FredPirate/FredPirateRightHand_rightHand
+	Part:FredPirate/FredPirateLeftFoot_leftFoot
+	Part:FredPirate/FredPirateRightFoot_rightFoot
+	Part:FredPirate/FredPirateLeftLeg2_LeftLeg2
+	Part:FredPirate/FredPirateRightLeg2_RightLeg2
+	Hide:meshTorso
+	Hide:meshLeftHand
+	Hide:meshRightHand 
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshLeftLeg2
+	Hide:meshRightLeg2
+EndCharacter
+
+Character:Fred DragonFlee
+	Base:FredBasic
+	Material:FredDragonFlee
+	Part:FredDragonFlee/FredDragonFleeAxe_torso1
+	Part:FredDragonFlee/FredDragonFleeHelmet_head
+	Part:FredDragonFlee/FredDragonFleeHips_torso2
+	Part:FredDragonFlee/FredDragonFleeLeftFoot_leftFoot
+	Part:FredDragonFlee/FredDragonFleeRightFoot_rightFoot
+	Part:FredDragonFlee/FredDragonFleeLeftHand_leftHand
+	Part:FredDragonFlee/FredDragonFleeRightHand_rightHand
+	Part:FredDragonFlee/FredDragonFleeRightArm1_rightArm1
+	Part:FredDragonFlee/FredDragonFleeLeftLeg2_LeftLeg2
+	Part:FredDragonFlee/FredDragonFleeRightLeg2_RightLeg2
+	Part:FredDragonFlee/FredDragonFleeTorso_torso1
+	Hide:meshTorso
+	Hide:meshLeftHand
+	Hide:meshRightHand 
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshLeftLeg2
+	Hide:meshRightLeg2
+	Hide:meshRightArm1
+	Hide:meshHips
+EndCharacter
+
+Character:Fred Assassin
+	Base:FredBasic
+	Material:FredAssassin
+	Part:FredAssassin/FredAssassinHead_head
+	Part:FredAssassin/FredAssassinHips_torso2
+	Part:FredAssassin/FredAssassinHoodie_head
+	Part:FredAssassin/FredAssassinLeftArm1_leftArm1
+	Part:FredAssassin/FredAssassinLeftFoot_leftFoot
+	Part:FredAssassin/FredAssassinLeftLeg2_leftLeg2
+	Part:FredAssassin/FredAssassinLeftHand_leftHand
+	Part:FredAssassin/FredAssassinRightArm1_rightArm1
+	Part:FredAssassin/FredAssassinRightFoot_rightFoot
+	Part:FredAssassin/FredAssassinRightHand_rightHand
+	Part:FredAssassin/FredAssassinRightLeg2_rightLeg2
+	Part:FredAssassin/FredAssassinTorso_torso1
+	Hide:meshHead
+	Hide:meshTorso
+	Hide:meshLeftHand
+	Hide:meshRightHand 
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshLeftLeg2
+	Hide:meshRightLeg2
+	Hide:meshRightArm1
+	Hide:meshHips
+EndCharacter
+
+Character:Fred Aviator
+	Base:FredBasic
+	Material:FredAviator
+	Part:FredAviator/FredAviatorHead_head
+	Part:FredAviator/FredAviatorHat_head
+	Part:FredAviator/FredAviatorTorso_torso1
+	Part:FredAviator/FredAviatorRightArm1_rightArm1
+	Part:FredAviator/FredAviatorRightHand_rightHand
+	Part:FredAviator/FredAviatorRightLeg1_rightLeg1
+	Part:FredAviator/FredAviatorRightLeg2_rightLeg2
+	Part:FredAviator/FredAviatorRightFoot_rightFoot
+	Part:FredAviator/FredAviatorLeftArm1_leftArm1
+	Part:FredAviator/FredAviatorLeftHand_leftHand
+	Part:FredAviator/FredAviatorLeftLeg1_leftLeg1
+	Part:FredAviator/FredAviatorLeftLeg2_leftLeg2
+	Part:FredAviator/FredAviatorLeftFoot_leftFoot
+	Part:FredAviator/FredAviatorHips_torso2
+	Hide:meshHead
+	Hide:meshTorso
+	Hide:meshLeftHand
+	Hide:meshRightHand 
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshLeftLeg2
+	Hide:meshRightLeg2
+	Hide:meshRightArm1
+	Hide:meshHips
+EndCharacter
+
+Character:Iron Fred
+	Base:FredBasic
+	Material:IronFred
+	Part:IronFred/IronFredHelmet_head
+	Part:IronFred/IronFredTorso_torso1
+	Part:IronFred/IronFredLeftArm1_leftArm1
+	Part:IronFred/IronFredLeftHand_leftHand
+	Part:IronFred/IronFredRightArm1_rightArm1
+	Part:IronFred/IronFredRightHand_rightHand
+	Part:IronFred/IronFredLeftLeg1_leftLeg1
+	Part:IronFred/IronFredLeftLeg2_leftLeg2
+	Part:IronFred/IronFredLeftFoot_leftFoot
+	Part:IronFred/IronFredRightLeg1_rightLeg1	
+	Part:IronFred/IronFredRightLeg2_rightLeg2
+	Part:IronFred/IronFredRightFoot_rightFoot
+	Hide:meshHead
+	Hide:meshTorso
+	Hide:meshLeftArm1
+	Hide:meshLeftArm2
+	Hide:meshLeftHand
+	Hide:meshRightArm1
+	Hide:meshRightArm2
+	Hide:meshRightHand 
+	Hide:meshLeftLeg1
+	Hide:meshLeftLeg2
+	Hide:meshLeftFoot
+	Hide:meshRightLeg1
+	Hide:meshRightLeg2
+	Hide:meshRightFoot
+EndCharacter
+
+Character:Fred Wolverine
+	Base:FredBasic
+	Material:FredWolverine
+	Part:FredWolverine/wolverineCap_head
+	Part:FredWolverine/wolverineHead_head
+	Part:FredWolverine/wolverineLeftArm1_leftArm1
+	Part:FredWolverine/wolverineLeftFoot_leftFoot
+	Part:FredWolverine/wolverineLeftHand_leftHand
+	Part:FredWolverine/wolverineLeftLeg1_leftLeg1
+	Part:FredWolverine/wolverineLeftLeg2_leftLeg2
+	Part:FredWolverine/wolverineRightArm1_rightArm1
+	Part:FredWolverine/wolverineRightFoot_rightFoot
+	Part:FredWolverine/wolverineRightHand_rightHand	
+	Part:FredWolverine/wolverineRightLeg1_rightLeg1
+	Part:FredWolverine/wolverineRightLeg2_rightLeg2
+	Part:FredWolverine/wolverineTorso_torso1
+	Hide:meshHead
+	Hide:meshTorso
+	Hide:meshLeftArm1
+	Hide:meshLeftArm2
+	Hide:meshLeftHand
+	Hide:meshRightArm1
+	Hide:meshRightArm2
+	Hide:meshRightHand 
+	Hide:meshLeftLeg1
+	Hide:meshLeftLeg2
+	Hide:meshLeftFoot
+	Hide:meshRightLeg1
+	Hide:meshRightLeg2
+	Hide:meshRightFoot
+EndCharacter
+
+Character:Rocket Fred
+	Base:FredBasic
+	Material:RocketFred
+	Part:RocketFred/rocketFredHelmet_head
+	Part:RocketFred/rocketFredLeftArm1_leftArm1
+	Part:RocketFred/rocketFredLeftFoot_leftFoot
+	Part:RocketFred/rocketFredLeftHand_leftHand
+	Part:RocketFred/rocketFredLeftLeg1_leftLeg1
+	Part:RocketFred/rocketFredLeftLeg2_leftLeg2
+	Part:RocketFred/rocketFredRightArm1_rightArm1
+	Part:RocketFred/rocketFredRightFoot_rightFoot
+	Part:RocketFred/rocketFredRightHand_rightHand
+	Part:RocketFred/rocketFredRightLeg1_rightLeg1
+	Part:RocketFred/rocketFredRightLeg2_rightLeg2
+	Part:RocketFred/rocketFredTorso1_torso1
+	Hide:meshHead
+	Hide:meshLeftArm1
+	Hide:meshLeftFoot
+	Hide:meshLeftHand
+	Hide:meshLeftLeg1
+	Hide:meshLeftLeg2
+	Hide:meshRightArm1
+	Hide:meshRightFoot
+	Hide:meshRightHand
+	Hide:meshRightLeg1
+	Hide:meshRightLeg2
+	Hide:meshTorso
+EndCharacter
+
+Character:Skinned
+	Base:FredBasic
+	Material:FredGore
+	Part:Skinned/skinnedHead_head
+	Part:Skinned/skinnedTorso1_torso1
+	Part:Skinned/skinnedTorso2_torso2
+	Part:Skinned/skinnedLeftFoot_leftFoot
+	Part:Skinned/skinnedRightFoot_rightFoot
+	Part:Skinned/skinnedLeftHand_leftHand
+	Part:Skinned/skinnedRightHand_rightHand
+	Part:Skinned/skinnedLeftArm1_leftArm1
+	Part:Skinned/skinnedRightArm1_rightArm1
+	Part:Skinned/skinnedLeftLeg1_leftLeg1
+	Part:Skinned/skinnedRightLeg1_rightLeg1
+	Part:Skinned/skinnedLeftLeg2_leftLeg2
+	Part:Skinned/skinnedRightLeg2_rightLeg2
+	Hide:meshHead
+	Hide:meshHips
+	Hide:meshTorso
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshLeftHand
+	Hide:meshRightHand
+	Hide:meshLeftArm1
+	Hide:meshRightArm1
+	Hide:meshRightLeg1
+	Hide:meshLeftLeg1
+	Hide:meshRightLeg2
+	Hide:meshLeftLeg2
+EndCharacter
+	
+Character:Charred
+	Base:FredBasic
+	Material:FredGore
+	Part:Charred/charredHead_head
+	Part:Charred/charredTorso1_torso1
+	Part:Charred/charredTorso2_torso2
+	Part:Charred/charredLeftFoot_leftFoot
+	Part:Charred/charredRightFoot_rightFoot
+	Part:Charred/charredLeftHand_leftHand
+	Part:Charred/charredRightHand_rightHand
+	Part:Charred/charredLeftArm1_leftArm1
+	Part:Charred/charredRightArm1_rightArm1
+	Part:Charred/charredLeftLeg1_leftLeg1
+	Part:Charred/charredRightLeg1_rightLeg1
+	Part:Charred/charredLeftLeg2_leftLeg2
+	Part:Charred/charredRightLeg2_rightLeg2
+	Hide:meshHead
+	Hide:meshHips
+	Hide:meshTorso
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshLeftHand
+	Hide:meshRightHand
+	Hide:meshLeftArm1
+	Hide:meshRightArm1
+	Hide:meshRightLeg1
+	Hide:meshLeftLeg1
+	Hide:meshRightLeg2
+	Hide:meshLeftLeg2
+EndCharacter
+
+Character:Gore
+	Base:FredBasic
+	Material:FredGore
+	Part:Gore/goreHead_Head
+	Part:Gore/goreTorso_torso1
+	Part:Gore/goreLeftHand_leftHand
+	Part:Gore/goreRightHand_rightHand
+	Part:Gore/goreLeftArm1_leftArm1
+	Part:Gore/goreRightArm1_rightArm1
+	Part:Gore/goreLeftLeg1_leftLeg1
+	Part:Gore/goreRightLeg1_rightLeg1
+	Part:Gore/goreLeftLeg2_leftLeg2
+	Part:Gore/goreRightLeg2_rightLeg2
+	Hide:meshHead
+	Hide:meshHips
+	Hide:meshTorso
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshLeftHand
+	Hide:meshRightHand
+	Hide:meshLeftArm1
+	Hide:meshRightArm1
+	Hide:meshRightLeg1
+	Hide:meshLeftLeg1
+	Hide:meshRightLeg2
+	Hide:meshLeftLeg2
+EndCharacter	
+
+Character:Gore2
+	Base:FredBasic
+	Material:FredGore
+	Part:Gore/goreTorso_torso1
+	Part:Gore/goreLeftHand_leftHand
+	Part:Gore/goreRightHand_rightHand
+	Part:Gore/goreLeftArm1_leftArm1
+	Part:Gore/goreRightArm1_rightArm1
+	Part:Gore/goreLeftLeg1_leftLeg1
+	Part:Gore/goreRightLeg1_rightLeg1
+	Part:Gore/goreLeftLeg2_leftLeg2
+	Part:Gore/goreRightLeg2_rightLeg2
+	Hide:meshHips
+	Hide:meshLeftFoot
+	Hide:meshRightFoot
+	Hide:meshLeftHand
+	Hide:meshRightHand
+	Hide:meshLeftArm1
+	Hide:meshRightArm1
+	Hide:meshRightLeg1
+	Hide:meshLeftLeg1
+	Hide:meshRightLeg2
+	Hide:meshLeftLeg2
+EndCharacter	

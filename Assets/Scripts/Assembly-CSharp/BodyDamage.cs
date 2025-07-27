@@ -1,0 +1,19 @@
+public enum BodyDamage
+{
+	HEAD = 0,
+	TORSO = 1,
+	LEFT_ARM = 2,
+	RIGHT_ARM = 3,
+	LEFT_LEG = 4,
+	RIGHT_LEG = 5,
+	HEAD_OFF = 6,
+	LEFT_ARM_OFF = 7,
+	RIGHT_ARM_OFF = 8,
+	ARMS_OFF = 9,
+	LEFT_LEG_OFF = 10,
+	RIGHT_LEG_OFF = 11,
+	LEGS_OFF = 12,
+	HALF_BODY_OFF = 13,
+	LEFT_LEG_2_OFF = 14,
+	RIGHT_LEG_2_OFF = 15
+}

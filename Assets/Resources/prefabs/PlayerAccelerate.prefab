@@ -1,0 +1,260 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1633272427802734
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4192734796780736}
+  m_Layer: 0
+  m_Name: PlayerAccelerate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1976209679721292
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4732429812833320}
+  - 114: {fileID: 114418900375865224}
+  m_Layer: 0
+  m_Name: Blast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1370739698721100
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4311343389795570}
+  - 114: {fileID: 114429480818859801}
+  m_Layer: 0
+  m_Name: FireBall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1056483444722674
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4618338052597533}
+  - 114: {fileID: 114487128107393644}
+  m_Layer: 0
+  m_Name: ShockWave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4192734796780736
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1633272427802734}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.21642113, y: 1.0414639, z: 7.2942076}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4732429812833320}
+  - {fileID: 4311343389795570}
+  - {fileID: 4618338052597533}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &4732429812833320
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976209679721292}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.40065, z: 1.3803911}
+  m_LocalScale: {x: 0.122436464, y: 0.122436464, z: 0.122436464}
+  m_Children: []
+  m_Father: {fileID: 4192734796780736}
+  m_RootOrder: 0
+--- !u!114 &114418900375865224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976209679721292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530d4f6f0b71c60732e831fb7db225e3, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  ImageMaterial: {fileID: 2100000, guid: 453389a762710524f9c8dbe11f72f6dc, type: 2}
+  Colors:
+  - {r: 0, g: 0.7062936, b: 1, a: 0.23137255}
+  - {r: 1, g: 1, b: 1, a: 0}
+  Speed: {x: 0, y: 0, z: 7}
+  RndSpeed: {x: 0, y: 0, z: 0}
+  RotationSpeed: 0
+  RndRotationSpeed: 0
+  ScaleSpeed: {x: 5, y: 5, z: 5}
+  RndScaleSpeed: {x: 0, y: 0, z: 0}
+  Scale: {x: -3, y: -3, z: -3}
+  RndScale: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  RndRotation: {x: 0, y: 0, z: 0}
+  Force: {x: 0, y: 0, z: 0}
+  ScaleSpeedForce: {x: 0, y: 0, z: 0}
+  StartArea: {x: 0, y: 0, z: 0}
+  FloorDistance: 0
+  FloorFrictionFactor: 0.5
+  BounceFactor: 0.7
+  BounceNoise: {x: 0, y: 0, z: 0}
+  LifeTime: 0.5
+  RndLifeTime: 0
+  MaxParticlesCount: 1
+  SimulateFloor: 0
+  CastRayPerParticle: 0
+  SimulateInWorldSpace: 1
+  SpeedSimulatedInWorldSpace: 1
+  Billboard: 1
+  JustRotateY: 0
+  Emit: 1
+  OneShot: 1
+  PoolName: BillboardPool
+--- !u!4 &4311343389795570
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1370739698721100}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.40065, z: 1.8748016}
+  m_LocalScale: {x: 0.122436464, y: 0.122436464, z: 0.122436464}
+  m_Children: []
+  m_Father: {fileID: 4192734796780736}
+  m_RootOrder: 1
+--- !u!114 &114429480818859801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1370739698721100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530d4f6f0b71c60732e831fb7db225e3, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  ImageMaterial: {fileID: 2100000, guid: fafe92170013d014395ad36a0c993531, type: 2}
+  Colors:
+  - {r: 0, g: 0.6643357, b: 1, a: 0.22352941}
+  - {r: 1, g: 1, b: 1, a: 0}
+  Speed: {x: 0, y: 0, z: 7}
+  RndSpeed: {x: 0, y: 0, z: 0}
+  RotationSpeed: 0
+  RndRotationSpeed: 0
+  ScaleSpeed: {x: -3, y: -3, z: -3}
+  RndScaleSpeed: {x: 0, y: 0, z: 0}
+  Scale: {x: 2, y: 2, z: 2}
+  RndScale: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  RndRotation: {x: 0, y: 0, z: 0}
+  Force: {x: 0, y: 0, z: 0}
+  ScaleSpeedForce: {x: 0, y: 0, z: 0}
+  StartArea: {x: 0, y: 0, z: 0}
+  FloorDistance: 0
+  FloorFrictionFactor: 0.5
+  BounceFactor: 0.7
+  BounceNoise: {x: 0, y: 0, z: 0}
+  LifeTime: 1
+  RndLifeTime: 0
+  MaxParticlesCount: 1
+  SimulateFloor: 0
+  CastRayPerParticle: 0
+  SimulateInWorldSpace: 1
+  SpeedSimulatedInWorldSpace: 1
+  Billboard: 1
+  JustRotateY: 0
+  Emit: 1
+  OneShot: 1
+  PoolName: BillboardPool
+--- !u!4 &4618338052597533
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056483444722674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.40065, z: 3.0833607}
+  m_LocalScale: {x: 0.122436464, y: 0.122436464, z: 0.122436464}
+  m_Children: []
+  m_Father: {fileID: 4192734796780736}
+  m_RootOrder: 2
+--- !u!114 &114487128107393644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056483444722674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530d4f6f0b71c60732e831fb7db225e3, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  ImageMaterial: {fileID: 2100000, guid: ef07c845029266e449c54581c9f9db7c, type: 2}
+  Colors:
+  - {r: 1, g: 1, b: 1, a: 0.28627452}
+  - {r: 1, g: 1, b: 1, a: 0}
+  Speed: {x: 0, y: 0, z: 7}
+  RndSpeed: {x: 0, y: 0, z: 0}
+  RotationSpeed: 0
+  RndRotationSpeed: 0
+  ScaleSpeed: {x: -7, y: -7, z: -7}
+  RndScaleSpeed: {x: 0, y: 0, z: 0}
+  Scale: {x: 3, y: 3, z: 3}
+  RndScale: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  RndRotation: {x: 0, y: 0, z: 0}
+  Force: {x: 0, y: 0, z: 0}
+  ScaleSpeedForce: {x: 0, y: 0, z: 0}
+  StartArea: {x: 0, y: 0, z: 0}
+  FloorDistance: 0
+  FloorFrictionFactor: 0.5
+  BounceFactor: 0.7
+  BounceNoise: {x: 0, y: 0, z: 0}
+  LifeTime: 1
+  RndLifeTime: 0
+  MaxParticlesCount: 1
+  SimulateFloor: 0
+  CastRayPerParticle: 0
+  SimulateInWorldSpace: 1
+  SpeedSimulatedInWorldSpace: 1
+  Billboard: 1
+  JustRotateY: 0
+  Emit: 1
+  OneShot: 1
+  PoolName: BillboardPool
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1633272427802734}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0

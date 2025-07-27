@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<itemslist>
+  <items>
+  
+  	<!-- visibilityBehaviour could be one of these values: 				-->
+  	<!--																-->
+  	<!--   ALWAYS_VISIBLE (default value. The item is always visible).  -->
+  	<!--   INVISIBLE_WHEN_IT_WAS_NOT_PURCHASED 							-->
+  	<!--   INVISIBLE_WHEN_IT_WAS_PURCHASED 								-->
+  	<!--   ALWAYS_INVISIBLE (The item is always invisible).  			-->
+  
+    <item id="1000" type = "chapter" name="Grisly Manor" description="A harzardous place haunted by a terrible taste in interior decoration." picture="LocCastle" 
+    price="0" tag="Location" consumable="false" upgradeable="0" sceneprefix = "Castle" enabled = "true"/>
+    
+    <item id="1001" type = "chapter" name="Endless Manor" description="Lots of sharp, pointy things on your way." picture="LocCastleEndless" 
+    price="0" tag="Survival" consumable="false" upgradeable="0" sceneprefix = "Castle" enabled = "true" unlock_normal_id="1006" unlock_hard_id="1007" unlock_nightmare_id="1008"/>
+    
+    <item id="1002" type = "chapter" name="Danger Caves" description="Vicious traps, bottomless pits and unstable fundations keep tourists away." picture="LocUnderground" 
+    price="2499" tag="Location" consumable="false" upgradeable="0" sceneprefix = "Caves" enabled = "true"/>
+    
+    <item id="1003" type = "chapter" name="Endless Caves" description="Bottomless pits, volcanic exhausts and an overly moist environment." picture="LocCaveEndless" 
+    price="199" tag="Survival" consumable="false" upgradeable="0" sceneprefix = "Caves" enabled = "true" unlock_normal_id="1009" unlock_hard_id="1010" unlock_nightmare_id="1011"/>
+    
+    <item id="1004" type = "chapter" name="High Stakes" description="It's not the fall that kills you, but the sudden deceleration syndrome." picture="HighStakes" 
+    price="0" tag="Location" consumable="false" upgradeable="0" sceneprefix = "Rooftop" enabled = "true" visibilityBehaviour = "INVISIBLE_WHEN_IT_WAS_NOT_PURCHASED"/>
+    
+    <item id="1012" type = "chapter" name="Value Pack 1" description="Pack includes High Stakes World, new Aviator Fred and 4 Powers Combo!" picture="HighStakesValuePack" 
+    price="0" price_dollars="$1.99" price_kreds="19 Kreds" tag="Location" consumable="false" upgradeable="0" sceneprefix = "Rooftop" enabled = "true" visibilityBehaviour = "INVISIBLE_WHEN_IT_WAS_PURCHASED" market_id="com.dedalord.runningfred.valuepack1" android_market_id = "com.dedalord.runningfred.valuepack1" mac_market_id="com.dedalord.runningfredmac.valuepack1"/>
+    
+    <item id="1014" type = "chapter" name="Value Pack 2" description="Pack includes Endless Stakes World, new Mutant Fred and 2,000 Skullies!" picture="HighStakesValuePack2" 
+    price="0" price_dollars="$1.99" price_kreds="19 Kreds" tag="Survival" consumable="false" upgradeable="0" sceneprefix = "Rooftop" enabled = "true" visibilityBehaviour = "INVISIBLE_WHEN_IT_WAS_PURCHASED" market_id="com.dedalord.runningfred.valuepack2" android_market_id = "com.dedalord.runningfred.valuepack2" mac_market_id="com.dedalord.runningfredmac.valuepack2"/>
+    
+    <item id="1005" type = "chapter" name="Endless Stakes" description="Ready for a midnight jog?" picture="HighStakesEndless" 
+    price="0" tag="Survival" consumable="false" upgradeable="0" sceneprefix = "Rooftop" enabled = "true" unlock_normal_id="1015" unlock_hard_id="1016" unlock_nightmare_id="1017" visibilityBehaviour = "INVISIBLE_WHEN_IT_WAS_NOT_PURCHASED"/>
+
+	<item id="1013" type = "chapter" name="Endless Sektor 51" description="Coming soon!" picture="LocSektor" 
+    price="0" tag="Survival" consumable="false" upgradeable="0" sceneprefix = "Sektor" enabled = "false"/>
+    															    															    															
+    <item id="1006" type = "level" name="Endless Manor Normal Unlock" 
+    price="399" tag="UnlockSurvival" enabled = "true"/> 																																														
+    		
+    <item id="1007" type = "level" name="Endless Manor Hard Unlock" 
+    price="699" tag="UnlockSurvival" enabled = "true"/> 																																														
+    		
+    <item id="1008" type = "level" name="Endless Manor Nightmare Unlock" 
+    price="999" tag="UnlockSurvival" enabled = "true"/>
+
+    <item id="1009" type = "level" name="Endless Caves Normal Unlock" 
+    price="99" tag="UnlockSurvival" enabled = "true"/> 																																														
+    		
+    <item id="1010" type = "level" name="Endless Caves Hard Unlock" 
+    price="199" tag="UnlockSurvival" enabled = "true"/> 																																														
+    		
+    <item id="1011" type = "level" name="Endless Caves Nightmare Unlock" 
+    price="299" tag="UnlockSurvival" enabled = "true"/>
+    
+    <item id="1015" type = "level" name="Endless Stakes Normal Unlock" 
+    price="99" tag="UnlockSurvival" enabled = "true"/> 																																														
+    		
+    <item id="1016" type = "level" name="Endless Stakes Hard Unlock" 
+    price="199" tag="UnlockSurvival" enabled = "true"/> 																																														
+    		
+    <item id="1017" type = "level" name="Endless Stakes Nightmare Unlock" 
+    price="299" tag="UnlockSurvival" enabled = "true"/>																																																 																																																
+    
+  </items>
+</itemslist>
