@@ -1,16 +1,16 @@
 using System.Text;
 using UnityEngine;
+using UnityEngine.Networking;
+using System.Collections;
 
 public class CmdRemoveData
 {
 	private const string RES_OK = "[ok]";
+	private const string RES_END = "[/ok]";
 
-	private static WWW www;
-
+	private static UnityWebRequest www;
 	private static bool waiting;
-
 	private static float accumTime;
-
 	private static BackendRes beRes;
 
 	public static void RemoveData(string token, string username, BackendRes cbfn)
@@ -23,37 +23,52 @@ public class CmdRemoveData
 		WWWForm wWWForm = new WWWForm();
 		wWWForm.AddField("op", "rm");
 		wWWForm.AddField("dt", value);
-		www = new WWW("http://running-fred.appspot.com/running_fred", wWWForm);
+		www = UnityWebRequest.Post("http://running-fred.appspot.com/running_fred", wWWForm);
+		www.SendWebRequest();
 		waiting = true;
 		accumTime = 0f;
 	}
 
 	public static void Update()
 	{
-		if (!waiting)
+		if (!waiting || www == null)
 		{
 			return;
 		}
+		
 		if (www.isDone)
 		{
 			waiting = false;
-			string text = Encoding.ASCII.GetString(www.bytes);
-			int num = text.IndexOf("[ok]");
-			if (num != -1)
+			if (www.result == UnityWebRequest.Result.Success)
 			{
-				beRes(true, string.Empty);
-				return;
-			}
-			num = text.IndexOf("[err]");
-			if (num != -1)
-			{
-				string str = text.Substring(num + "[err]".Length, text.IndexOf("[/err]") - num - "[/err]".Length + 1);
-				beRes(false, str);
+				string text = www.downloadHandler.text;
+				int num = text.IndexOf("[ok]");
+				if (num != -1)
+				{
+					beRes(true, string.Empty);
+				}
+				else
+				{
+					num = text.IndexOf("[err]");
+					if (num != -1)
+					{
+						string str = text.Substring(num + "[err]".Length, text.IndexOf("[/err]") - num - "[/err]".Length + 1);
+						beRes(false, str);
+					}
+					else
+					{
+						beRes(false, string.Format("Error parsing the response from server. Response: {0} Error: {1}", text, www.error));
+					}
+				}
 			}
 			else
 			{
-				beRes(false, string.Format("Error parsing the response from server. Response: {0} Error: {1}", text, www.error));
+				beRes(false, www.error);
 			}
+			
+			// Properly dispose the UnityWebRequest to prevent memory leaks
+			www.Dispose();
+			www = null;
 		}
 		else
 		{
@@ -62,6 +77,10 @@ public class CmdRemoveData
 			{
 				waiting = false;
 				beRes(false, www.error);
+				
+				// Properly dispose the UnityWebRequest to prevent memory leaks
+				www.Dispose();
+				www = null;
 			}
 		}
 	}

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
+using System.Collections;
 
 public class AdImageCacheManager : MonoBehaviour
 {
@@ -8,14 +10,10 @@ public class AdImageCacheManager : MonoBehaviour
 
 	private List<string> storedImages;
 
-	private WWW www;
-
+	private UnityWebRequest www;
 	private bool waitingResponse;
-
 	private float accumTime;
-
 	private OnImageLoadedRes cb;
-
 	private string loadedTextureName;
 
 	private void Awake()
@@ -30,27 +28,34 @@ public class AdImageCacheManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (!waitingResponse)
+		if (!waitingResponse || www == null)
 		{
 			return;
 		}
+		
 		if (www.isDone)
 		{
 			waitingResponse = false;
-			if (www.error == null)
+			if (www.result == UnityWebRequest.Result.Success)
 			{
-				SaveImageOnCache(loadedTextureName, www.texture);
+				Texture2D texture = DownloadHandlerTexture.GetContent(www);
+				SaveImageOnCache(loadedTextureName, texture);
 				if (cb != null)
 				{
-					cb(true, null, www.texture);
+					cb(true, null, texture);
 				}
 			}
 			else if (cb != null)
 			{
 				cb(false, www.error, null);
 			}
+			
+			// Properly dispose the UnityWebRequest to prevent memory leaks
+			www.Dispose();
+			www = null;
 			return;
 		}
+		
 		accumTime += Time.deltaTime;
 		if (accumTime > 10f)
 		{
@@ -59,6 +64,10 @@ public class AdImageCacheManager : MonoBehaviour
 			{
 				cb(false, "timeout", null);
 			}
+			
+			// Properly dispose the UnityWebRequest to prevent memory leaks
+			www.Dispose();
+			www = null;
 		}
 	}
 
@@ -100,7 +109,8 @@ public class AdImageCacheManager : MonoBehaviour
 		}
 		string url = string.Format("{0}/ads/{1}", "https://black-lord.appspot.com", imageName);
 		loadedTextureName = imageName;
-		www = new WWW(url);
+		www = UnityWebRequestTexture.GetTexture(url);
+		www.SendWebRequest();
 		waitingResponse = true;
 		accumTime = 0f;
 		cb = onImageLoadedRes;

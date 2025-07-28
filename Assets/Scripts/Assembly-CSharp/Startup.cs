@@ -81,4 +81,9 @@ public class Startup : MonoBehaviour
 		DateTime dateTime = new DateTime(2014, 7, 1);
 		releaseExpired = (DateTime.Now - dateTime).TotalDays > 150.0;
 	}
+
+	private void OnApplicationQuit()
+	{
+		// Cleanup any remaining UnityWebRequest objects to prevent memory leaks
+	}
 }

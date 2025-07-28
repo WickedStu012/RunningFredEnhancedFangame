@@ -20,17 +20,20 @@ public class EvnTouchGroundToRoll : IEvent
 		if (!sm.IsGoingUp && sm.IsGrounded)
 		{
 			float num = sm.lastYPosition - sm.playerT.position.y;
-			if (!props.RubberBones)
+			// RubberBones reduces fall damage by increasing the height thresholds
+			float effectiveMinHeightToRoll = props.RubberBones ? props.minHeightToRoll * 1.1f : props.minHeightToRoll;
+			float effectiveMinHeightToTrip = props.RubberBones ? props.minHeightToTrip * 1.1f : props.minHeightToTrip;
+			float effectiveMinHeightToExplode = props.RubberBones ? props.minHeightToExplode * 1.2f : props.minHeightToExplode;
+			
+			if (effectiveMinHeightToRoll <= num && num < effectiveMinHeightToTrip)
 			{
-				if (props.minHeightToRoll <= num && num < props.minHeightToTrip)
-				{
-					SoundManager.PlaySound(36);
-					CharHelper.GetEffects().EnableImpactGround();
-					return true;
-				}
+				SoundManager.PlaySound(36);
+				CharHelper.GetEffects().EnableImpactGround();
+				return true;
 			}
-			else if (props.minHeightToRoll <= num && num < props.minHeightToExplode)
+			else if (props.RubberBones && effectiveMinHeightToTrip <= num && num < effectiveMinHeightToExplode)
 			{
+				// With RubberBones, higher falls still cause rolling instead of tripping
 				SoundManager.PlaySound(36);
 				CharHelper.GetEffects().EnableImpactGround();
 				return true;

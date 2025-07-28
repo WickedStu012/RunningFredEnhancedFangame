@@ -1,18 +1,16 @@
 using System.Text;
 using UnityEngine;
+using UnityEngine.Networking;
+using System.Collections;
 
 public class CmdGetOfferDO
 {
 	private const string RES_BEGIN = "[do]";
-
 	private const string RES_END = "[/do]";
 
-	private static WWW www;
-
+	private static UnityWebRequest www;
 	private static bool waiting;
-
 	private static float accumTime;
-
 	private static BackendRes beRes;
 
 	public static void GetOffer(string token, BackendRes cbfn)
@@ -21,23 +19,25 @@ public class CmdGetOfferDO
 		WWWForm wWWForm = new WWWForm();
 		wWWForm.AddField("op", "do");
 		wWWForm.AddField("tk", token);
-		www = new WWW("http://running-fred-do.appspot.com/running_fred_do", wWWForm);
+		www = UnityWebRequest.Post("http://running-fred-do.appspot.com/running_fred_do", wWWForm);
+		www.SendWebRequest();
 		waiting = true;
 		accumTime = 0f;
 	}
 
 	public static void Update()
 	{
-		if (!waiting)
+		if (!waiting || www == null)
 		{
 			return;
 		}
+		
 		if (www.isDone)
 		{
 			waiting = false;
-			if (www.error == null)
+			if (www.result == UnityWebRequest.Result.Success)
 			{
-				string text = Encoding.ASCII.GetString(www.bytes);
+				string text = www.downloadHandler.text;
 				if (text != null)
 				{
 					int num = text.IndexOf("[do]");
@@ -45,17 +45,19 @@ public class CmdGetOfferDO
 					{
 						string encodedData = text.Substring(num + "[do]".Length, text.IndexOf("[/do]") - num - "[/do]".Length + 1);
 						beRes(true, StringUtil.DecodeFrom64(encodedData));
-						return;
-					}
-					num = text.IndexOf("[err]");
-					if (num != -1)
-					{
-						string str = text.Substring(num + "[err]".Length, text.IndexOf("[/err]") - num - "[/err]".Length + 1);
-						beRes(false, str);
 					}
 					else
 					{
-						beRes(false, string.Format("Error parsing the response from server. Response: {0} Error: {1}", text, www.error));
+						num = text.IndexOf("[err]");
+						if (num != -1)
+						{
+							string str = text.Substring(num + "[err]".Length, text.IndexOf("[/err]") - num - "[/err]".Length + 1);
+							beRes(false, str);
+						}
+						else
+						{
+							beRes(false, string.Format("Error parsing the response from server. Response: {0} Error: {1}", text, www.error));
+						}
 					}
 				}
 				else
@@ -67,6 +69,10 @@ public class CmdGetOfferDO
 			{
 				beRes(false, www.error);
 			}
+			
+			// Properly dispose the UnityWebRequest to prevent memory leaks
+			www.Dispose();
+			www = null;
 		}
 		else
 		{
@@ -76,6 +82,10 @@ public class CmdGetOfferDO
 				Debug.Log("Timeout");
 				waiting = false;
 				beRes(false, www.error);
+				
+				// Properly dispose the UnityWebRequest to prevent memory leaks
+				www.Dispose();
+				www = null;
 			}
 		}
 	}

@@ -52,6 +52,27 @@ public class CameraFade : MonoBehaviour
 		}
 	}
 
+	// Method to improve camera depth buffer precision
+	public static void ImproveCameraDepthPrecision()
+	{
+		Camera[] cameras = UnityEngine.Object.FindObjectsOfType<Camera>();
+		foreach (Camera cam in cameras)
+		{
+			// Adjust near and far clip planes for better depth precision
+			if (cam.nearClipPlane < 0.5f)
+			{
+				cam.nearClipPlane = 0.5f;
+			}
+			if (cam.farClipPlane > 500f)
+			{
+				cam.farClipPlane = 500f;
+			}
+			
+			// Enable depth texture for better rendering
+			cam.depthTextureMode = DepthTextureMode.Depth;
+		}
+	}
+
 	private void Awake()
 	{
 		instance = this;

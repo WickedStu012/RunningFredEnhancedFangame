@@ -86,20 +86,9 @@ public class ResultsGUI : MonoBehaviour
 		}
 		if (TimerManager.Instance != null)
 		{
-			if (TimerManager.Instance.Minutes < 10)
-			{
-				TimerCount.SetDynamicText("0");
-			}
-			else
-			{
-				TimerCount.SetDynamicText(string.Empty);
-			}
-			TimerCount.SetDynamicText(TimerManager.Instance.Minutes + ":");
-			if (TimerManager.Instance.Seconds < 10)
-			{
-				TimerCount.SetDynamicText("0");
-			}
-			TimerCount.SetDynamicText(TimerManager.Instance.Seconds);
+			// Format time as MM:SS with leading zeros
+			string timeString = string.Format("{0:D2}:{1:D2}", TimerManager.Instance.Minutes, TimerManager.Instance.Seconds);
+			TimerCount.SetDynamicText(timeString);
 		}
 		goldCoins += ScoreManager.Instance.TreasureGoldCoins;
 	}

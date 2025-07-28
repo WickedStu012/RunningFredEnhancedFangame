@@ -21,6 +21,8 @@ public class GameManager
 
 	public static void OnGameStart()
 	{
+		// Improve camera depth buffer precision to reduce Z-fighting and see-through issues
+		CameraFade.ImproveCameraDepthPrecision();
 	}
 
 	public static void OnGameEnd()

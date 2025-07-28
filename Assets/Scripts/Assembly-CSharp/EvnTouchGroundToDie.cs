@@ -20,7 +20,11 @@ public class EvnTouchGroundToDie : IEvent
 		if (!sm.IsGoingUp && sm.IsGrounded)
 		{
 			float num = sm.lastYPosition - sm.playerT.position.y;
-			if (!props.RubberBones && props.minHeightToDie <= num && num < props.minHeightToExplode && sm.HittedAgainstHardSurface())
+			// RubberBones reduces fall damage by increasing the height thresholds
+			float effectiveMinHeightToDie = props.RubberBones ? props.minHeightToDie * 1.2f : props.minHeightToDie;
+			float effectiveMinHeightToExplode = props.RubberBones ? props.minHeightToExplode * 1.2f : props.minHeightToExplode;
+			
+			if (effectiveMinHeightToDie <= num && num < effectiveMinHeightToExplode && sm.HittedAgainstHardSurface())
 			{
 				ScreenShaker.Shake(0.5f, 8f);
 				CharHelper.GetEffects().EnableImpactGround();

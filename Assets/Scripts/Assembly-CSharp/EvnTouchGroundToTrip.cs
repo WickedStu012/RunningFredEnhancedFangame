@@ -20,7 +20,11 @@ public class EvnTouchGroundToTrip : IEvent
 		if (!sm.IsGoingUp && sm.IsGrounded)
 		{
 			float num = sm.lastYPosition - sm.playerT.position.y;
-			if (!props.RubberBones && props.minHeightToTrip <= num && num < props.minHeightToDie)
+			// RubberBones reduces fall damage by increasing the height thresholds
+			float effectiveMinHeightToTrip = props.RubberBones ? props.minHeightToTrip * 1.1f : props.minHeightToTrip;
+			float effectiveMinHeightToDie = props.RubberBones ? props.minHeightToDie * 1.2f : props.minHeightToDie;
+			
+			if (effectiveMinHeightToTrip <= num && num < effectiveMinHeightToDie)
 			{
 				SoundManager.PlaySound(36);
 				CharHelper.GetEffects().EnableImpactGround();

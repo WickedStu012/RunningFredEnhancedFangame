@@ -20,7 +20,10 @@ public class EvnTouchGroundToExplode : IEvent
 		if (!sm.IsGoingUp && sm.IsGrounded)
 		{
 			float num = sm.lastYPosition - sm.playerT.position.y;
-			if (num > props.minHeightToExplode && sm.HittedAgainstHardSurface())
+			// RubberBones reduces fall damage by increasing the height thresholds
+			float effectiveMinHeightToExplode = props.RubberBones ? props.minHeightToExplode * 1.2f : props.minHeightToExplode;
+			
+			if (num > effectiveMinHeightToExplode && sm.HittedAgainstHardSurface())
 			{
 				ScreenShaker.Shake(0.5f, 8f);
 				return true;

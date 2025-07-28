@@ -53,11 +53,16 @@ public class FallTrigger : MonoBehaviour
 		{
 			return;
 		}
+		
+		// Debug logging to help identify issues
+		Debug.Log("FallTrigger OnTriggerEnter - checkUpdateCount: " + checkUpdateCount + ", collide: " + collide + ", isPlayer: " + CharHelper.IsColliderFromPlayer(c));
+		
 		if (checkUpdateCount == 0)
 		{
 			CharStateMachine charStateMachine = CharHelper.GetCharStateMachine();
 			if (collide || !CharHelper.IsColliderFromPlayer(c) || GameManager.IsFredDead())
 			{
+				Debug.Log("FallTrigger: Skipping due to collide=" + collide + ", isPlayer=" + CharHelper.IsColliderFromPlayer(c) + ", isDead=" + GameManager.IsFredDead());
 				return;
 			}
 			if (itemSafetySpring == null)
@@ -68,18 +73,25 @@ public class FallTrigger : MonoBehaviour
 			{
 				if (!ignoreSprings && itemSafetySpring.Count > 0 && charStateMachine.SafetySpringUseCountInThisMatch == 0)
 				{
+					Debug.Log("FallTrigger: Using safety spring");
 					charStateMachine.SafetySpringUseCountInThisMatch++;
 					charStateMachine.SwitchTo(ActionCode.SAFETY_SPRING);
 					checkUpdateCount = 2;
 				}
 				else
 				{
+					Debug.Log("FallTrigger: Triggering fall death");
 					dieFalling();
 				}
+			}
+			else
+			{
+				Debug.Log("FallTrigger: Skipping due to state: " + charStateMachine.GetCurrentState() + ", isGoingUp: " + charStateMachine.IsGoingUp);
 			}
 		}
 		else
 		{
+			Debug.Log("FallTrigger: Decrementing checkUpdateCount from " + checkUpdateCount + " to " + (checkUpdateCount - 1));
 			checkUpdateCount--;
 		}
 	}
@@ -94,11 +106,13 @@ public class FallTrigger : MonoBehaviour
 		{
 			CharHelper.GetCharStateMachine().RemoveWings(true, true);
 		}
+		Debug.Log("FallTrigger: Dispatching PlayerDieFalling event");
 		GameEventDispatcher.Dispatch(this, new PlayerDieFalling());
 	}
 
 	public static void Reset()
 	{
 		checkUpdateCount = 2;
+		Debug.Log("FallTrigger: Reset called, checkUpdateCount set to 2");
 	}
 }

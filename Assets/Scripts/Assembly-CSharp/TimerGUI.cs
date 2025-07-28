@@ -52,20 +52,9 @@ public class TimerGUI : MonoBehaviour
 		{
 			if (TimerMgr.Seconds != 0 || TimerMgr.Minutes != 0)
 			{
-				if (TimerMgr.Minutes < 10)
-				{
-					timerText.SetDynamicText("0");
-				}
-				else
-				{
-					timerText.SetDynamicText(string.Empty);
-				}
-				timerText.SetDynamicText(TimerMgr.Minutes + ":");
-				if (TimerMgr.Seconds < 10)
-				{
-					timerText.SetDynamicText("0");
-				}
-				timerText.SetDynamicText(TimerMgr.Seconds);
+				// Format time as MM:SS with leading zeros
+				string timeString = string.Format("{0:D2}:{1:D2}", TimerMgr.Minutes, TimerMgr.Seconds);
+				timerText.SetDynamicText(timeString);
 			}
 		}
 		else

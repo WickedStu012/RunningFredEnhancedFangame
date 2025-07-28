@@ -89,7 +89,11 @@ public class ActBounce : IAction
 			}
 			moveCharacter(false);
 			float deltaY = sm.GetDeltaY();
-			if (sm.IsGrounded && !GameManager.IsFredDead() && sm.HittedAgainstHardSurface() && (deltaY < props.minHeightToDie || (props.RubberBones && deltaY < props.minHeightToExplode)))
+			// RubberBones reduces fall damage by increasing the height thresholds
+			float effectiveMinHeightToDie = props.RubberBones ? props.minHeightToDie * 1.2f : props.minHeightToDie;
+			float effectiveMinHeightToExplode = props.RubberBones ? props.minHeightToExplode * 1.2f : props.minHeightToExplode;
+			
+			if (sm.IsGrounded && !GameManager.IsFredDead() && sm.HittedAgainstHardSurface() && (deltaY < effectiveMinHeightToDie || (props.RubberBones && deltaY < effectiveMinHeightToExplode)))
 			{
 				SoundManager.PlaySound(36);
 				if (props.FastRecovery)
