@@ -83,7 +83,7 @@ Replays & MP4 Export: Hell Nah
 
  Sprites/2D Graphics Design: Rage and Jessgem
 
- CSharp Programming: Jessgem (Intro Cinematic), Kamiyama (misc.), Pes Piston (misc.)
+ CSharp Programming: Jessgem (Intro Cinematic), Kamiyama (misc.), Pes Piston (misc.), Webaccount284 (just got added to the team)
 
  Ideas: Pes Piston, Jessgem
 
