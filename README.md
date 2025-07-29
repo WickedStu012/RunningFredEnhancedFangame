@@ -41,6 +41,12 @@ Aran Ryan Fred:12
 
 Fred Andnrok Fan:13
 
+## Current Custom skin ideas (either added or not(also includes changes in skins))
+
+Electro Wizard Fred: Custom walk sounds, Custom Hand model, Head Shake(25% done).
+
+Lumberjack Fred: Custom speed, custom face animation.
+
 ### Challenges:
 Super Hopped Jump:1
 
@@ -48,11 +54,22 @@ Challenges With Wings On:2
 
 Challenges With Jetpack On:3
 
+///ideas///
+
+Maps from other games(maybe)
+
+Skiing Challanges (stage with fred on a board simular to having wings or rocket)
+
+
 ### Locations:
 
 Sektor 51:20
 
 Dungeon:30
+
+///Location Ideas///
+
+The Great Mix(Stupid ass mix of all the old maps)
 
 ### Things to implement:
 
@@ -76,6 +93,13 @@ Option To Enable Or Disable Shadows:8
 
 Replays & MP4 Export: Hell Nah
 
+///Implement ideas///
+Options Menu: Audio, Video, Visuals, Extras and More...
+
+All the Videos posted from Dedalors Website(Trailers, Tutorials and e.t.c)
+
+
+
 ### Priority is set by numbers.
 
 # RUNNING FRED ENHANCED STAFF
@@ -84,7 +108,7 @@ Replays & MP4 Export: Hell Nah
 
  Sprites/2D Graphics Design: Rage and Jessgem
 
- CSharp Programming: Jessgem (Intro Cinematic), Kamiyama (misc.), Pes Piston (misc.), Webaccount284 (just got added to the team)
+ CSharp Programming: Jessgem (Intro Cinematic, Probably more), Kamiyama (misc.), Pes Piston (misc.), Webaccount284 (just got added to the team)
 
  Ideas: Pes Piston, Jessgem
 
@@ -107,6 +131,8 @@ Replays & MP4 Export: Hell Nah
  Current Owner: Jessgem
 
 ### Special Thanks To: 
+
+Mr.jessgem (super dumbass)
 
 Rage (Original Idea) 
 
