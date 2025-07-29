@@ -94,6 +94,7 @@ Option To Enable Or Disable Shadows:8
 Replays & MP4 Export: Hell Nah
 
 ///Implement ideas///
+
 Options Menu: Audio, Video, Visuals, Extras and More...
 
 All the Videos posted from Dedalors Website(Trailers, Tutorials and e.t.c)
