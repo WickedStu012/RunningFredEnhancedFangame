@@ -4,6 +4,7 @@ Running Fred Enhanced is a fangame of the original game Running Fred made by Ded
 This fangame adds custom skins, new locations, new features, brings back deleted features, etc.
 
 ### THIS FANGAME WILL NEVER BE FOR SALE.
+### THIS FANGAME IS NOT ASSOCIATED WITH DEDALORD OR APPROVED BY DEDALORD
 
 # Things That Will Be Added
 ### Skins:
