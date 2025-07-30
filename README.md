@@ -1,10 +1,15 @@
 # Running Fred Enhanced Description
 Running Fred Enhanced is a fangame of the original game Running Fred made by Dedalord S.R.L.
 
-This fangame adds custom skins, new locations, new features, brings back deleted features, etc.
+This fangame adds custom skins, new locations, new features, brings back deleted features, etc. The Team tries to expand the gameplay of ,,Running Fred'' as much as possible. 
 
-### THIS FANGAME WILL NEVER BE FOR SALE.
-### THIS FANGAME IS NOT ASSOCIATED WITH DEDALORD OR APPROVED BY DEDALORD
+## WARNING 
+The Mod May or May not include Slurs, To fit the vocabulary of Running Freds old Development days. 
+The Jokes in the Game Does not try to offend people, they are Simply Jokes for the funny.
+
+
+### THIS FANGAME SHOULD NEVER BE AND NEVER WILL NEVER BE FOR SALE.
+### THIS FANGAME IS NOT ASSOCIATED WITH DEDALORD OR APPROVED BY DEDALORD IN ANY WAY.
 
 # Things That Will Be Added
 ### Skins:
@@ -43,9 +48,16 @@ Fred Andnrok Fan:13
 
 ## Current Custom skin ideas (either added or not(also includes changes in skins))
 
+///Customs/// Skins that replace more than fred, it adds: Custom voice lines(maybe), Sounds, models and e.t.c
+
 Electro Wizard Fred: Custom walk sounds, Custom Hand model, Head Shake(25% done).
 
 Lumberjack Fred: Custom speed, custom face animation.
+
+//joke skin idea//
+
+Plastic surgery fred: jiggle physics.
+
 
 ### Challenges:
 Super Hopped Jump:1
@@ -99,7 +111,10 @@ Options Menu: Audio, Video, Visuals, Extras and More...
 
 All the Videos posted from Dedalors Website(Trailers, Tutorials and e.t.c)
 
+//After release//
+Free Roam mode: instead Of endleslly running forward, you can freely run on the locations(avalible after finishing the whole location, grimmy also stops chasing you since it is free roam ofc, fred also gets his unused idle animation, avalible only for PC players for now)
 
+Rewrite mode: (a little thing jess wants to add) a challenge where you must complete all of the locations without dying even once. Fred and Grimmy get replaced by BF and Rewrite. (1-4 difficulty adds the nex locations)
 
 ### Priority is set by numbers.
 
@@ -133,7 +148,7 @@ All the Videos posted from Dedalors Website(Trailers, Tutorials and e.t.c)
 
 ### Special Thanks To: 
 
-Mr.jessgem (super dumbass)
+Mr.jessgem (inventor of SuperFuck)
 
 Rage (Original Idea) 
 
