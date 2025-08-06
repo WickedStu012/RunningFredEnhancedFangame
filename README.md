@@ -118,17 +118,17 @@ Rewrite mode: (a little thing jess wants to add) a challenge where you must comp
 
 # RUNNING FRED ENHANCED STAFF
 
- Modelers: Bunny Joestar, Apollo and Jessgem (Rage Also Helped A Bit)
+ Modelers: Bunny Joestar, Snub, Apollo and Jessgem (Rage Also Helped A Bit)
 
- Sprites/2D Graphics Design: Rage and Jessgem
+ Sprites/2D Graphics Design: Rage, Jessgem and Snub
 
  CSharp Programming: Jessgem (Intro Cinematic, Probably more), Kamiyama (misc.), Pes Piston (misc.), Webaccount284 (just got added to the team)
 
  Ideas: Pes Piston, Jessgem
 
- Textures: Rage, Bunny Joestar and Apollo
+ Textures: Rage, Bunny Joestar, Apollo and Snub
 
- Unity Users: Kamiyama, Apollo, Bunny Joestar, Pes Piston, Jessgem 
+ Unity Users: Kamiyama, Apollo, Bunny Joestar, Snub, Pes Piston, Jessgem 
 
  RF Decomps: Kamiyama (Original 1.7.3 Decomp), Apollo (1.8.0 Fresh Decomp)
 
