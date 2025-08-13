@@ -59,7 +59,7 @@ public class CharProps : MonoBehaviour
 
 	public float MaxMegaSprintSpeed = 35f;
 
-	public bool HasJetpack;
+	public bool HasJetpack = true; // Set to true for testing - normally enabled by picking up jetpack item
 
 	public float JetPackFuelLeft = 100f;
 

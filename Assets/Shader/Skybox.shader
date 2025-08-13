@@ -1,6 +1,6 @@
 Shader "RenderFX/Skybox" {
     Properties {
-        [HDR] _Tint ("Tint Color", Color) = (1.0, 1.0, 1.0, 1.0)
+        _Tint ("Tint Color", Color) = (255, 255, 255, 255)
         [NoScaleOffset] _FrontTex ("Front (+Z)", 2D) = "white" {}
         [NoScaleOffset] _BackTex ("Back (-Z)", 2D) = "white" {}
         [NoScaleOffset] _LeftTex ("Left (+X)", 2D) = "white" {}

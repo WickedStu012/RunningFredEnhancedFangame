@@ -20,6 +20,13 @@ public class JetpackFuel : MonoBehaviour
 		{
 			SoundManager.PlaySound(base.transform.position, 19);
 			CharHelper.GetProps().JetPackFuelLeft = CharHelper.GetProps().MaxJetPackFuel;
+			
+			// Reset jetpack meter when fuel is restored
+			if (JetpackMeter.Instance != null)
+			{
+				JetpackMeter.Instance.Reset();
+			}
+			
 			Object.Destroy(base.gameObject);
 			collide = true;
 		}

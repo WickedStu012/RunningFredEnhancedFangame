@@ -58,7 +58,7 @@ public class ActJetpack : IAction
 		}
 		if (JetpackMeter.Instance != null)
 		{
-			JetpackMeter.Instance.StartUse();
+			JetpackMeter.Instance.StartUse(false); // Normal mode
 		}
 		MovementHelper.CalibrateXValue();
 		sndId = SoundManager.PlaySound(SndId.SND_JETPACK);

@@ -208,7 +208,12 @@ public class CharHelper
 		}
 	}
 
-	public static GameObject AttachJetpackIfNecessary()
+	public static void SetJetpackGO(GameObject jetpack)
+	{
+		jetpackGO = jetpack;
+	}
+
+	/*public static GameObject AttachJetpackIfNecessary()
 	{
 		if (GameObject.Find("JetpackItem") != null)
 		{
@@ -225,8 +230,26 @@ public class CharHelper
 		}
 		return null;
 	}
+	*/
+    public static GameObject AttachJetpackIfNecessary()
+    {
+        if (JetpackItem.Instance != null || (PlayerAccount.Instance != null && PlayerAccount.Instance.CurrentLevel.IndexOf("Rooftop-Random") != -1))
+        {
+            Transform transformByName = GetTransformByName(GetPlayer(), "torso1");
+            GameObject gameObject = Resources.Load("Characters/Prefabs/Jetpack/Jetpack_torso1", typeof(GameObject)) as GameObject;
+            GameObject gameObject2 = Object.Instantiate(gameObject) as GameObject;
+            gameObject2.transform.parent = transformByName;
+            gameObject2.name = gameObject.name;
+            gameObject2.transform.position = gameObject.transform.position;
+            gameObject2.transform.rotation = gameObject.transform.rotation;
+            gameObject2.transform.localScale = gameObject.transform.localScale;
+            gameObject2.GetComponent<Renderer>().sharedMaterial = Resources.Load("Characters/Materials/Jetpack", typeof(Material)) as Material;
+            return gameObject2;
+        }
+        return null;
+    }
 
-	public static GameObject AttachWingsIfNecessary()
+    public static GameObject AttachWingsIfNecessary()
 	{
 		if (WingsItem.Instance != null || (PlayerAccount.Instance != null && PlayerAccount.Instance.CurrentLevel.IndexOf("Rooftop-Random") != -1))
 		{

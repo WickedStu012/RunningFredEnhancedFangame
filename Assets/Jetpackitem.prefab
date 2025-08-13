@@ -1,0 +1,497 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2834616146990882137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2834616146990882138}
+  - component: {fileID: 2834616146990882132}
+  - component: {fileID: 2834616146990882139}
+  m_Layer: 12
+  m_Name: WingsBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2834616146990882138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616146990882137}
+  m_LocalRotation: {x: 0.70710665, y: 0, z: 0, w: -0.707107}
+  m_LocalPosition: {x: 0, y: 0.3442069, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2834616148010480458}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2834616146990882132
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616146990882137}
+  m_Mesh: {fileID: 4300000, guid: 35650a105bf8cd44886593deaa14dc7d, type: 2}
+--- !u!23 &2834616146990882139
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616146990882137}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3756b1fe0824e1e4e87ef4d2d1c22688, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2834616147249027118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2834616147249027119}
+  - component: {fileID: 2834616147249027112}
+  m_Layer: 12
+  m_Name: FireBall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2834616147249027119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616147249027118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2834616148896048834}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2834616147249027112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616147249027118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530d4f6f0b71c60732e831fb7db225e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ImageMaterial: {fileID: 2100000, guid: fafe92170013d014395ad36a0c993531, type: 2}
+  Colors:
+  - {r: 1, g: 0.73426574, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 0}
+  Speed: {x: 0, y: 0, z: 0}
+  RndSpeed: {x: 0, y: 0, z: 0}
+  RotationSpeed: 0
+  RndRotationSpeed: 0
+  ScaleSpeed: {x: 1, y: 1, z: 1}
+  RndScaleSpeed: {x: 0, y: 0, z: 0}
+  Scale: {x: 1, y: 1, z: 1}
+  RndScale: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  RndRotation: {x: 0, y: 0, z: 0}
+  Force: {x: 0, y: 0, z: 0}
+  ScaleSpeedForce: {x: 0, y: 0, z: 0}
+  StartArea: {x: 0, y: 0, z: 0}
+  FloorDistance: 0
+  FloorFrictionFactor: 0.5
+  BounceFactor: 0.7
+  BounceNoise: {x: 0, y: 0, z: 0}
+  LifeTime: 0.25
+  RndLifeTime: 0
+  MaxParticlesCount: 1
+  SimulateFloor: 0
+  CastRayPerParticle: 0
+  SimulateInWorldSpace: 1
+  SpeedSimulatedInWorldSpace: 1
+  Billboard: 1
+  JustRotateY: 0
+  Emit: 0
+  OneShot: 1
+  PoolName: BillboardPool
+--- !u!1 &2834616148010480457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2834616148010480458}
+  - component: {fileID: 2834616148010480452}
+  - component: {fileID: 2834616148010480459}
+  m_Layer: 12
+  m_Name: Jetpackitem
+  m_TagString: Pickup
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2834616148010480458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616148010480457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.76, y: -41.372963, z: 5.7084503}
+  m_LocalScale: {x: 1.4498302, y: 1.4498302, z: 1.4498302}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2834616148896048834}
+  - {fileID: 2834616148392104772}
+  - {fileID: 2834616146990882138}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2834616148010480452
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616148010480457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.59869, y: 1.3531532, z: 1.1481857}
+  m_Center: {x: 0.005979061, y: 0.7953234, z: -0.0056991577}
+--- !u!114 &2834616148010480459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616148010480457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d47bc9fbc592068974a1e4b5484aa80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shine: {fileID: 0}
+  jetpackPickup: {fileID: 2834616148392104779}
+--- !u!1 &2834616148392104779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2834616148392104772}
+  - component: {fileID: 2834616148392104774}
+  - component: {fileID: 2834616148392104773}
+  m_Layer: 12
+  m_Name: JetpackPickup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2834616148392104772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616148392104779}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.12, y: 0.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2834616148010480458}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!33 &2834616148392104774
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616148392104779}
+  m_Mesh: {fileID: 4300000, guid: 53f940ab95af149428dc0feea8034ce4, type: 2}
+--- !u!23 &2834616148392104773
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616148392104779}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31678b33018cd0e4facb7be60d3b898f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2834616148542903373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2834616148542903374}
+  - component: {fileID: 2834616148542903375}
+  m_Layer: 12
+  m_Name: ShockWave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2834616148542903374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616148542903373}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2834616148896048834}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2834616148542903375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616148542903373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530d4f6f0b71c60732e831fb7db225e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ImageMaterial: {fileID: 2100000, guid: ef07c845029266e449c54581c9f9db7c, type: 2}
+  Colors:
+  - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 0, g: 0.95686275, b: 0, a: 0.47058824}
+  - {r: 0.75373137, g: 0.9586682, b: 1, a: 0}
+  Speed: {x: 0, y: 2, z: 0}
+  RndSpeed: {x: 0, y: 0, z: 0}
+  RotationSpeed: 0
+  RndRotationSpeed: 0
+  ScaleSpeed: {x: 0.05, y: 0.05, z: 0.05}
+  RndScaleSpeed: {x: 0, y: 0, z: 0}
+  Scale: {x: 2, y: 2, z: 2}
+  RndScale: {x: 0, y: 0, z: 0}
+  Rotation: {x: 90, y: 0, z: 0}
+  RndRotation: {x: 0, y: 0, z: 0}
+  Force: {x: 0, y: 0, z: 0}
+  ScaleSpeedForce: {x: 0, y: 0, z: 0}
+  StartArea: {x: 0, y: 0, z: 0}
+  FloorDistance: 0
+  FloorFrictionFactor: 0.5
+  BounceFactor: 0.7
+  BounceNoise: {x: 0, y: 0, z: 0}
+  LifeTime: 1
+  RndLifeTime: 0
+  MaxParticlesCount: 4
+  SimulateFloor: 0
+  CastRayPerParticle: 0
+  SimulateInWorldSpace: 1
+  SpeedSimulatedInWorldSpace: 1
+  Billboard: 0
+  JustRotateY: 0
+  Emit: 1
+  OneShot: 0
+  PoolName: BillboardPool
+--- !u!1 &2834616148896048833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2834616148896048834}
+  m_Layer: 12
+  m_Name: JetPackItemparticles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2834616148896048834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616148896048833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2834616147249027119}
+  - {fileID: 2834616149013807543}
+  - {fileID: 2834616148542903374}
+  m_Father: {fileID: 2834616148010480458}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2834616149013807542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2834616149013807543}
+  - component: {fileID: 2834616149013807536}
+  m_Layer: 12
+  m_Name: Blast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2834616149013807543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616149013807542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2834616148896048834}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2834616149013807536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834616149013807542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530d4f6f0b71c60732e831fb7db225e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ImageMaterial: {fileID: 2100000, guid: 453389a762710524f9c8dbe11f72f6dc, type: 2}
+  Colors:
+  - {r: 1, g: 0.77622366, b: 0, a: 0.40392157}
+  - {r: 1, g: 0, b: 0, a: 0}
+  Speed: {x: 0, y: 0, z: 0}
+  RndSpeed: {x: 0, y: 0, z: 0}
+  RotationSpeed: 0
+  RndRotationSpeed: 0
+  ScaleSpeed: {x: 1, y: 1, z: 1}
+  RndScaleSpeed: {x: 0, y: 0, z: 0}
+  Scale: {x: 1, y: 1, z: 1}
+  RndScale: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  RndRotation: {x: 0, y: 0, z: 0}
+  Force: {x: 0, y: 0, z: 0}
+  ScaleSpeedForce: {x: 0, y: 0, z: 0}
+  StartArea: {x: 0, y: 0, z: 0}
+  FloorDistance: 0
+  FloorFrictionFactor: 0.5
+  BounceFactor: 0.7
+  BounceNoise: {x: 0, y: 0, z: 0}
+  LifeTime: 0.5
+  RndLifeTime: 0
+  MaxParticlesCount: 1
+  SimulateFloor: 0
+  CastRayPerParticle: 0
+  SimulateInWorldSpace: 1
+  SpeedSimulatedInWorldSpace: 1
+  Billboard: 1
+  JustRotateY: 0
+  Emit: 0
+  OneShot: 1
+  PoolName: BillboardPool

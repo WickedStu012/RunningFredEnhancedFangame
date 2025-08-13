@@ -32,6 +32,8 @@ public class CharStateMachine : MonoBehaviour
 
 	private OnWingsTaken onWingsTaken = new OnWingsTaken();
 
+	private OnJetpackTaken onJetpackTaken = new OnJetpackTaken();
+
 	private Transform playerTransform;
 
 	public bool IsGrounded;
@@ -2662,6 +2664,8 @@ public class CharStateMachine : MonoBehaviour
 		base.transform.position = Vector3.zero;
 		jetpack = CharHelper.AttachJetpack();
 		CharHelper.GetProps().HasJetpack = true;
+		// Ensure the static jetpackGO is set for CharHelper methods
+		CharHelper.SetJetpackGO(jetpack);
 		if (string.Compare(DedalordLoadLevel.GetLevel(), "TutorialLoader") != 0)
 		{
 			if (jetpackMeterGO == null)
@@ -2690,8 +2694,11 @@ public class CharStateMachine : MonoBehaviour
 
 	public void ShowJetpack()
 	{
+		GameEventDispatcher.Dispatch(this, onJetpackTaken);
 		if (jetpack != null)
 		{
+			jetpack.SetActive(true);
+			jetpack.GetComponent<Jetpack>().enabled = true;
 			CharHelper.ShowJetpack();
 			CharHelper.GetProps().HasJetpack = true;
 			if (jetpackMeterGO == null)
@@ -2708,6 +2715,11 @@ public class CharStateMachine : MonoBehaviour
 				Debug.Log("Cannot find the jetpack meter");
 			}
 		}
+		else
+		{
+			Debug.Log("Jetpack is not instanced. Is there at least one JetpackItem in the level?");
+		}
+		RemoveWings();
 	}
 
 	public void onJetpackExplode()
@@ -2717,12 +2729,16 @@ public class CharStateMachine : MonoBehaviour
 
 	private void loadAndAttachJetpackIfNecessary()
 	{
+		Vector3 position = base.transform.position;
 		base.transform.position = Vector3.zero;
 		jetpack = CharHelper.AttachJetpackIfNecessary();
 		if (jetpack != null)
 		{
 			jetpack.SetActive(false);
+			// Ensure the static jetpackGO is set for CharHelper methods
+			CharHelper.SetJetpackGO(jetpack);
 		}
+		base.transform.position = position;
 	}
 
 	private void loadAndAttachWingsIfNecessary()
@@ -2774,6 +2790,21 @@ public class CharStateMachine : MonoBehaviour
 		RemoveJetpack();
 	}
 
+	public void RemoveWings()
+	{
+		ResetLastYPos();
+		GameEventDispatcher.Dispatch(this, onWingsDropped);
+		if (wings != null)
+		{
+			wings.SetActive(false);
+		}
+		CharHelper.GetProps().HasWings = false;
+		if (GetCurrentState() == ActionCode.FLY)
+		{
+			SwitchTo(ActionCode.DRAMATIC_JUMP);
+		}
+	}
+
 	public void RemoveWings(bool showParticles, bool removeFromProps)
 	{
 		ResetLastYPos();
@@ -2804,6 +2835,7 @@ public class CharStateMachine : MonoBehaviour
 	public void LoadAndAttachExtras()
 	{
 		loadAndAttachWingsIfNecessary();
+		loadAndAttachJetpackIfNecessary();
 		if (base.enabled)
 		{
 			CharHelper.PlaceCharacterOnStart();

@@ -31,6 +31,8 @@ public class ActJetpackSprint : IAction
 
 	private float dt;
 
+	private float accumTimeJetPackRot;
+
 	public ActJetpackSprint(GameObject player)
 		: base(player)
 	{
@@ -54,17 +56,39 @@ public class ActJetpackSprint : IAction
 		CharAnimManager.SuperSprint();
 		sm.ResetLastYPos();
 		accumTimeSprintLength = 0f;
+		accumTimeJetPackRot = 0f;
 		sm.ResetLastYPos();
 		CharAnimManager.JetpackSprint();
-		jetpack = sm.GetJetpack().GetComponent<Jetpack>();
-		jetpack.EnableTurbo();
+		GameObject jetpackGO = sm.GetJetpack();
+		if (jetpackGO != null)
+		{
+			jetpack = jetpackGO.GetComponent<Jetpack>();
+			jetpack.EnableTurbo();
+		}
+		else
+		{
+			Debug.LogError("Cannot find the jetpack");
+		}
+		// Add jetpack meter integration
+		if (JetpackMeter.Instance != null)
+		{
+			JetpackMeter.Instance.StartUse(true); // Enable sprint mode
+		}
 		sndId = SoundManager.PlaySound(SndId.SND_JETPACK);
 		FovAnimator.FovIn();
 	}
 
 	public override void GetOut()
 	{
-		jetpack.DisableTurbo();
+		if (jetpack != null)
+		{
+			jetpack.DisableTurbo();
+		}
+		// Add jetpack meter integration
+		if (JetpackMeter.Instance != null)
+		{
+			JetpackMeter.Instance.StopUse();
+		}
 		SoundManager.StopSound(sndId);
 		FovAnimator.FovOut();
 	}
@@ -84,13 +108,27 @@ public class ActJetpackSprint : IAction
 			sm.SwitchTo(ActionCode.RUNNING);
 		}
 		MovementHelper.CheckMoveActions(sm, ref accumTime, ref targetRotation);
+		// Add up/down movement handling for jetpack sprint
+		accumTimeJetPackRot += dt;
+		MovementHelper.CheckMoveActionsUpDownInverted(sm, ref accumTimeJetPackRot, ref targetRotation);
 		clampSpeed();
 		steerCharacter();
 		moveCharacter();
+		
+		// Only stop when fuel is actually depleted, not when overheating
+		// The jetpack meter handles overheating separately
 		if (props.JetPackFuelLeft <= 0f)
 		{
-			jetpack.DisableTurbo();
-			jetpack.EnableFuelOut();
+			if (jetpack != null)
+			{
+				jetpack.DisableTurbo();
+				jetpack.EnableFuelOut();
+			}
+			// Reset jetpack meter when sprint ends due to fuel depletion
+			if (JetpackMeter.Instance != null)
+			{
+				JetpackMeter.Instance.StopUse();
+			}
 			sm.SwitchTo(ActionCode.DRAMATIC_JUMP);
 		}
 	}
@@ -107,7 +145,8 @@ public class ActJetpackSprint : IAction
 		}
 		else
 		{
-			incAccelK = props.SuperSprintAccelK;
+			// Reduce up/down movement acceleration sensitivity
+			incAccelK = props.SuperSprintAccelK * (sm.SteerDirectionUpDown * -0.5f + 1f);
 		}
 	}
 
@@ -116,22 +155,50 @@ public class ActJetpackSprint : IAction
 		accumTime += dt;
 		if (accumTime < 1f)
 		{
-			playerT.localRotation = Quaternion.Slerp(playerT.localRotation, targetRotation, accumTime);
+			// Reduce rotation sensitivity for smoother movement
+			Quaternion targetRot = targetRotation;
+			
+			// Limit the X rotation (up/down) to prevent excessive tilting
+			Vector3 eulerAngles = targetRot.eulerAngles;
+			if (eulerAngles.x > 180f)
+			{
+				eulerAngles.x -= 360f;
+			}
+			eulerAngles.x = Mathf.Clamp(eulerAngles.x, -30f, 30f);
+			targetRot = Quaternion.Euler(eulerAngles);
+			
+			playerT.localRotation = Quaternion.Slerp(playerT.localRotation, targetRot, accumTime * 0.5f);
 		}
 		else
 		{
-			playerT.localRotation = targetRotation;
+			// Apply the same rotation limits
+			Vector3 eulerAngles = targetRotation.eulerAngles;
+			if (eulerAngles.x > 180f)
+			{
+				eulerAngles.x -= 360f;
+			}
+			eulerAngles.x = Mathf.Clamp(eulerAngles.x, -30f, 30f);
+			playerT.localRotation = Quaternion.Euler(eulerAngles);
 		}
 	}
 
 	private void moveCharacter()
 	{
-		sm.MoveDirection = new Vector3(sm.SteerDirection, 0f, 0f);
+		if (playerT.position.y >= 45f)
+		{
+			sm.MoveDirection = new Vector3(sm.SteerDirection, 0f, 0f);
+		}
+		else
+		{
+			sm.MoveDirection = new Vector3(sm.SteerDirection, sm.MoveDirection.y, 0f);
+		}
 		sm.AccumAccel = Mathf.Clamp(sm.AccumAccel * incAccelK + sm.FloorNormalZ * 0.01f, 0.55f, 1.6f);
 		Vector3 vector = new Vector3(sm.SteerDirection, 0f, sm.AccumAccel);
 		vector.Normalize();
 		vector *= sm.AccumAccel;
-		sm.MoveDirection = new Vector3(vector.x, sm.MoveDirection.y + Physics.gravity.y * -0.1f * dt, vector.z);
+		// Reduce up/down movement sensitivity to prevent excessive vertical movement
+		float gravityK = -0.05f * sm.SteerDirectionUpDown + -0.1f;
+		sm.MoveDirection = new Vector3(vector.x, sm.MoveDirection.y + Physics.gravity.y * gravityK * dt, vector.z);
 		cc.Move(sm.MoveDirection * dt * props.RunningAcceleration);
 	}
 }
