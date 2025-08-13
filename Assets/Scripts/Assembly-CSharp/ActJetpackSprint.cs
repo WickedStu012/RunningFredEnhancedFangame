@@ -96,17 +96,18 @@ public class ActJetpackSprint : IAction
 	public override void Update(float dt)
 	{
 		this.dt = dt;
-		props.JetPackFuelLeft -= props.JetpackConsumptionSprint * dt;
+		// props.JetPackFuelLeft -= props.JetpackConsumptionSprint * dt; // Disabled fuel consumption
 		accumTimeSprintLength += dt;
 		if (accumTimeSprintLength > props.JetpackSuperSprintTime - 0.5f)
 		{
 			FovAnimator.FovOut();
 		}
-		if (accumTimeSprintLength > props.SuperSprintTime)
-		{
-			CharAnimManager.SuperSprintToRun();
-			sm.SwitchTo(ActionCode.RUNNING);
-		}
+		// Disabled sprint time limit - allow infinite jetpack sprint
+		// if (accumTimeSprintLength > props.SuperSprintTime)
+		// {
+		// 	CharAnimManager.SuperSprintToRun();
+		// 	sm.SwitchTo(ActionCode.RUNNING);
+		// }
 		MovementHelper.CheckMoveActions(sm, ref accumTime, ref targetRotation);
 		// Add up/down movement handling for jetpack sprint
 		accumTimeJetPackRot += dt;
@@ -145,8 +146,8 @@ public class ActJetpackSprint : IAction
 		}
 		else
 		{
-			// Reduce up/down movement acceleration sensitivity
-			incAccelK = props.SuperSprintAccelK * (sm.SteerDirectionUpDown * -0.5f + 1f);
+			// Significantly reduce up/down movement acceleration sensitivity for smoother control
+			incAccelK = props.SuperSprintAccelK * (sm.SteerDirectionUpDown * -0.1f + 1f);
 		}
 	}
 
@@ -196,9 +197,9 @@ public class ActJetpackSprint : IAction
 		Vector3 vector = new Vector3(sm.SteerDirection, 0f, sm.AccumAccel);
 		vector.Normalize();
 		vector *= sm.AccumAccel;
-		// Reduce up/down movement sensitivity to prevent excessive vertical movement
-		float gravityK = -0.05f * sm.SteerDirectionUpDown + -0.1f;
-		sm.MoveDirection = new Vector3(vector.x, sm.MoveDirection.y + Physics.gravity.y * gravityK * dt, vector.z);
-		cc.Move(sm.MoveDirection * dt * props.RunningAcceleration);
+		// No vertical movement in turbo mode - maintain current height
+		sm.MoveDirection = new Vector3(vector.x, 0f, vector.z);
+		// Much higher acceleration for turbo mode to make it feel significantly faster
+		cc.Move(sm.MoveDirection * dt * (props.RunningAcceleration * 5f));
 	}
 }

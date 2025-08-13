@@ -11,9 +11,9 @@ public class CharProps : MonoBehaviour
 
 	public float DoubleJumpTime = 0.1f;
 
-	public float SuperSprintTime = 2f;
+	public float SuperSprintTime = 30f; // Increased from 2f to allow longer sprint time
 
-	public float JetpackSuperSprintTime = 10f;
+	public float JetpackSuperSprintTime = 60f; // Increased from 10f to allow much longer jetpack sprint time
 
 	public float MegaSprintTime = 3f;
 
@@ -65,9 +65,9 @@ public class CharProps : MonoBehaviour
 
 	public float MaxJetPackFuel = 100f;
 
-	public float JetpackConsumption = 10f;
+	public float JetpackConsumption = 0f; // Disabled fuel consumption for infinite jetpack usage
 
-	public float JetpackConsumptionSprint = 20f;
+	public float JetpackConsumptionSprint = 0f; // Disabled sprint fuel consumption for infinite jetpack sprint usage
 
 	public bool JetpackOverheating;
 

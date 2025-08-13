@@ -77,7 +77,7 @@ public class ActJetpack : IAction
 	public override void Update(float dt)
 	{
 		this.dt = dt;
-		props.JetPackFuelLeft -= props.JetpackConsumption * dt;
+		// props.JetPackFuelLeft -= props.JetpackConsumption * dt; // Disabled fuel consumption
 		MovementHelper.CheckMoveActions(sm, ref accumTime, ref targetRotation);
 		accumTimeJetPackRot += dt;
 		MovementHelper.CheckMoveActionsUpDownInverted(sm, ref accumTimeJetPackRot, ref targetRotation);

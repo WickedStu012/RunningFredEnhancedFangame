@@ -29,6 +29,7 @@ public class SoundManager : MonoBehaviour
 	private static SoundProp _currentMusicSndProp = null;
 
 	private static bool playingIntro = false;
+	private static bool musicPausedForCinematic = false;
 
 	public static bool initialized = false;
 
@@ -148,7 +149,7 @@ public class SoundManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (playingIntro && !_musicIntro.isPlaying)
+		if (playingIntro && !_musicIntro.isPlaying && !musicPausedForCinematic)
 		{
 			playingIntro = false;
 			_music.Play();
@@ -192,14 +193,19 @@ public class SoundManager : MonoBehaviour
 		{
 			_music.Pause();
 			_musicIntro.Pause();
+			musicPausedForCinematic = true;
 		}
-		else if (_musicIntro.time > 0f)
+		else 
 		{
-			_musicIntro.Play();
-		}
-		else if (_music.time > 0f)
-		{
-			_music.Play();
+			musicPausedForCinematic = false;
+			if (_musicIntro.time > 0f)
+			{
+				_musicIntro.Play();
+			}
+			else if (_music.time > 0f)
+			{
+				_music.Play();
+			}
 		}
 	}
 
@@ -378,6 +384,7 @@ public class SoundManager : MonoBehaviour
 	public static void StopMusic()
 	{
 		playingIntro = false;
+		musicPausedForCinematic = false;
 		_music.Stop();
 		_musicIntro.Stop();
 	}
@@ -646,6 +653,8 @@ public class SoundManager : MonoBehaviour
 			}
 		}
 		_asFades.Clear();
+		playingIntro = false;
+		musicPausedForCinematic = false;
 	}
 
 	public static void FadeOutAll(float inSecs, SoundManagerCallback cbfn)
