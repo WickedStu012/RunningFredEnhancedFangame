@@ -50,7 +50,25 @@ public class CharBloodSplat : MonoBehaviour
 		{
 			goreTex = Resources.Load(string.Format("Gore/Textures/{0}-{1}", matName, "CharacterDamage"), typeof(Texture2D)) as Texture2D;
 		}
+		Debug.Log(string.Format("Gore texture loaded: {0}x{1}", goreTex.width, goreTex.height));
+		// Pass the target texture dimensions (1024x1024) so FredCharacterDamage knows what to scale TO
+		// The coordinates in CharacterDamage.txt are for 256x256, but we want them scaled to 1024x1024
 		goreData = new FredCharacterDamage(goreTex.width, goreTex.height);
+		
+		// Debug: Show what parts are available in the dictionary
+		Debug.Log("Available gore parts: " + string.Join(", ", goreData.goreTexData.Keys));
+	}
+
+	private void OnDesroy()
+	{
+		if (newCharMaterial != null)
+		{
+			Object.Destroy(newCharMaterial);
+		}
+		if (mainTex != null)
+		{
+			Object.Destroy(mainTex);
+		}
 	}
 
 	public void SetCharacterMaterialToHead(GameObject head)
@@ -217,7 +235,15 @@ public class CharBloodSplat : MonoBehaviour
 
 	private void texSetPixels(string part)
 	{
+		if (!goreData.goreTexData.ContainsKey(part))
+		{
+			Debug.LogError(string.Format("Gore part '{0}' not found! Available parts: {1}", 
+				part, string.Join(", ", goreData.goreTexData.Keys)));
+			return;
+		}
+		
 		int[] array = goreData.goreTexData[part];
+		Debug.Log(string.Format("Applying gore to part {0} at coordinates: x={1}, y={2}, width={3}, height={4}", part, array[0], array[1], array[2], array[3]));
 		mainTex.SetPixels(array[0], array[1], array[2], array[3], goreTex.GetPixels(array[0], array[1], array[2], array[3]));
 	}
 
@@ -226,17 +252,30 @@ public class CharBloodSplat : MonoBehaviour
 		Material material = Resources.Load(string.Format("Characters/Materials/{0}", characterMaterial.name), typeof(Material)) as Material;
 		Texture2D texture2D = material.mainTexture as Texture2D;
 		Texture2D texture2D2 = Resources.Load(string.Format("Gore/Textures/{0}", goreTexSrc), typeof(Texture2D)) as Texture2D;
-		int width = texture2D2.width;
-		int height = texture2D2.height;
+		
+		// Use the character texture dimensions instead of gore texture dimensions
+		int width = texture2D.width;
+		int height = texture2D.height;
 		Texture2D texture2D3 = new Texture2D(width, height, TextureFormat.ARGB32, false);
-		int width2 = texture2D.width;
-		int height2 = texture2D.height;
+		
+		// Scale the gore texture to match the character texture size
+		float scaleX = (float)width / (float)texture2D2.width;
+		float scaleY = (float)height / (float)texture2D2.height;
+		
 		for (int i = 0; i < width; i++)
 		{
 			for (int j = 0; j < height; j++)
 			{
-				Color pixel = texture2D2.GetPixel(i, j);
-				Color pixel2 = texture2D.GetPixel(i + width2, j + height2);
+				// Sample from the gore texture with proper scaling
+				int goreX = (int)(i / scaleX);
+				int goreY = (int)(j / scaleY);
+				
+				// Clamp to gore texture bounds
+				goreX = Mathf.Clamp(goreX, 0, texture2D2.width - 1);
+				goreY = Mathf.Clamp(goreY, 0, texture2D2.height - 1);
+				
+				Color pixel = texture2D2.GetPixel(goreX, goreY);
+				Color pixel2 = texture2D.GetPixel(i, j);
 				Color color = pixel * pixel.a + pixel2 * (1f - pixel.a);
 				color.a = 1f;
 				texture2D3.SetPixel(i, j, color);

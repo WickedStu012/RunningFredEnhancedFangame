@@ -29,7 +29,7 @@ public class SoundManager : MonoBehaviour
 	private static SoundProp _currentMusicSndProp = null;
 
 	private static bool playingIntro = false;
-	private static bool musicPausedForCinematic = false;
+	private static bool introFinishedNaturally = false;
 
 	public static bool initialized = false;
 
@@ -149,10 +149,15 @@ public class SoundManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (playingIntro && !_musicIntro.isPlaying && !musicPausedForCinematic)
+		if (playingIntro && !_musicIntro.isPlaying)
 		{
-			playingIntro = false;
-			_music.Play();
+			// Check if the intro actually finished naturally (not just paused)
+			if (_musicIntro.clip != null && _musicIntro.time >= _musicIntro.clip.length - 0.1f)
+			{
+				playingIntro = false;
+				introFinishedNaturally = true;
+				_music.Play();
+			}
 		}
 		if (_soundList == null)
 		{
@@ -193,19 +198,14 @@ public class SoundManager : MonoBehaviour
 		{
 			_music.Pause();
 			_musicIntro.Pause();
-			musicPausedForCinematic = true;
 		}
-		else 
+		else if (_musicIntro.time > 0f)
 		{
-			musicPausedForCinematic = false;
-			if (_musicIntro.time > 0f)
-			{
-				_musicIntro.Play();
-			}
-			else if (_music.time > 0f)
-			{
-				_music.Play();
-			}
+			_musicIntro.Play();
+		}
+		else if (_music.time > 0f)
+		{
+			_music.Play();
 		}
 	}
 
@@ -315,6 +315,7 @@ public class SoundManager : MonoBehaviour
 		}
 		SoundProp soundProp = GetSoundProp(introId);
 		playingIntro = true;
+		introFinishedNaturally = false;
 		if (soundProp != null)
 		{
 			_currentMusicSndProp = soundProp;
@@ -384,7 +385,7 @@ public class SoundManager : MonoBehaviour
 	public static void StopMusic()
 	{
 		playingIntro = false;
-		musicPausedForCinematic = false;
+		introFinishedNaturally = false;
 		_music.Stop();
 		_musicIntro.Stop();
 	}
@@ -654,7 +655,7 @@ public class SoundManager : MonoBehaviour
 		}
 		_asFades.Clear();
 		playingIntro = false;
-		musicPausedForCinematic = false;
+		introFinishedNaturally = false;
 	}
 
 	public static void FadeOutAll(float inSecs, SoundManagerCallback cbfn)

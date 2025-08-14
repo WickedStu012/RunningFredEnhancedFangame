@@ -112,12 +112,28 @@ public class Reaper : MonoBehaviour
 					playerRigidBody = transformByName.GetComponent<Rigidbody>();
 				}
 			}
-			base.transform.position = player.transform.position - Vector3.forward * ReaperManager.Instance.VisibleDistance;
+			if (ReaperManager.Instance != null && player != null)
+			{
+				base.transform.position = player.transform.position - Vector3.forward * ReaperManager.Instance.VisibleDistance;
+			}
+			base.gameObject.SetActive(true);
+			currentState = States.Following;
+			Animation anim = base.GetComponent<Animation>();
+			if (anim != null && anim["Move"] != null)
+			{
+				anim["Move"].wrapMode = WrapMode.Loop;
+				anim.Play("Move");
+			}
+			else
+			{
+				Debug.LogWarning("Reaper: Animation component or Move clip not found");
+			}
 		}
-		base.gameObject.SetActive(true);
-		currentState = States.Following;
-		base.GetComponent<Animation>()["Move"].wrapMode = WrapMode.Loop;
-		base.GetComponent<Animation>().Play("Move");
+		else
+		{
+			// Player is null, don't activate the reaper
+			Debug.LogWarning("Reaper: Player is null, cannot activate reaper");
+		}
 	}
 
 	private void OnReaperFar(object sender, GameEvent evt)
@@ -132,6 +148,12 @@ public class Reaper : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		// Re-check player reference in case it became null
+		if (player == null)
+		{
+			player = CharHelper.GetPlayer();
+		}
+		
 		if (player != null)
 		{
 			switch (currentState)
@@ -154,50 +176,89 @@ public class Reaper : MonoBehaviour
 
 	private void Following(float deltaTime)
 	{
+		if (player == null) return;
+		
 		base.transform.LookAt(player.transform);
 		base.transform.position += base.transform.forward * Speed * deltaTime;
 		Vector3 vector = player.transform.position - base.transform.position;
-		float num = ReaperManager.Instance.VisibleDistance - SitheDistance;
+		float num = 0f;
+		if (ReaperManager.Instance != null)
+		{
+			num = ReaperManager.Instance.VisibleDistance - SitheDistance;
+		}
 		num *= num;
-		SoundManager.BackgroundVolume = backgroundVolume - (vector.sqrMagnitude - SitheDistance * SitheDistance) / num;
-		SoundManager.MusicVolume = musicVolume * ((vector.sqrMagnitude - SitheDistance * SitheDistance) / num);
+		if (num > 0f)
+		{
+			SoundManager.BackgroundVolume = backgroundVolume - (vector.sqrMagnitude - SitheDistance * SitheDistance) / num;
+			SoundManager.MusicVolume = musicVolume * ((vector.sqrMagnitude - SitheDistance * SitheDistance) / num);
+		}
 		SoundManager.BackgroundVolume = Mathf.Clamp(SoundManager.BackgroundVolume, 0f, backgroundVolume);
 		SoundManager.MusicVolume = Mathf.Clamp(SoundManager.MusicVolume, 0f, musicVolume);
-		if (vector.sqrMagnitude <= SitheDistance * SitheDistance && stateMachine.GetCurrentState() != ActionCode.SUPER_SPRINT && stateMachine.GetCurrentState() != ActionCode.AFTER_BURNER_JUMP)
+		if (vector.sqrMagnitude <= SitheDistance * SitheDistance && stateMachine != null && stateMachine.GetCurrentState() != ActionCode.SUPER_SPRINT && stateMachine.GetCurrentState() != ActionCode.AFTER_BURNER_JUMP)
 		{
 			base.transform.position = player.transform.position - base.transform.forward * SitheDistance;
 			currentState = States.Slicing;
-			base.GetComponent<Animation>()["Slice1"].wrapMode = WrapMode.Once;
-			base.GetComponent<Animation>().Play("Slice1");
+			Animation anim = base.GetComponent<Animation>();
+			if (anim != null && anim["Slice1"] != null)
+			{
+				anim["Slice1"].wrapMode = WrapMode.Once;
+				anim.Play("Slice1");
+			}
+			else
+			{
+				Debug.LogWarning("Reaper: Animation component or Slice1 clip not found");
+			}
 			sliceTimer = Time.time;
 		}
 	}
 
 	private void Slicing(float deltaTime)
 	{
+		if (player == null) return;
+		
 		base.transform.LookAt(player.transform);
 		base.transform.position += base.transform.forward * Speed * deltaTime;
 		if ((player.transform.position - base.transform.position).sqrMagnitude > SitheDistance * SitheDistance)
 		{
 			currentState = States.Following;
-			base.GetComponent<Animation>()["Move"].wrapMode = WrapMode.Loop;
-			base.GetComponent<Animation>().Play("Move");
+			Animation anim = base.GetComponent<Animation>();
+			if (anim != null && anim["Move"] != null)
+			{
+				anim["Move"].wrapMode = WrapMode.Loop;
+				anim.Play("Move");
+			}
+			else
+			{
+				Debug.LogWarning("Reaper: Animation component or Move clip not found in Slicing");
+			}
 		}
-		else if (panicPower.Count > 0 && !panicUsed)
+		else if (panicPower != null && panicPower.Count > 0 && !panicUsed)
 		{
 			SoundManager.PlaySound(43);
-			Store.Instance.ConsumeItem(panicPower.Id);
-			stateMachine.SwitchTo(ActionCode.SUPER_SPRINT);
+			if (Store.Instance != null)
+			{
+				Store.Instance.ConsumeItem(panicPower.Id);
+			}
+			if (stateMachine != null)
+			{
+				stateMachine.SwitchTo(ActionCode.SUPER_SPRINT);
+			}
 			currentState = States.Following;
 			panicUsed = true;
 		}
 		else if (Time.time - sliceTimer >= SliceTimer)
 		{
 			SoundManager.PlaySound(43);
-			stateMachine.SwitchTo(ActionCode.RAGDOLL);
+			if (stateMachine != null)
+			{
+				stateMachine.SwitchTo(ActionCode.RAGDOLL);
+			}
 			base.transform.LookAt(base.transform.position + Vector3.forward);
 			currentState = States.FaceCamera;
-			playerRigidBody.velocity = Vector3.forward * 100f;
+			if (playerRigidBody != null)
+			{
+				playerRigidBody.velocity = Vector3.forward * 100f;
+			}
 		}
 		else
 		{
@@ -207,10 +268,18 @@ public class Reaper : MonoBehaviour
 
 	private void FaceCamera(float deltaTime)
 	{
-		if (!base.GetComponent<Animation>().isPlaying)
+		Animation anim = base.GetComponent<Animation>();
+		if (anim != null && !anim.isPlaying)
 		{
-			base.GetComponent<Animation>()["Move"].wrapMode = WrapMode.Loop;
-			base.GetComponent<Animation>().Play("Move");
+			if (anim["Move"] != null)
+			{
+				anim["Move"].wrapMode = WrapMode.Loop;
+				anim.Play("Move");
+			}
+			else
+			{
+				Debug.LogWarning("Reaper: Move animation clip not found in FaceCamera");
+			}
 		}
 		if (currentAngle < 180f)
 		{
@@ -226,10 +295,18 @@ public class Reaper : MonoBehaviour
 
 	private void GoAway(float deltaTime)
 	{
-		if (!base.GetComponent<Animation>().isPlaying)
+		Animation anim = base.GetComponent<Animation>();
+		if (anim != null && !anim.isPlaying)
 		{
-			base.GetComponent<Animation>()["Move"].wrapMode = WrapMode.Loop;
-			base.GetComponent<Animation>().Play("Move");
+			if (anim["Move"] != null)
+			{
+				anim["Move"].wrapMode = WrapMode.Loop;
+				anim.Play("Move");
+			}
+			else
+			{
+				Debug.LogWarning("Reaper: Move animation clip not found in GoAway");
+			}
 		}
 		goAwaySpeed += GoAwayAccel * deltaTime;
 		base.transform.position += base.transform.forward * goAwaySpeed * deltaTime;
