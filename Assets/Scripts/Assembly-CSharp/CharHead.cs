@@ -33,6 +33,13 @@ public class CharHead : MonoBehaviour
 
 	private GameObject player;
 
+	// New variables for animation cycling
+	private int currentFearAnimationIndex = 0;
+	private int fearAnimationsPlayed = 0;
+	private bool isTerrorCycle = false;
+	private int terrorAnimationsPlayed = 0;
+	private State previousState = State.Fear;
+
 	private void Awake()
 	{
 		state = State.Fear;
@@ -78,13 +85,13 @@ public class CharHead : MonoBehaviour
 		{
 			if (Time.time - timer >= Timer)
 			{
-				string[] array = null;
-				array = ((state != State.Fear) ? TerrorAnimations : FearAnimations);
-				if (base.GetComponent<Animation>() != null && array != null && array.Length > 0)
+				if (state == State.Fear)
 				{
-					int num = Random.Range(0, array.Length);
-					base.GetComponent<Animation>().wrapMode = WrapMode.Loop;
-					base.GetComponent<Animation>().CrossFade(array[num]);
+					PlayFearAnimation();
+				}
+				else if (state == State.Terror)
+				{
+					PlayTerrorAnimation();
 				}
 				timer = Time.time;
 			}
@@ -94,51 +101,140 @@ public class CharHead : MonoBehaviour
 			if (state == State.Pain)
 			{
 				state = State.Fear;
+				// Don't reset cycle, just continue from where we left off
+				// Reset timer to trigger immediate animation
+				timer = Time.time - Timer;
 			}
 			else if (state == State.Dying)
 			{
-				state = State.Dead;
-				base.GetComponent<Animation>().Play(DeadAnimation);
-				base.GetComponent<Animation>().wrapMode = WrapMode.ClampForever;
+				// After death animation finishes, return to previous state before death
+				state = previousState;
+				if (state == State.Terror)
+				{
+					// If returning to terror, reset terror cycle
+					terrorAnimationsPlayed = 0;
+					isTerrorCycle = true;
+				}
+				else
+				{
+					// If returning to fear, reset fear cycle
+					ResetAnimationCycle();
+				}
+				timer = Time.time - Timer; // Trigger immediate animation
 			}
 		}
+	}
+
+	private void PlayFearAnimation()
+	{
+		if (base.GetComponent<Animation>() != null && FearAnimations != null && FearAnimations.Length > 0)
+		{
+			// Play fear animation in sequence
+			string animationName = FearAnimations[currentFearAnimationIndex];
+			base.GetComponent<Animation>().wrapMode = WrapMode.Loop;
+			base.GetComponent<Animation>().CrossFade(animationName);
+			
+			// Move to next fear animation
+			currentFearAnimationIndex = (currentFearAnimationIndex + 1) % FearAnimations.Length;
+			fearAnimationsPlayed++;
+			
+			// After completing all fear animations, switch to terror
+			if (fearAnimationsPlayed >= FearAnimations.Length)
+			{
+				state = State.Terror;
+				fearAnimationsPlayed = 0;
+				terrorAnimationsPlayed = 0;
+				isTerrorCycle = true;
+				// Reset timer to trigger immediate terror animation
+				timer = Time.time - Timer;
+			}
+		}
+	}
+
+	private void PlayTerrorAnimation()
+	{
+		if (base.GetComponent<Animation>() != null && TerrorAnimations != null && TerrorAnimations.Length > 0)
+		{
+			// Play terror animation in sequence
+			string animationName = TerrorAnimations[terrorAnimationsPlayed];
+			base.GetComponent<Animation>().wrapMode = WrapMode.Loop;
+			base.GetComponent<Animation>().CrossFade(animationName);
+			
+			terrorAnimationsPlayed++;
+			
+			// After completing all terror animations, switch back to fear
+			if (terrorAnimationsPlayed >= TerrorAnimations.Length)
+			{
+				state = State.Fear;
+				fearAnimationsPlayed = 0;
+				terrorAnimationsPlayed = 0;
+				isTerrorCycle = false;
+				currentFearAnimationIndex = 0;
+				// Reset timer to trigger immediate fear animation
+				timer = Time.time - Timer;
+			}
+		}
+	}
+
+	private void ResetAnimationCycle()
+	{
+		currentFearAnimationIndex = 0;
+		fearAnimationsPlayed = 0;
+		terrorAnimationsPlayed = 0;
+		isTerrorCycle = false;
 	}
 
 	private void OnChangeState(object sender, GameEvent e)
 	{
 		CharChangeState charChangeState = (CharChangeState)e;
-		if (charChangeState.CurrentState.GetState() == ActionCode.MEGA_SPRINT || charChangeState.CurrentState.GetState() == ActionCode.DRAMATIC_JUMP || charChangeState.CurrentState.GetState() == ActionCode.BURNT)
+		ActionCode currentActionCode = charChangeState.CurrentState.GetState();
+		
+		// Only allow OnChangeState to interrupt the cycle for high-priority events
+		// All other state changes should be ignored to preserve the animation cycle
+		
+		if (currentActionCode == ActionCode.MEGA_SPRINT || currentActionCode == ActionCode.DRAMATIC_JUMP || currentActionCode == ActionCode.BURNT)
 		{
+			previousState = state;
 			state = State.Terror;
+			ResetAnimationCycle();
 		}
-		else if (charChangeState.CurrentState.GetState() == ActionCode.EXPLODE || charChangeState.CurrentState.GetState() == ActionCode.EXPLODE_ON_WALL || charChangeState.CurrentState.GetState() == ActionCode.FROZEN || charChangeState.CurrentState.GetState() == ActionCode.RAGDOLL || charChangeState.CurrentState.GetState() == ActionCode.DIE_IMPCT)
+		else if (currentActionCode == ActionCode.EXPLODE || currentActionCode == ActionCode.EXPLODE_ON_WALL || currentActionCode == ActionCode.FROZEN || currentActionCode == ActionCode.RAGDOLL || currentActionCode == ActionCode.DIE_IMPCT)
 		{
+			previousState = state;
 			state = State.Dying;
 			base.GetComponent<Animation>().Play(DyingAnimation);
 			base.GetComponent<Animation>().wrapMode = WrapMode.Once;
 		}
-		else
+		else if (currentActionCode == ActionCode.BOUNCE || currentActionCode == ActionCode.BURNT || currentActionCode == ActionCode.CARLTROP || currentActionCode == ActionCode.DIE_IMPCT || currentActionCode == ActionCode.EXPLODE || currentActionCode == ActionCode.EXPLODE_ON_WALL || currentActionCode == ActionCode.FROZEN || currentActionCode == ActionCode.RAGDOLL || currentActionCode == ActionCode.STAGGER)
 		{
-			if (state == State.Pain)
+			previousState = state;
+			state = State.Pain;
+			string[] array = null;
+			array = PainAnimations;
+			if (base.GetComponent<Animation>() != null && array != null && array.Length > 0)
 			{
-				return;
+				int num = Random.Range(0, array.Length);
+				base.GetComponent<Animation>().Play(array[num]);
+				base.GetComponent<Animation>().wrapMode = WrapMode.Once;
 			}
-			if (charChangeState.CurrentState.GetState() == ActionCode.BOUNCE || charChangeState.CurrentState.GetState() == ActionCode.BURNT || charChangeState.CurrentState.GetState() == ActionCode.CARLTROP || charChangeState.CurrentState.GetState() == ActionCode.DIE_IMPCT || charChangeState.CurrentState.GetState() == ActionCode.EXPLODE || charChangeState.CurrentState.GetState() == ActionCode.EXPLODE_ON_WALL || charChangeState.CurrentState.GetState() == ActionCode.FROZEN || charChangeState.CurrentState.GetState() == ActionCode.RAGDOLL || charChangeState.CurrentState.GetState() == ActionCode.STAGGER)
+		}
+		else if (currentActionCode == ActionCode.RESPAWN)
+		{
+			// Return to previous state when respawning
+			state = previousState;
+			if (state == State.Terror)
 			{
-				state = State.Pain;
-				string[] array = null;
-				array = PainAnimations;
-				if (base.GetComponent<Animation>() != null && array != null && array.Length > 0)
-				{
-					int num = Random.Range(0, array.Length);
-					base.GetComponent<Animation>().Play(array[num]);
-					base.GetComponent<Animation>().wrapMode = WrapMode.Once;
-				}
+				// If returning to terror, reset terror cycle
+				terrorAnimationsPlayed = 0;
+				isTerrorCycle = true;
 			}
 			else
 			{
-				state = State.Fear;
+				// If returning to fear, reset fear cycle
+				ResetAnimationCycle();
 			}
+			timer = Time.time - Timer; // Trigger immediate animation
 		}
+		// All other state changes (RUNNING, JUMPING, etc.) are ignored to preserve the animation cycle
 	}
 }
