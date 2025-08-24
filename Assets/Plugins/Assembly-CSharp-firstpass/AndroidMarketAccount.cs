@@ -3,27 +3,52 @@ using UnityEngine;
 
 public class AndroidMarketAccount : IDisposable
 {
-	private AndroidJavaClass cls_AMGetUserName = new AndroidJavaClass("com.unity3d.Plugin.AMGetUserName");
+	private AndroidJavaClass cls_AMGetUserName;
 
 	private string getUserName()
 	{
-		using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+		try
 		{
-			using (AndroidJavaObject androidJavaObject = androidJavaClass.GetStatic<AndroidJavaObject>("currentActivity"))
+			if (cls_AMGetUserName == null)
 			{
-				return cls_AMGetUserName.CallStatic<string>("GetUserName", new object[1] { androidJavaObject });
+				cls_AMGetUserName = new AndroidJavaClass("com.unity3d.Plugin.AMGetUserName");
 			}
+
+			using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+			{
+				using (AndroidJavaObject androidJavaObject = androidJavaClass.GetStatic<AndroidJavaObject>("currentActivity"))
+				{
+					return cls_AMGetUserName.CallStatic<string>("GetUserName", new object[1] { androidJavaObject });
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			Debug.LogWarning($"Failed to get Android username: {e.Message}");
+			return "Player"; // Fallback username
 		}
 	}
 
 	public static string GetUserName()
 	{
-		AndroidMarketAccount androidMarketAccount = new AndroidMarketAccount();
-		return androidMarketAccount.getUserName();
+		try
+		{
+			AndroidMarketAccount androidMarketAccount = new AndroidMarketAccount();
+			return androidMarketAccount.getUserName();
+		}
+		catch (Exception e)
+		{
+			Debug.LogWarning($"AndroidMarketAccount.GetUserName failed: {e.Message}");
+			return "Player"; // Fallback username
+		}
 	}
 
 	public void Dispose()
 	{
-		cls_AMGetUserName.Dispose();
+		if (cls_AMGetUserName != null)
+		{
+			cls_AMGetUserName.Dispose();
+			cls_AMGetUserName = null;
+		}
 	}
 }

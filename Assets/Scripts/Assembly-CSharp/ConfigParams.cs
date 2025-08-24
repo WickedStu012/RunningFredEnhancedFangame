@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class ConfigParams
 {
 	public static bool DeactivateGore = false;
@@ -22,7 +24,7 @@ public class ConfigParams
 
 	public static bool fullScreen = false;
 
-	public static bool IsDemoVersion = false;
+	public static bool IsDemoVersion = Application.platform == RuntimePlatform.Android;
 
 	public static bool showGameDataWrongVersionDialog = false;
 

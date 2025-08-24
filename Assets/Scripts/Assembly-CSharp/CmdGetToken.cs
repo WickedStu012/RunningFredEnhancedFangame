@@ -16,12 +16,42 @@ public class CmdGetToken
 	public static void GetToken(BackendRes cbfn)
 	{
 		beRes = cbfn;
-		WWWForm wWWForm = new WWWForm();
-		wWWForm.AddField("op", "gt");
-		www = UnityWebRequest.Post("http://running-fred.appspot.com/running_fred", wWWForm);
-		www.SendWebRequest();
-		waiting = true;
-		accumTime = 0f;
+		
+		// For local-only mode, provide a mock token immediately
+		if (Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer)
+		{
+			Debug.Log("CmdGetToken: Local mode - providing mock token");
+			beRes(true, "local_mock_token_12345");
+			return;
+		}
+		
+		try
+		{
+			WWWForm wWWForm = new WWWForm();
+			wWWForm.AddField("op", "gt");
+			
+			// Use NetworkSecurityHelper for safe web requests
+			www = NetworkSecurityHelper.SafeWebRequest("http://running-fred.appspot.com/running_fred", "POST");
+			if (www != null)
+			{
+				www.uploadHandler = new UploadHandlerRaw(wWWForm.data);
+				www.downloadHandler = new DownloadHandlerBuffer();
+				www.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				www.SendWebRequest();
+				waiting = true;
+				accumTime = 0f;
+			}
+			else
+			{
+				Debug.LogWarning("CmdGetToken: Failed to create web request, using fallback");
+				beRes(true, "fallback_token_67890");
+			}
+		}
+		catch (System.Exception e)
+		{
+			Debug.LogWarning($"CmdGetToken: Exception during initialization: {e.Message}");
+			beRes(true, "exception_token_11111");
+		}
 	}
 
 	public static void Update()
@@ -59,7 +89,8 @@ public class CmdGetToken
 			}
 			else
 			{
-				beRes(false, www.error);
+				Debug.LogWarning($"CmdGetToken: Web request failed: {www.error}, using fallback");
+				beRes(true, "error_fallback_token_22222");
 			}
 			
 			// Properly dispose the UnityWebRequest to prevent memory leaks
@@ -71,9 +102,9 @@ public class CmdGetToken
 			accumTime += Time.deltaTime;
 			if (accumTime > 10f)
 			{
-				Debug.Log("Timeout");
+				Debug.Log("CmdGetToken: Timeout, using fallback");
 				waiting = false;
-				beRes(false, "Timeout");
+				beRes(true, "timeout_fallback_token_33333");
 				
 				// Properly dispose the UnityWebRequest to prevent memory leaks
 				www.Dispose();

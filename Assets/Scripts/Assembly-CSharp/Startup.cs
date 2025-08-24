@@ -29,6 +29,7 @@ public class Startup : MonoBehaviour
 	private void Start()
 	{
 		Screen.sleepTimeout = -1;
+		Application.targetFrameRate = 120; // Set FPS to 120
 		Store.Instance.InitBeLordInApp();
 		if (ConfigParams.IsKongregate())
 		{

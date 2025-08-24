@@ -231,7 +231,7 @@ public class GAEBackend : iBackEnd
 		}
 		if (Application.platform == RuntimePlatform.Android)
 		{
-			return AndroidMarketAccount.GetUserName();
+			return AndroidPluginBypass.GetAndroidUserName();
 		}
 		if (Application.platform == RuntimePlatform.NaCl)
 		{

@@ -1,8 +1,10 @@
 using UnityEngine;
+using System;
 
 public class GoogleIAB
 {
 	private static AndroidJavaObject _plugin;
+	private static bool _initialized = false;
 
 	static GoogleIAB()
 	{
@@ -10,37 +12,69 @@ public class GoogleIAB
 		{
 			return;
 		}
-		using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.prime31.GoogleIABPlugin"))
+		
+		try
 		{
-			_plugin = androidJavaClass.CallStatic<AndroidJavaObject>("instance", new object[0]);
+			using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.prime31.GoogleIABPlugin"))
+			{
+				_plugin = androidJavaClass.CallStatic<AndroidJavaObject>("instance", new object[0]);
+				_initialized = _plugin != null;
+			}
+		}
+		catch (Exception e)
+		{
+			Debug.LogWarning($"Failed to initialize GoogleIAB: {e.Message}");
+			_plugin = null;
+			_initialized = false;
 		}
 	}
 
 	public static void enableLogging(bool shouldEnable)
 	{
-		if (Application.platform == RuntimePlatform.Android)
+		if (Application.platform == RuntimePlatform.Android && _initialized && _plugin != null)
 		{
-			if (shouldEnable)
+			try
 			{
-				Debug.LogWarning("YOU HAVE ENABLED HIGH DETAIL LOGS. DO NOT DISTRIBUTE THE GENERATED APK PUBLICLY. IT WILL DUMP SENSITIVE INFORMATION TO THE CONSOLE!");
+				if (shouldEnable)
+				{
+					Debug.LogWarning("YOU HAVE ENABLED HIGH DETAIL LOGS. DO NOT DISTRIBUTE THE GENERATED APK PUBLICLY. IT WILL DUMP SENSITIVE INFORMATION TO THE CONSOLE!");
+				}
+				_plugin.Call("enableLogging", shouldEnable);
 			}
-			_plugin.Call("enableLogging", shouldEnable);
+			catch (Exception e)
+			{
+				Debug.LogWarning($"GoogleIAB.enableLogging failed: {e.Message}");
+			}
 		}
 	}
 
 	public static void setAutoVerifySignatures(bool shouldVerify)
 	{
-		if (Application.platform == RuntimePlatform.Android)
+		if (Application.platform == RuntimePlatform.Android && _initialized && _plugin != null)
 		{
-			_plugin.Call("setAutoVerifySignatures", shouldVerify);
+			try
+			{
+				_plugin.Call("setAutoVerifySignatures", shouldVerify);
+			}
+			catch (Exception e)
+			{
+				Debug.LogWarning($"GoogleIAB.setAutoVerifySignatures failed: {e.Message}");
+			}
 		}
 	}
 
 	public static void init(string publicKey)
 	{
-		if (Application.platform == RuntimePlatform.Android)
+		if (Application.platform == RuntimePlatform.Android && _initialized && _plugin != null)
 		{
-			_plugin.Call("init", publicKey);
+			try
+			{
+				_plugin.Call("init", publicKey);
+			}
+			catch (Exception e)
+			{
+				Debug.LogWarning($"GoogleIAB.init failed: {e.Message}");
+			}
 		}
 	}
 

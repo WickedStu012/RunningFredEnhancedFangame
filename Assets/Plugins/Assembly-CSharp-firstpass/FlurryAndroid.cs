@@ -5,8 +5,8 @@ using UnityEngine;
 public class FlurryAndroid
 {
 	private static AndroidJavaClass _flurryAgent;
-
 	private static AndroidJavaObject _plugin;
+	private static bool _initialized = false;
 
 	static FlurryAndroid()
 	{
@@ -14,67 +14,107 @@ public class FlurryAndroid
 		{
 			return;
 		}
-		Debug.Log("FlurryAndroid");
-		_flurryAgent = new AndroidJavaClass("com.flurry.android.FlurryAgent");
-		using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.prime31.FlurryPlugin"))
+		
+		try
 		{
-			if (androidJavaClass != null)
+			Debug.Log("FlurryAndroid - Initializing");
+			_flurryAgent = new AndroidJavaClass("com.flurry.android.FlurryAgent");
+			using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.prime31.FlurryPlugin"))
 			{
-				_plugin = androidJavaClass.CallStatic<AndroidJavaObject>("instance", new object[0]);
+				if (androidJavaClass != null)
+				{
+					_plugin = androidJavaClass.CallStatic<AndroidJavaObject>("instance", new object[0]);
+					_initialized = _plugin != null;
+				}
+				else
+				{
+					Debug.LogWarning("Flurry plugin class is null");
+					_initialized = false;
+				}
 			}
-			else
-			{
-				Debug.Log("pluginClass == null");
-			}
+		}
+		catch (Exception e)
+		{
+			Debug.LogWarning($"Failed to initialize FlurryAndroid: {e.Message}");
+			_flurryAgent = null;
+			_plugin = null;
+			_initialized = false;
 		}
 	}
 
 	public static void onStartSession(string apiKey)
 	{
-		if (Application.platform != RuntimePlatform.Android)
+		if (Application.platform != RuntimePlatform.Android || !_initialized)
 		{
+			Debug.Log("Flurry not available on this platform or not initialized");
 			return;
 		}
-		Debug.Log("FlurryAndroid");
-		_flurryAgent = new AndroidJavaClass("com.flurry.android.FlurryAgent");
-		using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.prime31.FlurryPlugin"))
+		
+		try
 		{
-			if (androidJavaClass != null)
+			if (_flurryAgent == null)
 			{
-				_plugin = androidJavaClass.CallStatic<AndroidJavaObject>("instance", new object[0]);
+				_flurryAgent = new AndroidJavaClass("com.flurry.android.FlurryAgent");
 			}
-			else
+			
+			if (_plugin == null)
 			{
-				Debug.Log("pluginClass == null");
+				using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.prime31.FlurryPlugin"))
+				{
+					if (androidJavaClass != null)
+					{
+						_plugin = androidJavaClass.CallStatic<AndroidJavaObject>("instance", new object[0]);
+					}
+				}
 			}
+			
+			if (_flurryAgent == null)
+			{
+				Debug.LogWarning("FlurryAgent is null");
+				return;
+			}
+			if (_plugin == null)
+			{
+				Debug.LogWarning("Flurry plugin is null");
+				return;
+			}
+			
+			Debug.Log("Starting Flurry session");
+			_plugin.Call("onStartSession", apiKey);
 		}
-		if (_flurryAgent == null)
+		catch (Exception e)
 		{
-			Debug.Log("_flurryAgent == null");
-			return;
+			Debug.LogWarning($"Failed to start Flurry session: {e.Message}");
 		}
-		if (_plugin == null)
-		{
-			Debug.Log("_plugin == null");
-			return;
-		}
-		Debug.Log("Start Session");
-		_plugin.Call("onStartSession", apiKey);
 	}
 
 	public static void onEndSession()
 	{
-		if (Application.platform == RuntimePlatform.Android)
+		if (Application.platform == RuntimePlatform.Android && _initialized && _plugin != null)
 		{
-			_plugin.Call("onEndSession");
+			try
+			{
+				_plugin.Call("onEndSession");
+			}
+			catch (Exception e)
+			{
+				Debug.LogWarning($"Failed to end Flurry session: {e.Message}");
+			}
 		}
 	}
 
 	public static void setContinueSessionMillis(long milliseconds)
 	{
-		if (Application.platform == RuntimePlatform.Android)
+		if (Application.platform == RuntimePlatform.Android && _initialized && _flurryAgent != null)
 		{
-			_flurryAgent.CallStatic("setContinueSessionMillis", milliseconds);
+			try
+			{
+				_flurryAgent.CallStatic("setContinueSessionMillis", milliseconds);
+			}
+			catch (Exception e)
+			{
+				Debug.LogWarning($"Failed to set Flurry continue session millis: {e.Message}");
+			}
 		}
 	}
 
@@ -85,15 +125,22 @@ public class FlurryAndroid
 
 	public static void logEvent(string eventName, bool isTimed)
 	{
-		if (Application.platform == RuntimePlatform.Android)
+		if (Application.platform == RuntimePlatform.Android && _initialized && _plugin != null)
 		{
-			if (isTimed)
+			try
 			{
-				_plugin.Call("logTimedEvent", eventName);
+				if (isTimed)
+				{
+					_plugin.Call("logTimedEvent", eventName);
+				}
+				else
+				{
+					_plugin.Call("logEvent", eventName);
+				}
 			}
-			else
+			catch (Exception e)
 			{
-				_plugin.Call("logEvent", eventName);
+				Debug.LogWarning($"Failed to log Flurry event '{eventName}': {e.Message}");
 			}
 		}
 	}

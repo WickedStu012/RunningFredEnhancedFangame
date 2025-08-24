@@ -70,23 +70,46 @@ public class MogaInput : MonoBehaviour
 
     protected void Initialize()
     {
+        // Check if we should use local mode (non-mobile platforms)
+        bool isLocalMode = Application.platform != RuntimePlatform.Android && 
+                          Application.platform != RuntimePlatform.IPhonePlayer;
+        
+        if (isLocalMode)
+        {
+            Debug.Log("MogaInput: Local mode - MOGA controller not available");
+            controller = null;
+            return;
+        }
+
 #if UNITY_ANDROID && !UNITY_EDITOR
         try 
         {
-            AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-            AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
-            AndroidJavaObject mogaObject = MogaController.getInstance(activity);
-            controller = new MogaController(mogaObject);
-            controller.init();
-            
-            if (focused)
+            // Try to access the MOGA controller class safely
+            using (AndroidJavaClass mogaClass = new AndroidJavaClass("com.bda.controller.Controller"))
             {
-                resumeController();
+                if (mogaClass != null)
+                {
+                    AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+                    AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+                    AndroidJavaObject mogaObject = MogaController.getInstance(activity);
+                    controller = new MogaController(mogaObject);
+                    controller.init();
+                    
+                    if (focused)
+                    {
+                        resumeController();
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("MogaInput: MOGA controller class not found");
+                    controller = null;
+                }
             }
         }
         catch (System.Exception e)
         {
-            Debug.LogError("MOGA Initialization failed: " + e.Message);
+            Debug.LogWarning($"MogaInput: MOGA Initialization failed: {e.Message}");
             controller = null;
         }
 #else
@@ -319,7 +342,7 @@ public class MogaInput : MonoBehaviour
     private bool CheckButtonUp(int keyCode, ref int lastState)
     {
         int currentState = controller.getKeyCode(keyCode);
-        bool result = currentState == 1 && currentState != lastState;
+        bool result = currentState != 0 && currentState != lastState;
         lastState = currentState;
         return result;
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TwitterAndroid
 {
 	private static AndroidJavaObject _plugin;
+	private static bool _initialized = false;
 
 	static TwitterAndroid()
 	{
@@ -12,27 +13,54 @@ public class TwitterAndroid
 		{
 			return;
 		}
-		using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.prime31.TwitterPlugin"))
+		
+		try
 		{
-			_plugin = androidJavaClass.CallStatic<AndroidJavaObject>("instance", new object[0]);
+			using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.prime31.TwitterPlugin"))
+			{
+				_plugin = androidJavaClass.CallStatic<AndroidJavaObject>("instance", new object[0]);
+				_initialized = _plugin != null;
+			}
+		}
+		catch (Exception e)
+		{
+			Debug.LogWarning($"Failed to initialize TwitterAndroid: {e.Message}");
+			_plugin = null;
+			_initialized = false;
 		}
 	}
 
 	public static void init(string consumerKey, string consumerSecret)
 	{
-		if (Application.platform == RuntimePlatform.Android)
+		if (Application.platform == RuntimePlatform.Android && _initialized && _plugin != null)
 		{
-			_plugin.Call("init", consumerKey, consumerSecret);
+			try
+			{
+				_plugin.Call("init", consumerKey, consumerSecret);
+			}
+			catch (Exception e)
+			{
+				Debug.LogWarning($"TwitterAndroid.init failed: {e.Message}");
+			}
 		}
 	}
 
 	public static bool isLoggedIn()
 	{
-		if (Application.platform != RuntimePlatform.Android)
+		if (Application.platform != RuntimePlatform.Android || !_initialized || _plugin == null)
 		{
 			return false;
 		}
-		return _plugin.Call<bool>("isLoggedIn", new object[0]);
+		
+		try
+		{
+			return _plugin.Call<bool>("isLoggedIn", new object[0]);
+		}
+		catch (Exception e)
+		{
+			Debug.LogWarning($"TwitterAndroid.isLoggedIn failed: {e.Message}");
+			return false;
+		}
 	}
 
 	public static void showLoginDialog()

@@ -41,8 +41,7 @@ public class BeLordInAppAndroid : IBeLordInApp
 	{
 		GoogleIABManager.billingSupportedEvent += BillingSupported;
 		GoogleIABManager.billingNotSupportedEvent += BillingNotSupported;
-		GoogleIAB.enableLogging(false);
-		GoogleIAB.init(publicKey);
+		AndroidPluginBypass.SafeGoogleIABInit(publicKey);
 	}
 
 	public void UnInit()

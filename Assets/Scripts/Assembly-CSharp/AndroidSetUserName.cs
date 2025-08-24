@@ -15,7 +15,7 @@ public class AndroidSetUserName : MonoBehaviour
 			}
 			else if (Application.platform == RuntimePlatform.Android)
 			{
-				text = AndroidMarketAccount.GetUserName();
+				text = AndroidPluginBypass.GetAndroidUserName();
 			}
 			else if (Application.platform == RuntimePlatform.NaCl)
 			{

@@ -18,7 +18,7 @@ public class StatsFlurry : iStatsService
 		}
 		else if (Application.platform == RuntimePlatform.Android)
 		{
-			FlurryAndroid.onStartSession(apiKey);
+			AndroidPluginBypass.SafeFlurryInit(apiKey);
 		}
 	}
 
@@ -30,7 +30,7 @@ public class StatsFlurry : iStatsService
 		}
 		else if (Application.platform == RuntimePlatform.Android)
 		{
-			FlurryAndroid.onEndSession();
+			AndroidPluginBypass.SafeFlurryEndSession();
 		}
 	}
 
@@ -42,7 +42,7 @@ public class StatsFlurry : iStatsService
 		}
 		else if (Application.platform == RuntimePlatform.Android)
 		{
-			FlurryAndroid.logEvent(sv);
+			AndroidPluginBypass.SafeFlurryLogEvent(sv);
 		}
 	}
 
@@ -56,7 +56,7 @@ public class StatsFlurry : iStatsService
 		{
 			Dictionary<string, string> dictionary = new Dictionary<string, string>();
 			dictionary[param1Type] = param1;
-			FlurryAndroid.logEvent(sv, dictionary);
+			AndroidPluginBypass.SafeFlurryLogEvent(sv, dictionary);
 		}
 	}
 
@@ -71,7 +71,7 @@ public class StatsFlurry : iStatsService
 			Dictionary<string, string> dictionary = new Dictionary<string, string>();
 			dictionary[param1Type] = param1;
 			dictionary[param2Type] = param2;
-			FlurryAndroid.logEvent(sv, dictionary);
+			AndroidPluginBypass.SafeFlurryLogEvent(sv, dictionary);
 		}
 	}
 
@@ -87,7 +87,7 @@ public class StatsFlurry : iStatsService
 			dictionary[param1Type] = param1;
 			dictionary[param2Type] = param2;
 			dictionary[param3Type] = param3;
-			FlurryAndroid.logEvent(sv, dictionary);
+			AndroidPluginBypass.SafeFlurryLogEvent(sv, dictionary);
 		}
 	}
 }
