@@ -131,7 +131,7 @@ public class Rock : MonoBehaviour
 
 	private void OnTriggerEnter(Collider c)
 	{
-		if (!base.transform.GetComponent<Rigidbody>().isKinematic && !collide && CharHelper.IsColliderFromPlayer(c) && base.GetComponent<Rigidbody>().velocity.magnitude > 0.5f)
+		if (!base.transform.GetComponent<Rigidbody>().isKinematic && !collide && CharHelper.IsColliderFromPlayer(c) && base.GetComponent<Rigidbody>().linearVelocity.magnitude > 0.5f)
 		{
 			if (!ProtectiveVestHelper.UseProtectiveVestIfAvailable())
 			{
@@ -171,7 +171,7 @@ public class Rock : MonoBehaviour
 			if (!base.GetComponent<Rigidbody>().isKinematic)
 			{
 				base.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-				base.GetComponent<Rigidbody>().velocity = Vector3.zero;
+				base.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
 			}
 		}
 	}

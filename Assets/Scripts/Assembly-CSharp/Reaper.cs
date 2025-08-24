@@ -257,7 +257,7 @@ public class Reaper : MonoBehaviour
 			currentState = States.FaceCamera;
 			if (playerRigidBody != null)
 			{
-				playerRigidBody.velocity = Vector3.forward * 100f;
+				playerRigidBody.linearVelocity = Vector3.forward * 100f;
 			}
 		}
 		else

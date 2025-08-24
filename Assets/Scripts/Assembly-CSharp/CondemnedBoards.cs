@@ -94,7 +94,7 @@ public class CondemnedBoards : MonoBehaviour
 				brokenParts[i].GetComponent<Rigidbody>().isKinematic = true;
 				brokenParts[i].transform.position = base.transform.position + Vector3.up * 2f;
 				brokenParts[i].GetComponent<Rigidbody>().isKinematic = false;
-				brokenParts[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+				brokenParts[i].GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
 				brokenParts[i].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 				brokenParts[i].GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(200f, 400f), Random.Range(0f, 400f), Random.Range(400f, 800f)));
 				brokenParts[i].GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f)));

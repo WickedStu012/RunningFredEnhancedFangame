@@ -161,7 +161,7 @@ public class Barrel : MonoBehaviour
 			if (base.GetComponent<Rigidbody>() != null && !base.GetComponent<Rigidbody>().isKinematic)
 			{
 				base.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-				base.GetComponent<Rigidbody>().velocity = Vector3.zero;
+				base.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
 			}
 		}
 	}
@@ -195,7 +195,7 @@ public class Barrel : MonoBehaviour
 				parts[i].GetComponent<Rigidbody>().isKinematic = true;
 				parts[i].transform.position = base.transform.position;
 				parts[i].GetComponent<Rigidbody>().isKinematic = false;
-				parts[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+				parts[i].GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
 				parts[i].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 				parts[i].GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(200f, 400f), Random.Range(0f, 400f), Random.Range(200f, 400f)));
 				parts[i].GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f)));
@@ -207,7 +207,7 @@ public class Barrel : MonoBehaviour
 				parts2[j].GetComponent<Rigidbody>().isKinematic = true;
 				parts2[j].transform.position = base.transform.position;
 				parts2[j].GetComponent<Rigidbody>().isKinematic = false;
-				parts2[j].GetComponent<Rigidbody>().velocity = Vector3.zero;
+				parts2[j].GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
 				parts2[j].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 				parts2[j].GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(200f, 400f), Random.Range(200f, 400f), Random.Range(200f, 400f)));
 				parts2[j].GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f)));
