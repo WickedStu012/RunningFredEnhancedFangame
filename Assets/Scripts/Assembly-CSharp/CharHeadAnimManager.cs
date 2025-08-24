@@ -25,10 +25,45 @@ public class CharHeadAnimManager
 		lastTriggeredAnim = Anim.none;
 	}
 
+	private static bool IsDyingOrDead()
+	{
+		// Check if the head is currently playing dying or dead animation
+		if (charAnim != null && charAnim.isPlaying)
+		{
+			string currentClip = charAnim.clip != null ? charAnim.clip.name : "";
+			if (currentClip == "Dying" || currentClip == "Dead")
+			{
+				return true;
+			}
+		}
+		
+		// Also check with the CharHead script to see if it's in dying/dead state
+		GameObject headGO = CharHeadHelper.GetHeadGameObject();
+		if (headGO != null)
+		{
+			CharHead charHead = headGO.GetComponent<CharHead>();
+			if (charHead != null)
+			{
+				return charHead.IsDyingOrDead();
+			}
+		}
+		
+		return false;
+	}
+
 	public static void Fear()
 	{
+		// Check if the head is in dying or dead state
+		if (IsDyingOrDead())
+		{
+			// Don't override dying/dead animations
+			Debug.Log("CharHeadAnimManager: Fear() blocked - head is in dying/dead state");
+			return;
+		}
+		
 		if (!(charAnim == null) && lastTriggeredAnim != Anim.fear)
 		{
+			Debug.Log("CharHeadAnimManager: Playing Fear animation");
 			lastTriggeredAnim = Anim.fear;
 			charAnim.wrapMode = WrapMode.Loop;
 			charAnim.CrossFade("Fear");
@@ -37,8 +72,17 @@ public class CharHeadAnimManager
 
 	public static void Terror()
 	{
+		// Check if the head is in dying or dead state
+		if (IsDyingOrDead())
+		{
+			// Don't override dying/dead animations
+			Debug.Log("CharHeadAnimManager: Terror() blocked - head is in dying/dead state");
+			return;
+		}
+		
 		if (!(charAnim == null) && lastTriggeredAnim != Anim.terror)
 		{
+			Debug.Log("CharHeadAnimManager: Playing Terror animation");
 			lastTriggeredAnim = Anim.terror;
 			charAnim.wrapMode = WrapMode.Loop;
 			charAnim.CrossFade("Terror");

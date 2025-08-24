@@ -27,6 +27,7 @@ public class SoundManager : MonoBehaviour
 	private static SoundProp _currentBackgroundSndProp = null;
 
 	private static SoundProp _currentMusicSndProp = null;
+	private static SoundProp _currentLoopSndProp = null; // Add this to store the loop SoundProp
 
 	private static bool playingIntro = false;
 	private static bool introFinishedNaturally = false;
@@ -156,6 +157,20 @@ public class SoundManager : MonoBehaviour
 			{
 				playingIntro = false;
 				introFinishedNaturally = true;
+				
+				// Use the stored loop SoundProp to set up the loop music
+				if (_currentLoopSndProp != null)
+				{
+					_currentMusicSndProp = _currentLoopSndProp;
+					if (Camera.main != null)
+					{
+						_music.transform.position = Camera.main.transform.position;
+					}
+					_music.clip = _currentLoopSndProp.audioClip;
+					_music.loop = _currentLoopSndProp.loop;
+					_music.volume = MusicVolume * MasterVolume * ((float)_currentLoopSndProp.volume / 100f);
+				}
+				
 				_music.Play();
 			}
 		}
@@ -301,9 +316,28 @@ public class SoundManager : MonoBehaviour
 	{
 		if (!(_music == null))
 		{
-			PlayMusic(loopId);
-			_music.Pause();
-			PlayMusic(introId, loopId, false);
+			// Get both intro and loop SoundProps
+			SoundProp introProp = GetSoundProp(introId);
+			SoundProp loopProp = GetSoundProp(loopId);
+			
+			if (introProp != null && loopProp != null)
+			{
+				// Store both SoundProps
+				_currentMusicSndProp = introProp;
+				_currentLoopSndProp = loopProp;
+				
+				// Set up the loop music in _music but don't play it yet
+				if (Camera.main != null)
+				{
+					_music.transform.position = Camera.main.transform.position;
+				}
+				_music.clip = loopProp.audioClip;
+				_music.loop = loopProp.loop;
+				_music.volume = MusicVolume * MasterVolume * ((float)loopProp.volume / 100f);
+				
+				// Now play the intro
+				PlayMusic(introId, loopId, false);
+			}
 		}
 	}
 
@@ -386,6 +420,7 @@ public class SoundManager : MonoBehaviour
 	{
 		playingIntro = false;
 		introFinishedNaturally = false;
+		_currentLoopSndProp = null; // Clear the loop SoundProp
 		_music.Stop();
 		_musicIntro.Stop();
 	}
@@ -656,6 +691,7 @@ public class SoundManager : MonoBehaviour
 		_asFades.Clear();
 		playingIntro = false;
 		introFinishedNaturally = false;
+		_currentLoopSndProp = null; // Clear the loop SoundProp
 	}
 
 	public static void FadeOutAll(float inSecs, SoundManagerCallback cbfn)

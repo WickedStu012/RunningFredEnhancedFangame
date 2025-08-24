@@ -59,16 +59,36 @@ public class ActJetpackSprint : IAction
 		accumTimeJetPackRot = 0f;
 		sm.ResetLastYPos();
 		CharAnimManager.JetpackSprint();
+		
+		// Try to get the jetpack multiple times if needed
 		GameObject jetpackGO = sm.GetJetpack();
+		if (jetpackGO == null)
+		{
+			// If jetpack is not found, try to reattach it
+			CharHelper.GetCharStateMachine().ShowJetpack();
+			jetpackGO = sm.GetJetpack();
+		}
+		
 		if (jetpackGO != null)
 		{
 			jetpack = jetpackGO.GetComponent<Jetpack>();
-			jetpack.EnableTurbo();
+			if (jetpack != null)
+			{
+				jetpack.EnableTurbo();
+			}
+			else
+			{
+				Debug.LogError("Jetpack GameObject found but Jetpack component is missing");
+			}
 		}
 		else
 		{
-			Debug.LogError("Cannot find the jetpack");
+			Debug.LogError("Cannot find the jetpack - switching to running state");
+			// Switch to running state if jetpack can't be found
+			sm.SwitchTo(ActionCode.RUNNING);
+			return;
 		}
+		
 		// Add jetpack meter integration
 		if (JetpackMeter.Instance != null)
 		{

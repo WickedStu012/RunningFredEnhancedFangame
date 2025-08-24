@@ -46,16 +46,36 @@ public class ActJetpack : IAction
 		sm.ConsecutiveJumpCounter = 0;
 		sm.ResetLastYPos();
 		CharAnimManager.Jetpack();
+		
+		// Try to get the jetpack multiple times if needed
 		GameObject gameObject = sm.GetJetpack();
+		if (gameObject == null)
+		{
+			// If jetpack is not found, try to reattach it
+			CharHelper.GetCharStateMachine().ShowJetpack();
+			gameObject = sm.GetJetpack();
+		}
+		
 		if (gameObject != null)
 		{
 			jetpack = gameObject.GetComponent<Jetpack>();
-			jetpack.EnableNormal();
+			if (jetpack != null)
+			{
+				jetpack.EnableNormal();
+			}
+			else
+			{
+				Debug.LogError("Jetpack GameObject found but Jetpack component is missing");
+			}
 		}
 		else
 		{
-			Debug.LogError("Cannot find the jetpack");
+			Debug.LogError("Cannot find the jetpack - switching to running state");
+			// Switch to running state if jetpack can't be found
+			sm.SwitchTo(ActionCode.RUNNING);
+			return;
 		}
+		
 		if (JetpackMeter.Instance != null)
 		{
 			JetpackMeter.Instance.StartUse(false); // Normal mode
@@ -66,7 +86,10 @@ public class ActJetpack : IAction
 
 	public override void GetOut()
 	{
-		jetpack.DisableNormal();
+		if (jetpack != null)
+		{
+			jetpack.DisableNormal();
+		}
 		if (JetpackMeter.Instance != null)
 		{
 			JetpackMeter.Instance.StopUse();

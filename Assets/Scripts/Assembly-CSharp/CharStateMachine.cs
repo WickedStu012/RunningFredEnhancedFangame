@@ -2772,6 +2772,17 @@ public class CharStateMachine : MonoBehaviour
 
 	public GameObject GetJetpack()
 	{
+		// Check if jetpack reference is still valid
+		if (jetpack == null || jetpack.gameObject == null)
+		{
+			// Try to find the jetpack in the scene if it exists
+			jetpack = GameObject.Find("Jetpack_torso1");
+			if (jetpack == null)
+			{
+				// If still not found, try to reattach it
+				loadAndAttachJetpackIfNecessary();
+			}
+		}
 		return jetpack;
 	}
 

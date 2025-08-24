@@ -384,6 +384,43 @@ public class GameManager
 		ChunkRelocator.SetChangeVisibility(true);
 		CharHelper.GetCharStateMachine().RemoveWings(true, true);
 		CheckPointManager.RespawnForEndless();
+		
+		// Only reset the head state if the character is in a respawn state
+		// This indicates this is a retry scenario, not a death scenario
+		CharStateMachine charStateMachine = CharHelper.GetCharStateMachine();
+		if (charStateMachine != null)
+		{
+			ActionCode currentState = charStateMachine.GetCurrentState();
+			Debug.Log("GameManager: Current character state before reset: " + currentState);
+			
+			// Only reset head if character is in respawn state (indicating retry)
+			if (currentState == ActionCode.RESPAWN)
+			{
+				GameObject headGO = CharHeadHelper.GetHeadGameObject();
+				if (headGO != null)
+				{
+					CharHead charHead = headGO.GetComponent<CharHead>();
+					if (charHead != null)
+					{
+						Debug.Log("GameManager: Character is respawning, calling ForceResetToFear on CharHead");
+						charHead.ForceResetToFear();
+					}
+					else
+					{
+						Debug.LogWarning("GameManager: CharHead component not found on head GameObject");
+					}
+				}
+				else
+				{
+					Debug.LogWarning("GameManager: Head GameObject not found via CharHeadHelper");
+				}
+			}
+			else
+			{
+				Debug.Log("GameManager: Character is not in respawn state (" + currentState + "), not resetting head");
+			}
+		}
+		
 		if (resetDistance)
 		{
 			SoundManager.PlaySound(32);
