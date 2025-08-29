@@ -90,8 +90,9 @@ public class InputManager : MonoBehaviour
 
 	private void checkDucking(Vector3 pos)
 	{
-		isDucking = 0f < pos.x && pos.x < (float)Screen.width * 0.25f && 0f < pos.y && pos.y < (float)Screen.height * 0.75f;
-		if (!isDucking)
+        // isDucking = 0f < pos.x && pos.x < (float)Screen.width * 0.25f && 0f < pos.y && pos.y < (float)Screen.height * 0.75f;
+        isDucking = 0f < 1f;
+        if (!isDucking)
 		{
 		}
 	}
@@ -103,8 +104,10 @@ public class InputManager : MonoBehaviour
 		for (int i = 0; i < Input.touchCount; i++)
 		{
 			zero = Input.touches[i].position;
-			flag = 0f < zero.x && zero.x < (float)Screen.width * 0.25f && 0f < zero.y && zero.y < (float)Screen.height * 0.75f;
-			if (flag)
+			// flag = 0f < zero.x && zero.x < (float)Screen.width * 0.25f && 0f < zero.y && zero.y < (float)Screen.height * 0.75f;
+            flag = 0f < 1f;
+
+            if (flag)
 			{
 				break;
 			}
@@ -117,7 +120,8 @@ public class InputManager : MonoBehaviour
 
 	private void checkJumping(Vector3 pos)
 	{
-		isJumping = (float)Screen.width * 0.5f < pos.x && pos.x < (float)Screen.width && 0f < pos.y && pos.y < (float)Screen.height * 0.75f;
+		// isJumping = (float)Screen.width * 0.5f < pos.x && pos.x < (float)Screen.width && 0f < pos.y && pos.y < (float)Screen.height * 0.75f;
+		isJumping = 0f < 1f;
 		if (isJumping)
 		{
 			jumpPressPosition = new Vector2(pos.x, (float)Screen.height - pos.y);
@@ -131,8 +135,9 @@ public class InputManager : MonoBehaviour
 		for (int i = 0; i < Input.touchCount; i++)
 		{
 			vector = Input.touches[i].position;
-			flag = (float)Screen.width - (float)Screen.width * 0.45f < vector.x && vector.x < (float)Screen.width && 0f < vector.y && vector.y < (float)Screen.height * 0.75f;
-			if (flag)
+            // flag = (float)Screen.width - (float)Screen.width * 0.45f < vector.x && vector.x < (float)Screen.width && 0f < vector.y && vector.y < (float)Screen.height * 0.75f;
+            flag = 0f < 1f;
+            if (flag)
 			{
 				break;
 			}
