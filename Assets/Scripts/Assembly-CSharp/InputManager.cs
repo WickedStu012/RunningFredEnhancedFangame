@@ -1,3 +1,4 @@
+
 using System;
 using UnityEngine;
 
@@ -49,7 +50,6 @@ public class InputManager : MonoBehaviour
 	{
 		instance = null;
 	}
-
 	private void OnGUI()
 	{
 		if (Time.timeScale != 0f && (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer) && isJumping && !ConfigParams.zeemoteConnected && !ConfigParams.useiCADE && !MogaInput.Instance.IsConnected() && button != null)
@@ -91,7 +91,7 @@ public class InputManager : MonoBehaviour
 	private void checkDucking(Vector3 pos)
 	{
         // isDucking = 0f < pos.x && pos.x < (float)Screen.width * 0.25f && 0f < pos.y && pos.y < (float)Screen.height * 0.75f;
-        isDucking = 0f < 1f;
+        isDucking = pos.y < (float)Screen.height * 0.75f;
         if (!isDucking)
 		{
 		}
@@ -105,7 +105,7 @@ public class InputManager : MonoBehaviour
 		{
 			zero = Input.touches[i].position;
 			// flag = 0f < zero.x && zero.x < (float)Screen.width * 0.25f && 0f < zero.y && zero.y < (float)Screen.height * 0.75f;
-            flag = 0f < 1f;
+            flag = zero.y < (float)Screen.height * 0.75f;
 
             if (flag)
 			{
@@ -121,7 +121,7 @@ public class InputManager : MonoBehaviour
 	private void checkJumping(Vector3 pos)
 	{
 		// isJumping = (float)Screen.width * 0.5f < pos.x && pos.x < (float)Screen.width && 0f < pos.y && pos.y < (float)Screen.height * 0.75f;
-		isJumping = 0f < 1f;
+		isJumping = pos.y < (float)Screen.height * 0.75f;
 		if (isJumping)
 		{
 			jumpPressPosition = new Vector2(pos.x, (float)Screen.height - pos.y);
@@ -136,7 +136,7 @@ public class InputManager : MonoBehaviour
 		{
 			vector = Input.touches[i].position;
             // flag = (float)Screen.width - (float)Screen.width * 0.45f < vector.x && vector.x < (float)Screen.width && 0f < vector.y && vector.y < (float)Screen.height * 0.75f;
-            flag = 0f < 1f;
+            flag = vector.y < (float)Screen.height * 0.75f;
             if (flag)
 			{
 				break;
