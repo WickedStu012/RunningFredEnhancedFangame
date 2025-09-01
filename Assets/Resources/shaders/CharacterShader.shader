@@ -62,7 +62,13 @@ Shader "RunningFred/CharacterShader" {
 
                 float3 albedo = tex2D(_MainTex, i.uv).rgb;
                 float3 brdf = tex2D(_BRDFTex, brdfUV).rgb;
-                float3 lighting = brdf * _LightColor0.rgb;
+                
+                // Separate direct lighting and ambient lighting
+                float3 directLighting = brdf * _LightColor0.rgb;
+                float3 ambientLighting = UNITY_LIGHTMODEL_AMBIENT.rgb;
+                
+                // Combine direct and ambient lighting
+                float3 lighting = directLighting + ambientLighting;
 
                 fixed4 col;
                 col.rgb = lighting * albedo;
