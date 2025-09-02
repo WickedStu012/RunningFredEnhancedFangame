@@ -13,11 +13,11 @@ public class Reaper : MonoBehaviour
 
 	public float GoAwayAccel = 3f;
 
-	public float Speed = 22f;
+	public float Speed = 21.6f;
 
-	public float SitheDistance = 2f;
+	public float SitheDistance = 1.5f;
 
-	public float SliceTimer = 0.5f;
+	public float SliceTimer = 0.6f;
 
 	public float RotationSpeed = 80f;
 
@@ -114,7 +114,7 @@ public class Reaper : MonoBehaviour
 			}
 			if (ReaperManager.Instance != null && player != null)
 			{
-				base.transform.position = player.transform.position - Vector3.forward * ReaperManager.Instance.VisibleDistance;
+				base.transform.position = player.transform.position - Vector3.forward * (ReaperManager.Instance.VisibleDistance * 2f - 12);
 			}
 			base.gameObject.SetActive(true);
 			currentState = States.Following;
