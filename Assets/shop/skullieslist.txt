@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<itemslist>
+  <items>
+  
+  	<!-- NOTE FOR KONGREGATE VERSION: There is a special relation between money and skullies for Kongregate version. If you add a new -->
+  	<!--                              price item, it should include the count_kongregate tag                                           -->
+  
+  	<!-- visibilityBehaviour could be one of these values: 				-->
+  	<!--																-->
+  	<!--   ALWAYS_VISIBLE (default value. The item is always visible).  -->
+  	<!--   INVISIBLE_WHEN_IT_WAS_NOT_PURCHASED 							-->
+  	<!--   INVISIBLE_WHEN_IT_WAS_PURCHASED 								-->
+  	<!--   ALWAYS_INVISIBLE (The item is always invisible).  			-->
+  
+    <item id="2003" type = "skullies" name="24000 Skullies" 
+    description="Get extra skullies to acquire levels, character skins and special skills to have an edge. Get 20% of your purchase for free!" picture="Skullies3" 
+    price_dollars="$9.99" price_kreds="100 Kreds" tag="Skullies" consumable="false" upgradeable="0" 
+    market_id="com.dedalord.runningfred.sk4" 
+    android_market_id = "com.dedalord.runningfred.nsk4m" 
+    mac_market_id="com.dedalord.runningfredmac.sk4"
+    count="24000" count_kongregate="35000" enabled = "true"/>
+    
+    <item id="2000" type = "skullies" name="2000 Skullies" 
+    description="Get extra skullies to acquire levels, character skins and special skills to have an edge." picture="Skullies1" 
+    price_dollars="$0.99" price_kreds="10 Kreds" tag="Skullies" consumable="false" upgradeable="0" 
+    market_id="com.dedalord.runningfred.sk1" 
+    android_market_id = "com.dedalord.runningfred.sk1m" 
+    mac_market_id="com.dedalord.runningfredmac.sk1"
+    count="2000" count_kongregate="2000" enabled = "true" visibilityBehaviour = "ALWAYS_INVISIBLE"/>
+    
+    <item id="2001" type = "skullies" name="4000 Skullies" 
+    description="Get extra skullies to acquire levels, character skins and special skills to have an edge." picture="Skullies1" 
+    price_dollars="$1.99" price_kreds="20 Kreds" tag="Skullies" consumable="false" upgradeable="0" 
+    market_id="com.dedalord.runningfred.sk2" 
+    android_market_id = "com.dedalord.runningfred.nsk2m"
+    mac_market_id="com.dedalord.runningfredmac.sk2"
+    count="4000" count_kongregate="5000" enabled = "true"/>
+    
+    <item id="2007" type = "skullies" name="84000 Skullies" 
+    description="Get extra skullies to acquire levels, character skins and special skills to have an edge. Get 40% of your purchase for free!" picture="Skullies4" 
+    price_dollars="$29.99" price_kreds="300 Kreds" tag="Skullies" consumable="false" upgradeable="0" 
+    market_id="com.dedalord.runningfred.sk6" 
+    android_market_id = "com.dedalord.runningfred.nsk6m" 
+    mac_market_id="com.dedalord.runningfredmac.sk6"
+    count="84000" count_kongregate="150000" enabled = "true"/>
+    
+    <item id="2006" type = "skullies" name="200 Skullies" 
+    description="Like Running Fred on Facebook for 200 FREE Skullies!" picture="Likethis" 
+    price_dollars="Free!" price_kreds="Free!" tag="OpenURL" consumable="false" upgradeable="0" 
+    market_id="com.dedalord.runningfred.free200" 
+    android_market_id = "com.dedalord.runningfred.free200" 
+    mac_market_id = "com.dedalord.runningfredmac.free200" 
+	  count="200" count_kongregate="200" enabled = "true" url = "http://www.facebook.com/pages/Running-Fred/222194801197352" onetime = "true"/>
+    
+    <item id="2002" type = "skullies" name="11000 Skullies" 
+    description="Get extra skullies to acquire levels, character skins and special skills to have an edge. Get 10% of your purchase for free!" picture="Skullies2" 
+    price_dollars="$4.99" price_kreds="50 Kreds" tag="Skullies" consumable="false" upgradeable="0" 
+    market_id="com.dedalord.runningfred.sk3" 
+    android_market_id = "com.dedalord.runningfred.nsk3m" 
+    mac_market_id="com.dedalord.runningfredmac.sk3"
+    count="11000" count_kongregate="15000" enabled = "true"/>
+    
+    <item id="2004" type = "skullies" name="160000 Skullies"
+    description="Get extra skullies to acquire levels, character skins and special skills to have an edge. Get 50% of your purchase for free!" picture="Skullies5" 
+    price_dollars="$49.99" price_kreds="500 Kreds" tag="Skullies" consumable="false" upgradeable="0" 
+    market_id="com.dedalord.runningfred.sk8" 
+    android_market_id = "com.dedalord.runningfred.nsk8m" 
+    mac_market_id="com.dedalord.runningfredmac.sk8"
+    count="160000" count_kongregate="300000" enabled = "true"/>
+
+    <item id="2005" type = "skullies" name="350000 Skullies"
+    description="Get extra skullies to acquire levels, character skins and special skills to have an edge.  Get 75% of your purchase for free!" picture="Skullies6" 
+    price_dollars="$99.99" price_kreds="1000 Kreds" tag="Skullies" consumable="false" upgradeable="0" 
+    market_id="com.dedalord.runningfred.sk7" 
+    android_market_id = "com.dedalord.runningfred.nsk7m" 
+    mac_market_id="com.dedalord.runningfredmac.sk7"
+    count="350000" count_kongregate="700000" enabled = "true"/>
+
+  </items>
+</itemslist>

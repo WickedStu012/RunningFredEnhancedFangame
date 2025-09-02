@@ -44,15 +44,40 @@ Character:Fred Classic
 	Material:FredClassic
 EndCharacter
 
+Character:Android
+	Base:FredBasic
+	Material:Android
+	Part:Android/Androidhead_head
+	Hide:meshHead
+	Hide:meshLeftArm1
+	Hide:meshLeftFoot
+	Hide:meshLeftHand
+	Hide:meshLeftLeg1
+	Hide:meshLeftLeg2
+	Hide:meshRightArm1
+	Hide:meshRightFoot
+	Hide:meshRightHand
+	Hide:meshRightLeg1
+	Hide:meshRightLeg2
+	Hide:meshTorso
+EndCharacter
+
 Character:Fred LifeDown
 	Base:FredBasic
 	Material:FredLifeDown
 EndCharacter
-	
+
 Character:Fred Convict
 	Base:FredBasic
 	Material:FredConvict
 	Part:FredConvict/ConvictHat_head
+EndCharacter
+
+Character:Fred Ten
+	Base:FredBasic
+	Material:FredTen
+	Part:FredTen/BenHair_head
+	Part:FredTen/omnitrix_leftHand
 EndCharacter
 
 Character:Fred Evolution
@@ -95,6 +120,33 @@ Character:Fred Mario
 	Material:FredMario
 	Part:FredMario/marioHat_head
 	Part:FredMario/marioStrap_torso1
+EndCharacter
+
+Character:Little Mac Fred
+	Base:FredBasic
+	Material:LittleMacFred
+	Part:LittleMacFred/MacmeshTorso_torso1
+	Part:LittleMacFred/meshLeftFoot
+	Part:LittleMacFred/MacmeshLeftHand_leftHand
+	Part:LittleMacFred/MacmeshRightHand_rightHand
+	Part:LittleMacFred/MacmeshRightLeg1_rightLeg1
+	Part:LittleMacFred/MacmeshLeftLeg1_rightLeg1
+	Part:LittleMacFred/MacHair_head
+	Part:LittleMacFred/MacmeshLeftArm1_leftArm1
+	Part:LittleMacFred/MacmeshRightArm1_rightArm1
+	Part:LittleMacFred/meshRightArm2_MacmeshRightArm1
+	Part:LittleMacFred/meshLeftArm2_MacmeshLeftArm1
+	Part:LittleMacFred/MacShort_torso2
+	Hide:meshTorso
+	Hide:meshLeftHand
+	Hide:meshRightHand
+	Hide:meshLeftLeg2
+	Hide:meshLeftLeg1
+	Hide:meshRightLeg2
+	Hide:meshRightLeg1
+	Hide:meshRightArm1
+	Hide:meshLeftArm1
+	Hide:meshHips
 EndCharacter
 
 Character:Fred Sado
@@ -445,6 +497,37 @@ Character:Iron Fred
 	Hide:meshRightLeg1
 	Hide:meshRightLeg2
 	Hide:meshRightFoot
+EndCharacter
+
+Character:Jessie Fred
+	Base:FredBasic
+	Material:JessieFred
+	Part:JessieFred/JessieHat_head
+	Part:JessieFred/JessieFredLeftArm1_leftArm1
+	Part:JessieFred/JessieleftFoot_leftFoot
+	Part:JessieFred/JessieFredLeftHand_leftHand
+	Part:JessieFred/JessieFredLeftLeg1_leftLeg1
+	Part:JessieFred/JessieFredLeftLeg2_leftLeg2
+	Part:JessieFred/JessieFredRightArm1_rightArm1
+	Part:JessieFred/JessierightFoot_rightFoot
+	Part:JessieFred/JessieFredRightHand_rightHand
+	Part:JessieFred/JessieFredRightLeg1_rightLeg1
+	Part:JessieFred/JessieFredRightLeg2_rightLeg2
+	Part:JessieFred/JessieTorso1_torso1
+	Part:JessieFred/JessieBelt1_torso1
+	Part:JessieFred/JessieBuckle1_JessieBelt1
+	Part:JessieFred/JessieShirtLeft_JessieFredLeftArm1
+	Part:JessieFred/JessieShirtRight_JessieFredRightArm1
+	Part:JessieFred/JessieWeapon_JessieTorso1
+	Hide:meshLeftArm1
+	Hide:meshLeftHand
+	Hide:meshLeftLeg1
+	Hide:meshLeftLeg2
+	Hide:meshRightArm1
+	Hide:meshRightHand
+	Hide:meshRightLeg1
+	Hide:meshRightLeg2
+	Hide:meshTorso
 EndCharacter
 
 Character:Fred Wolverine
