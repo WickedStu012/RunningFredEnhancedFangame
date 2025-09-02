@@ -146,6 +146,6 @@ public class ReaperManager : MonoBehaviour
 
 	private void EndLessResurrect(object sender, GameEvent evt)
 	{
-		CurrentDistance = MaxDistance / 2;
+		CurrentDistance = MaxDistance;
 	}
 }
