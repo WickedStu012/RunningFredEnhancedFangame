@@ -30,7 +30,7 @@ public class CharBloodSplat : MonoBehaviour
 	private Dictionary<string, bool> damageApplied = new Dictionary<string, bool>();
 
 	public Material newCharMaterial;
-
+	
 	private void Start()
 	{
 		string matName = GetComponent<CharSkin>().matName;
