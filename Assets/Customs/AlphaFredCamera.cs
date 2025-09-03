@@ -84,14 +84,26 @@ public class AlphaFredCamera : MonoBehaviour
 		cameraTargetT = cameraTarget.transform;
 		player = CharHelper.GetPlayerTransform();
 		updateCameraTargetPos();
-		GameEventDispatcher.AddListener("PlayerReachGoal", onPlayerReachGoal);
 		targetPoint = targetPointNormal;
-		GameEventDispatcher.AddListener("PlayerDieFalling", OnPlayerDieFalling);
-		GameEventDispatcher.AddListener("OnPlayerRespawningNow", OnPlayerRespawn);
-		GameEventDispatcher.AddListener("OnEndLessReset", EndLessReset);
 	}
 
-	private void updateCameraTargetPos()
+    private void OnEnable()
+    {
+        GameEventDispatcher.AddListener("PlayerReachGoal", onPlayerReachGoal);
+        GameEventDispatcher.AddListener("PlayerDieFalling", OnPlayerDieFalling);
+        GameEventDispatcher.AddListener("OnPlayerRespawningNow", OnPlayerRespawn);
+        GameEventDispatcher.AddListener("OnEndLessReset", EndLessReset);
+    }
+
+    private void OnDisable()
+    {
+        GameEventDispatcher.RemoveListener("PlayerReachGoal", onPlayerReachGoal);
+        GameEventDispatcher.RemoveListener("PlayerDieFalling", OnPlayerDieFalling);
+        GameEventDispatcher.RemoveListener("OnPlayerRespawningNow", OnPlayerRespawn);
+        GameEventDispatcher.RemoveListener("OnEndLessReset", EndLessReset);
+    }
+
+    private void updateCameraTargetPos()
 	{
 		if (player != null)
 		{
