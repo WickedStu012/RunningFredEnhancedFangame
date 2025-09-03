@@ -122,11 +122,11 @@ Rewrite mode: (a little thing jess wants to add) a challenge where you must comp
 
  Sprites/2D Graphics Design: Rage, Jessgem and Snub
 
- CSharp Programming: Jessgem (Intro Cinematic, Probably more), Kamiyama (misc.), Pes Piston (misc.), Webaccount284 (just got added to the team)
+ CSharp Programming: Jessgem (Intro Cinematic, Probably more), Kamiyama (misc.), Pes Piston (misc.), Webaccount284
 
  Ideas: Pes Piston, Jessgem
 
- Textures: Rage, Bunny Joestar, Apollo and Snub
+ Textures: Rage, Bunny Joestar, Apollo and Snub, Webaccount284
 
  Unity Users: Kamiyama, Apollo, Bunny Joestar, Snub, Pes Piston, Jessgem 
 
