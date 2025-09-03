@@ -236,14 +236,14 @@ public class CharHelper
         if (JetpackItem.Instance != null || (PlayerAccount.Instance != null && PlayerAccount.Instance.CurrentLevel.IndexOf("Rooftop-Random") != -1))
         {
             Transform transformByName = GetTransformByName(GetPlayer(), "torso1");
-            GameObject gameObject = Resources.Load("Characters/Prefabs/Jetpack/Jetpack_torso1", typeof(GameObject)) as GameObject;
+            GameObject gameObject = Resources.Load("Characters/Prefabs/Jetpack/ClassicJetpack_torso1", typeof(GameObject)) as GameObject;
             GameObject gameObject2 = Object.Instantiate(gameObject) as GameObject;
             gameObject2.transform.parent = transformByName;
             gameObject2.name = gameObject.name;
             gameObject2.transform.position = gameObject.transform.position;
             gameObject2.transform.rotation = gameObject.transform.rotation;
             gameObject2.transform.localScale = gameObject.transform.localScale;
-            gameObject2.GetComponent<Renderer>().sharedMaterial = Resources.Load("Characters/Materials/Jetpack", typeof(Material)) as Material;
+            gameObject2.GetComponent<Renderer>().sharedMaterial = Resources.Load("Characters/Materials/ClassicJetpack", typeof(Material)) as Material;
             return gameObject2;
         }
         return null;
