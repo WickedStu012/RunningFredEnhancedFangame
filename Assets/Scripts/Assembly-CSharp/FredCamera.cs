@@ -325,7 +325,7 @@ public class FredCamera : MonoBehaviour
 		base.transform.LookAt(cameraTargetT);
 		if (!ConfigParams.zeemoteConnected && !ConfigParams.useiCADE)
 		{
-			base.transform.rotation = Quaternion.Euler(base.transform.rotation.eulerAngles.x, base.transform.rotation.eulerAngles.y, (mode != Mode.DIVE) ? MovementHelper.GetRotationAngle() : 0f);
+			base.transform.rotation = Quaternion.Euler(base.transform.rotation.eulerAngles.x, base.transform.rotation.eulerAngles.y, ((mode != Mode.DIVE) ? MovementHelper.GetRotationAngle() : 0f) / 2);
 		}
 	}
 
