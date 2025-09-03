@@ -15,7 +15,7 @@ public class Reaper : MonoBehaviour
 
 	public float Speed = 21.6f;
 
-	public float SitheDistance = 1.5f;
+	public float SitheDistance = 1.2f;
 
 	public float SliceTimer = 0.6f;
 
@@ -60,7 +60,8 @@ public class Reaper : MonoBehaviour
 			panicPower = Store.Instance.GetItem(104);
 		}
 		panicUsed = false;
-	}
+        SitheDistance = 1.2f;
+    }
 
 	private void OnPlayerRespawn(object sender, GameEvent evt)
 	{

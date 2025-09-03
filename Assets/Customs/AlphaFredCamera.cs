@@ -67,7 +67,7 @@ public class AlphaFredCamera : MonoBehaviour
 
 	private float dt;
 
-	private bool fixXToPlayer;
+	private bool fixXToPlayer = false;
 
 	private Transform fixedToTransformPos;
 
@@ -85,7 +85,8 @@ public class AlphaFredCamera : MonoBehaviour
 		player = CharHelper.GetPlayerTransform();
 		updateCameraTargetPos();
 		targetPoint = targetPointNormal;
-	}
+        fixXToPlayer = false;
+    }
 
     private void OnEnable()
     {
@@ -103,12 +104,16 @@ public class AlphaFredCamera : MonoBehaviour
         GameEventDispatcher.RemoveListener("OnEndLessReset", EndLessReset);
     }
 
+    private void OnGUI()
+    {
+    }
+
     private void updateCameraTargetPos()
 	{
 		if (player != null)
 		{
-			cameraTargetT.position = player.transform.position + targetPoint;
-		}
+            cameraTargetT.position = player.transform.position + targetPoint;
+        }
 	}
 
 	private void UpdateDistanceVars()
@@ -167,7 +172,7 @@ public class AlphaFredCamera : MonoBehaviour
 		{
 			if (fixXToPlayer)
 			{
-				base.transform.position = new Vector3(fixedToTransformPos.position.x, base.transform.position.y, base.transform.position.z);
+				base.transform.position = new Vector3(base.transform.position.x, base.transform.position.y, base.transform.position.z);
 			}
 		}
 		else
@@ -186,7 +191,9 @@ public class AlphaFredCamera : MonoBehaviour
 			}
 			updateCameraTargetPos();
 			float b = 0f;
-			float to = player.transform.position.y + height;
+            bool flag = CharHelper.GetCharStateMachine().GetCurrentState() == ActionCode.RUNNING || CharHelper.GetCharStateMachine().GetCurrentState() == ActionCode.SURF || CharHelper.GetCharStateMachine().GetCurrentState() == ActionCode.SUPER_SPRINT || CharHelper.GetCharStateMachine().GetCurrentState() == ActionCode.MEGA_SPRINT;
+
+            float to = player.transform.position.y + height;
 			float y = base.transform.eulerAngles.y;
 			float y2 = base.transform.position.y;
 			y = Mathf.LerpAngle(y, b, rotationDamping * dt);

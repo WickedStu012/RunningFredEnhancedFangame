@@ -35,6 +35,8 @@ public class FredCamera : MonoBehaviour
 
 	private Transform player;
 
+	private 
+
 	private GameObject cameraTarget;
 
 	private Transform cameraTargetT;
@@ -78,6 +80,8 @@ public class FredCamera : MonoBehaviour
 	private float goalMoveToYPos;
 
 	private Vector3 reachGoalCameraPos;
+
+	
 
 	private void Start()
 	{
