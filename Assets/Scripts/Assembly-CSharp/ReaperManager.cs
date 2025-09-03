@@ -4,7 +4,7 @@ public class ReaperManager : MonoBehaviour
 {
 	public float SpeedWhilePlayerStill = 12f;
 
-	public float Speed = 1f;
+	public float Speed = 8f;
 
 	public float SpeedWhilePlayerSprint = -2f;
 
@@ -72,7 +72,13 @@ public class ReaperManager : MonoBehaviour
 		GameObject gameObject = Resources.Load(string.Format("Reaper/Prefabs/CuteReaper"), typeof(GameObject)) as GameObject;
 		GameObject gameObject2 = Object.Instantiate(gameObject) as GameObject;
 		gameObject2.name = gameObject.name;
-	}
+		Speed = 8f;
+
+        MaxDistance = 150f;
+
+        VisibleDistance = 20f;
+
+}
 
 	private void OnPlayerRespawn(object sender, GameEvent evt)
 	{
