@@ -35,8 +35,6 @@ public class FredCamera : MonoBehaviour
 
 	private Transform player;
 
-	private 
-
 	private GameObject cameraTarget;
 
 	private Transform cameraTargetT;

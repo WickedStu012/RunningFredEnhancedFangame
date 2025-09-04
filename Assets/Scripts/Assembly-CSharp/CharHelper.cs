@@ -6,7 +6,7 @@ public class CharHelper
 
 	private static Transform playerT;
 
-	private static CharStateMachine sm;
+	public static CharStateMachine sm;
 
 	private static CharSkin skin;
 

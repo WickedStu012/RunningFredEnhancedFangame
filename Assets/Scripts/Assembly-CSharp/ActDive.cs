@@ -22,7 +22,7 @@ public class ActDive : IAction
 
 	private float accumTimeDiveLoop;
 
-	private FredCamera fredCam;
+	private FredCameraManager fredCam;
 
 	private int sndDiveId;
 
@@ -42,7 +42,7 @@ public class ActDive : IAction
 		maxTimeDive = CharAnimManager.GetDramaticFallingStartLength();
 		if (Camera.main != null)
 		{
-			fredCam = Camera.main.GetComponent<FredCamera>();
+			fredCam = Camera.main.GetComponent<FredCameraManager>();
 		}
 	}
 
@@ -73,11 +73,11 @@ public class ActDive : IAction
 		sm.ConsecutiveWallJumpCounter = 0;
 		if (fredCam == null && Camera.main != null)
 		{
-			fredCam = Camera.main.GetComponent<FredCamera>();
+			fredCam = Camera.main.GetComponent<FredCameraManager>();
 		}
 		if (fredCam != null)
 		{
-			fredCam.SwitchMode(FredCamera.Mode.DIVE);
+			fredCam.SwitchMode(FredCameraManager.Mode.DIVE);
 		}
 		sm.DisableBlob();
 		if (Random.Range(0, 1) == 0)
@@ -114,7 +114,7 @@ public class ActDive : IAction
 		
 		if (fredCam != null)
 		{
-			fredCam.SwitchMode(FredCamera.Mode.NORMAL);
+			fredCam.SwitchMode(FredCameraManager.Mode.NORMAL);
 		}
 		sm.EnableBlob();
 		SoundManager.StopSound(sndDiveId);

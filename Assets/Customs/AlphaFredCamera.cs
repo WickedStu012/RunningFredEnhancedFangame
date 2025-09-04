@@ -35,9 +35,7 @@ public class AlphaFredCamera : MonoBehaviour
 
 	private Transform player;
 
- 	private GameObject playerGameObject;
-
- 	private CharacterStateMachine StateMachine;
+ 	private CharStateMachine StateMachine;
 
 	private GameObject cameraTarget;
 
@@ -87,8 +85,7 @@ public class AlphaFredCamera : MonoBehaviour
 		cameraTarget = new GameObject("CameraTarget");
 		cameraTargetT = cameraTarget.transform;
 		player = CharHelper.GetPlayerTransform();
-        playerGameObject = CharHelper.GetPlayerGameobject();
-        StateMachine = playerGameObject.GetComponent<CharaStateMachine>();
+		StateMachine = CharHelper.GetCharStateMachine();
 		updateCameraTargetPos();
 		targetPoint = targetPointNormal;
         fixXToPlayer = false;
@@ -214,7 +211,7 @@ public class AlphaFredCamera : MonoBehaviour
 			}
 			else
 			{
-				base.transform.position = new Vector3(base.transform.position.x - StateMachine.SteerDirection, y2, cameraZPos);
+				base.transform.position = new Vector3(base.transform.position.x - StateMachine.SteerDirection * 0.34f, y2, cameraZPos);
 			}
 			if (!cameraCanMove)
 			{
