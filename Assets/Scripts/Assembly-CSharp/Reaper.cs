@@ -60,7 +60,6 @@ public class Reaper : MonoBehaviour
 			panicPower = Store.Instance.GetItem(104);
 		}
 		panicUsed = false;
-        SitheDistance = 1.2f;
     }
 
 	private void OnPlayerRespawn(object sender, GameEvent evt)

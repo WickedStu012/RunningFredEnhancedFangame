@@ -128,7 +128,7 @@ Rewrite mode: (a little thing jess wants to add) a challenge where you must comp
 
  Textures: Apollo, Snub, Webaccount284
 
- Unity Users: Kamiyama, Apollo, Snub, Jessgem 
+ Unity Users: Kamiyama, Apollo, Snub, Jessgem, Webaccount284
 
  RF Decomps: Kamiyama (Original 1.7.3 Decomp), Apollo (1.8.0 Fresh Decomp)
 
