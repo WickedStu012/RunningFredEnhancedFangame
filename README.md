@@ -116,7 +116,7 @@ Rewrite mode: (a little thing jess wants to add) a challenge where you must comp
 
 ### Priority is set by numbers.
 
-# RUNNING FRED ENHANCED STAFF
+# RUNNING FRED REDUX STAFF
 
  Modelers: Snub, Apollo, Jessgem
 
