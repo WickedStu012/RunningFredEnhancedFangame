@@ -33,9 +33,7 @@ public class FredCamera : MonoBehaviour
 
 	private float distanceToShadowPlane = 100f;
 
-	private Transform player;
-
-	private 
+	private Transform player; 
 
 	private GameObject cameraTarget;
 

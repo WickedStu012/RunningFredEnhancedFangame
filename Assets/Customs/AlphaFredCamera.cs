@@ -37,7 +37,9 @@ public class AlphaFredCamera : MonoBehaviour
 
  	private GameObject playerGameObject;
 
- 	private CharacterStateMachine StateMachine;
+ 	private CharStateMachine StateMachine;
+
+    // currently changed this to avoid errors
 
 	private GameObject cameraTarget;
 
@@ -87,8 +89,8 @@ public class AlphaFredCamera : MonoBehaviour
 		cameraTarget = new GameObject("CameraTarget");
 		cameraTargetT = cameraTarget.transform;
 		player = CharHelper.GetPlayerTransform();
-        playerGameObject = CharHelper.GetPlayerGameobject();
-        StateMachine = playerGameObject.GetComponent<CharaStateMachine>();
+       // playerGameObject = CharHelper.GetPlayerGameobject();
+       // StateMachine = playerGameObject.GetComponent<CharaStateMachine>();
 		updateCameraTargetPos();
 		targetPoint = targetPointNormal;
         fixXToPlayer = false;
