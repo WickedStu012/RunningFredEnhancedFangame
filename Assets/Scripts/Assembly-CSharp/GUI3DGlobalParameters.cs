@@ -287,7 +287,7 @@ public class GUI3DGlobalParameters
 			texture2D = Resources.Load(path, typeof(Texture2D)) as Texture2D;
 			if (texture2D == null)
 			{
-				Debug.LogError(filename + " not found in resources folder.");
+				Debug.LogError(filename + " not found in resources folder." + path);
 			}
 			else if (!isVolatile)
 			{
