@@ -24,7 +24,7 @@ public class ActAfterBurnerFly : IAction
 
 	private CharProps props;
 
-	private FredCameraManager fredCam;
+	private FredCamera fredCam;
 
 	private Wings wings;
 
@@ -49,9 +49,9 @@ public class ActAfterBurnerFly : IAction
 		props = CharHelper.GetProps();
 		if (Camera.main != null)
 		{
-			fredCam = Camera.main.GetComponent<FredCameraManager>();
-        } // SwitchMode
-    }
+			fredCam = Camera.main.GetComponent<FredCamera>();
+		}
+	}
 
 	public override bool CanGetIn()
 	{
@@ -61,17 +61,12 @@ public class ActAfterBurnerFly : IAction
 	public override void GetIn(params object[] list)
 	{
 		accumTime = 0f;
-		if (fredCam == null)
+		if (fredCam == null && Camera.main != null)
 		{
-			if (Camera.main != null)
-			{
-                fredCam = Camera.main.GetComponent<FredCameraManager>();
-            }
-        } else
-		{
-            fredCam.SwitchMode(FredCameraManager.Mode.GLIDE);
-        }
-        if (wings == null)
+			fredCam = Camera.main.GetComponent<FredCamera>();
+		}
+		fredCam.SwitchMode(FredCamera.Mode.GLIDE);
+		if (wings == null)
 		{
 			GameObject gameObject = CharHelper.GetCharStateMachine().GetWings();
 			wings = gameObject.GetComponent<Wings>();
@@ -89,7 +84,7 @@ public class ActAfterBurnerFly : IAction
 	public override void GetOut()
 	{
 		SoundManager.StopSound(sndFlyId);
-		fredCam.SwitchMode(FredCameraManager.Mode.NORMAL);
+		fredCam.SwitchMode(FredCamera.Mode.NORMAL);
 		FovAnimator.FovOut();
 	}
 

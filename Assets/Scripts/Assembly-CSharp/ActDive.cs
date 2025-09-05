@@ -22,7 +22,7 @@ public class ActDive : IAction
 
 	private float accumTimeDiveLoop;
 
-	private FredCameraManager fredCam;
+	private FredCamera fredCam;
 
 	private int sndDiveId;
 
@@ -42,7 +42,7 @@ public class ActDive : IAction
 		maxTimeDive = CharAnimManager.GetDramaticFallingStartLength();
 		if (Camera.main != null)
 		{
-			fredCam = Camera.main.GetComponent<FredCameraManager>();
+			fredCam = Camera.main.GetComponent<FredCamera>();
 		}
 	}
 
@@ -54,18 +54,7 @@ public class ActDive : IAction
 	public override void GetIn(params object[] list)
 	{
 		CharAnimManager.DramaticFallingStart();
-		
-		// Use CharHead's HandleDiveAction method instead of CharHeadAnimManager
-		GameObject headGO = CharHeadHelper.GetHeadGameObject();
-		if (headGO != null)
-		{
-			CharHead charHead = headGO.GetComponent<CharHead>();
-			if (charHead != null)
-			{
-				charHead.HandleDiveAction(true);
-			}
-		}
-		
+		CharHeadAnimManager.Terror();
 		accumTime = 1f;
 		accumTimeDiveLoop = 0f;
 		sm.MoveDirection = Vector3.zero;
@@ -73,11 +62,11 @@ public class ActDive : IAction
 		sm.ConsecutiveWallJumpCounter = 0;
 		if (fredCam == null && Camera.main != null)
 		{
-			fredCam = Camera.main.GetComponent<FredCameraManager>();
+			fredCam = Camera.main.GetComponent<FredCamera>();
 		}
 		if (fredCam != null)
 		{
-			fredCam.SwitchMode(FredCameraManager.Mode.DIVE);
+			fredCam.SwitchMode(FredCamera.Mode.DIVE);
 		}
 		sm.DisableBlob();
 		if (Random.Range(0, 1) == 0)
@@ -101,20 +90,10 @@ public class ActDive : IAction
 
 	public override void GetOut()
 	{
-		// Use CharHead's HandleDiveAction method instead of CharHeadAnimManager
-		GameObject headGO = CharHeadHelper.GetHeadGameObject();
-		if (headGO != null)
-		{
-			CharHead charHead = headGO.GetComponent<CharHead>();
-			if (charHead != null)
-			{
-				charHead.HandleDiveAction(false);
-			}
-		}
-		
+		CharHeadAnimManager.Fear();
 		if (fredCam != null)
 		{
-			fredCam.SwitchMode(FredCameraManager.Mode.NORMAL);
+			fredCam.SwitchMode(FredCamera.Mode.NORMAL);
 		}
 		sm.EnableBlob();
 		SoundManager.StopSound(sndDiveId);
