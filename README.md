@@ -1,5 +1,5 @@
-# Running Fred Enhanced Description
-Running Fred Enhanced is a fangame of the original game Running Fred made by Dedalord S.R.L.
+# Running Fred Redux Description
+Running Fred Redux is a fangame of the original game Running Fred made by Dedalord S.R.L.
 
 This fangame adds custom skins, new locations, new features, brings back deleted features, etc. The Team tries to expand the gameplay of ,,Running Fred'' as much as possible. 
 
@@ -116,42 +116,33 @@ Rewrite mode: (a little thing jess wants to add) a challenge where you must comp
 
 ### Priority is set by numbers.
 
-# RUNNING FRED ENHANCED STAFF
+# RUNNING FRED REDUX STAFF
 
- Modelers: Bunny Joestar, Snub, Apollo and Jessgem (Rage Also Helped A Bit)
+ Modelers: Snub, Apollo, Jessgem
 
- Sprites/2D Graphics Design: Rage, Jessgem and Snub
+ Sprites/2D Graphics Design: Jessgem, Snub
 
- CSharp Programming: Jessgem (Intro Cinematic, Probably more), Kamiyama (misc.), Pes Piston (misc.), Webaccount284 (just got added to the team)
+ CSharp Programming: Jessgem (Intro Cinematic, Probably more), Kamiyama (misc.), Webaccount284
 
- Ideas: Pes Piston, Jessgem
+ Ideas: Jessgem
 
- Textures: Rage, Bunny Joestar, Apollo and Snub
+ Textures: Apollo, Snub, Webaccount284
 
- Unity Users: Kamiyama, Apollo, Bunny Joestar, Snub, Pes Piston, Jessgem 
+ Unity Users: Kamiyama, Apollo, Snub, Jessgem, Webaccount284
 
  RF Decomps: Kamiyama (Original 1.7.3 Decomp), Apollo (1.8.0 Fresh Decomp)
 
  Level Design: (Not Yet.)
 
- Artist & Promotional Art: Zoid65xet and Rage
+ Art: Zoid65xet
  
- Trailer & Video Editing: Apollo and Rage
+ Trailer & Video Editing: Apollo
  
- Running Fred Enhanced Channel Users: Bunny Joestar and Rage
+ Running Fred Redux Channel User: Apollo
 
  Back Porting Features & Deleted Features: Apollo
 
- Current Owner: Jessgem
+ Project Owner: Jessgem
 
-### Special Thanks To: 
+ Project Director: Apollo
 
-Mr.jessgem (inventor of SuperFuck)
-
-Rage (Original Idea) 
-
-M4kemebunny (Sektor 51 & Skin Models) 
-
-Apollo (Skin Models, 1.8.0 Fresh Decomp, Misc.) 
-
-Kamiyama (1.7.3 Original Decomp, Shaders Recreation, Bug Fixes.)

@@ -54,18 +54,7 @@ public class ActDive : IAction
 	public override void GetIn(params object[] list)
 	{
 		CharAnimManager.DramaticFallingStart();
-		
-		// Use CharHead's HandleDiveAction method instead of CharHeadAnimManager
-		GameObject headGO = CharHeadHelper.GetHeadGameObject();
-		if (headGO != null)
-		{
-			CharHead charHead = headGO.GetComponent<CharHead>();
-			if (charHead != null)
-			{
-				charHead.HandleDiveAction(true);
-			}
-		}
-		
+		CharHeadAnimManager.Terror();
 		accumTime = 1f;
 		accumTimeDiveLoop = 0f;
 		sm.MoveDirection = Vector3.zero;
@@ -101,17 +90,7 @@ public class ActDive : IAction
 
 	public override void GetOut()
 	{
-		// Use CharHead's HandleDiveAction method instead of CharHeadAnimManager
-		GameObject headGO = CharHeadHelper.GetHeadGameObject();
-		if (headGO != null)
-		{
-			CharHead charHead = headGO.GetComponent<CharHead>();
-			if (charHead != null)
-			{
-				charHead.HandleDiveAction(false);
-			}
-		}
-		
+		CharHeadAnimManager.Fear();
 		if (fredCam != null)
 		{
 			fredCam.SwitchMode(FredCamera.Mode.NORMAL);
