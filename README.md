@@ -118,7 +118,7 @@ Rewrite mode: (a little thing jess wants to add) a challenge where you must comp
 
 # RUNNING FRED REDUX STAFF
 
- Modelers: Snub, Apollo, Jessgem
+ Modelers: Snub, Apollo, Jessgem, Bunny Joestar
 
  Sprites/2D Graphics Design: Jessgem, Snub
 
@@ -128,7 +128,7 @@ Rewrite mode: (a little thing jess wants to add) a challenge where you must comp
 
  Textures: Apollo, Snub, Webaccount284
 
- Unity Users: Kamiyama, Apollo, Snub, Jessgem, Webaccount284
+ Unity Users: Kamiyama, Apollo, Snub, Jessgem, Webaccount284, Bunny Joestar
 
  RF Decomps: Kamiyama (Original 1.7.3 Decomp), Apollo (1.8.0 Fresh Decomp)
 
@@ -138,7 +138,7 @@ Rewrite mode: (a little thing jess wants to add) a challenge where you must comp
  
  Trailer & Video Editing: Apollo
  
- Running Fred Redux Channel User: Apollo
+ Running Fred Redux Channel User: Apollo, Bunny Joestar
 
  Back Porting Features & Deleted Features: Apollo
 
