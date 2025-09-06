@@ -1,3 +1,4 @@
+using UnityEditorInternal;
 using UnityEngine;
 
 public class FredCamera : MonoBehaviour
@@ -25,6 +26,8 @@ public class FredCamera : MonoBehaviour
 
     public float heightDamping = 5f;
 
+    public float horizontalDamping = 4f;
+
     public float rotationDamping = 3f;
 
     public Mode mode;
@@ -34,6 +37,8 @@ public class FredCamera : MonoBehaviour
     private float distanceToShadowPlane = 100f;
 
     private Transform player;
+
+    private CharStateMachine stateMachine;
 
     private GameObject cameraTarget;
 
@@ -83,6 +88,7 @@ public class FredCamera : MonoBehaviour
         cameraTarget = new GameObject("CameraTarget");
         cameraTargetT = cameraTarget.transform;
         player = CharHelper.GetPlayerTransform();
+        stateMachine = CharHelper.GetCharStateMachine();
         updateCameraTargetPos();
         GameEventDispatcher.AddListener("PlayerReachGoal", onPlayerReachGoal);
         targetPoint = targetPointNormal;
@@ -189,7 +195,7 @@ public class FredCamera : MonoBehaviour
             }
             else
             {
-                base.transform.position = new Vector3(base.transform.position.x, y2, cameraZPos);
+                base.transform.position = new Vector3(base.transform.position.x - stateMachine.SteerDirection / horizontalDamping, y2, cameraZPos);
             }
             if (!cameraCanMove)
             {
@@ -206,7 +212,7 @@ public class FredCamera : MonoBehaviour
             base.transform.LookAt(cameraTargetT);
             if (!ConfigParams.zeemoteConnected)
             {
-                base.transform.rotation = Quaternion.Euler(base.transform.rotation.eulerAngles.x, base.transform.rotation.eulerAngles.y, (mode != Mode.DIVE && mode != Mode.CLIMB) ? MovementHelper.GetRotationAngle() : 0f);
+                base.transform.rotation = Quaternion.Euler(base.transform.rotation.eulerAngles.x, base.transform.rotation.eulerAngles.y, ((mode != Mode.DIVE && mode != Mode.CLIMB) ? MovementHelper.GetRotationAngle() : 0f) / 2);
             }
             if (shadowPlane != null)
             {
@@ -295,7 +301,7 @@ public class FredCamera : MonoBehaviour
         base.transform.LookAt(cameraTargetT);
         if (!ConfigParams.zeemoteConnected)
         {
-            base.transform.rotation = Quaternion.Euler(base.transform.rotation.eulerAngles.x, base.transform.rotation.eulerAngles.y, (mode != Mode.DIVE) ? MovementHelper.GetRotationAngle() : 0f);
+            base.transform.rotation = Quaternion.Euler(base.transform.rotation.eulerAngles.x, base.transform.rotation.eulerAngles.y, ((mode != Mode.DIVE) ? MovementHelper.GetRotationAngle() : 0f) / 2);
         }
     }
 
