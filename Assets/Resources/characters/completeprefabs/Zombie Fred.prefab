@@ -1475,7 +1475,8 @@ GameObject:
   - component: {fileID: 114887606192472827}
   - component: {fileID: 114760805190339659}
   - component: {fileID: 114304563053496085}
-  - component: {fileID: 5711272285703640445}
+  - component: {fileID: 2689716808276650889}
+  - component: {fileID: 4224716756858831081}
   m_Layer: 8
   m_Name: Zombie Fred
   m_TagString: Player
@@ -1799,7 +1800,7 @@ MonoBehaviour:
   matName: ZombieFred
   bloodDamagePrefab: {fileID: 0}
   bloodSpurrPrefab: {fileID: 0}
---- !u!114 &5711272285703640445
+--- !u!114 &2689716808276650889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1808,11 +1809,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 1295793903982318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e5fe2bddd068064cae09fde76ad038d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5919cf47378e2d4418695c9dcbc2c08c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharBloodSplat
+  m_EditorClassIdentifier: Assembly-CSharp::ZFredCharBloodSplat
   characterMaterial: {fileID: 2100000, guid: 383a422b912fa3d49a39cc4288b6d073, type: 2}
   newCharMaterial: {fileID: 2100000, guid: 383a422b912fa3d49a39cc4288b6d073, type: 2}
+--- !u!114 &4224716756858831081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295793903982318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e23db011248a14ea229e1e90fa9ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZFredCharSkin
+  defSkin: 0
+  normal:
+  - {fileID: 7290134199434905634}
+  - {fileID: 2522653108331841225}
+  - {fileID: 9003367292688228676}
+  - {fileID: 4297979881806180311}
+  - {fileID: 9127264418575147825}
+  - {fileID: 573608013129153246}
+  - {fileID: 2416566289388056199}
+  - {fileID: 7422117076506903679}
+  - {fileID: 7895612996983199859}
+  - {fileID: 9200026680542879621}
+  - {fileID: 4789757072270273155}
+  - {fileID: 6475219593206361607}
+  - {fileID: 754053708101499927}
+  skinned: []
+  charred: []
+  bones: []
+  gore: []
+  matName: 
+  bloodDamagePrefab: {fileID: 0}
+  bloodSpurrPrefab: {fileID: 0}
 --- !u!1 &1335368224291373
 GameObject:
   m_ObjectHideFlags: 0

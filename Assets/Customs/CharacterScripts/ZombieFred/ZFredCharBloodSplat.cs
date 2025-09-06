@@ -50,11 +50,11 @@ public class ZFredCharBloodSplat : MonoBehaviour
 		CharBuilderHelper.SetMaterial(newCharMaterial);
 		if (generateDyn)
 		{
-			goreTex = getGoreTex("CharacterDamage");
+			goreTex = getGoreTex("CharacterDamageZFred");
 		}
 		else
 		{
-			goreTex = Resources.Load(string.Format("Gore/Textures/{0}-{1}", matName, "CharacterDamage"), typeof(Texture2D)) as Texture2D;
+			goreTex = Resources.Load(string.Format("Gore/Textures/{0}-{1}", matName, "CharacterDamageZFred"), typeof(Texture2D)) as Texture2D;
 		}
 		Debug.Log(string.Format("Gore texture loaded: {0}x{1}", goreTex.width, goreTex.height));
 		// Pass the target texture dimensions (1024x1024) so FredCharacterDamage knows what to scale TO
